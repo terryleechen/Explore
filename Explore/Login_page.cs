@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace Explore
 {
-    public partial class Form1 : Form
+    public partial class Login_page : UserControl
     {
-        public Form1()
+        public Login_page()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
