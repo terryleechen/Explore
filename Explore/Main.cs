@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace Explore
 {
-    public partial class Explore : Form
+    public partial class Main : Form
     {
-        public Explore()
+        public Main()
         {
             InitializeComponent();
         }
+
+
     }
 }

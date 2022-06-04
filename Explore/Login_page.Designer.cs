@@ -42,11 +42,11 @@
             this.title.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.title.AutoSize = true;
             this.title.BackColor = System.Drawing.Color.Transparent;
-            this.title.Font = new System.Drawing.Font("Bauhaus 93", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.title.ForeColor = System.Drawing.Color.SeaGreen;
             this.title.Location = new System.Drawing.Point(293, 116);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(371, 108);
+            this.title.Size = new System.Drawing.Size(376, 108);
             this.title.TabIndex = 3;
             this.title.Text = "Explore";
             // 
@@ -61,6 +61,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(349, 113);
             this.panel1.TabIndex = 4;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button_login
             // 
@@ -68,14 +69,15 @@
             this.button_login.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
             this.button_login.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.button_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_login.Font = new System.Drawing.Font("Berlin Sans FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_login.ForeColor = System.Drawing.Color.SeaGreen;
-            this.button_login.Location = new System.Drawing.Point(116, 81);
+            this.button_login.Location = new System.Drawing.Point(115, 70);
             this.button_login.Name = "button_login";
-            this.button_login.Size = new System.Drawing.Size(132, 29);
+            this.button_login.Size = new System.Drawing.Size(142, 40);
             this.button_login.TabIndex = 3;
             this.button_login.Text = "Login";
             this.button_login.UseVisualStyleBackColor = false;
+            this.button_login.Click += new System.EventHandler(this.Button_login_click);
             // 
             // panel2
             // 
@@ -85,27 +87,28 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(254, 1);
             this.panel2.TabIndex = 2;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // user_textbox
             // 
             this.user_textbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.user_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.user_textbox.Font = new System.Drawing.Font("Berlin Sans FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.user_textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.user_textbox.ForeColor = System.Drawing.Color.SeaGreen;
             this.user_textbox.Location = new System.Drawing.Point(84, 37);
             this.user_textbox.Name = "user_textbox";
-            this.user_textbox.Size = new System.Drawing.Size(254, 21);
+            this.user_textbox.Size = new System.Drawing.Size(254, 22);
             this.user_textbox.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Berlin Sans FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label1.Location = new System.Drawing.Point(16, 41);
+            this.label1.Location = new System.Drawing.Point(8, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 21);
+            this.label1.Size = new System.Drawing.Size(76, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "User ID:";
             // 
