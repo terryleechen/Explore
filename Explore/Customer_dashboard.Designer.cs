@@ -1,6 +1,6 @@
 ﻿namespace Explore
 {
-    partial class Customer_page
+    partial class Customer_dashboard
     {
         /// <summary> 
         /// Required designer variable.
@@ -104,6 +104,7 @@
             // 
             // panel6
             // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.title);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
@@ -114,6 +115,7 @@
             // 
             // panel7
             // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.panel7.Controls.Add(this.search);
             this.panel7.Location = new System.Drawing.Point(3, 97);
             this.panel7.Name = "panel7";
@@ -192,7 +194,7 @@
             this.panel3.Size = new System.Drawing.Size(790, 460);
             this.panel3.TabIndex = 3;
             // 
-            // Customer_page
+            // Customer_dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -200,7 +202,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "Customer_page";
+            this.Name = "Customer_dashboard";
             this.Size = new System.Drawing.Size(990, 560);
             this.panel1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);

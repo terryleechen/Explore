@@ -66,14 +66,14 @@
     <Compile Include="Employee_dashboard.Designer.cs">
       <DependentUpon>Employee_dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Customer_page.cs">
+    <Compile Include="Customer_dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Customer_page.Designer.cs">
-      <DependentUpon>Customer_page.cs</DependentUpon>
+    <Compile Include="Customer_dashboard.Designer.cs">
+      <DependentUpon>Customer_dashboard.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Customer_page.resx">
-      <DependentUpon>Customer_page.cs</DependentUpon>
+    <EmbeddedResource Include="Customer_dashboard.resx">
+      <DependentUpon>Customer_dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

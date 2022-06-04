@@ -13,8 +13,8 @@ namespace Explore
     public partial class Login_page : UserControl
     {
         private Employee_dashboard employee_dashboard;
-        private Customer_page customer_page;
-        public Login_page(Employee_dashboard employee_dashboard, Customer_page customer_page)
+        private Customer_dashboard customer_page;
+        public Login_page(Employee_dashboard employee_dashboard, Customer_dashboard customer_page)
         {
             InitializeComponent();
             this.employee_dashboard = employee_dashboard;

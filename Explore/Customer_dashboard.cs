@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Explore
 {
-    public partial class Customer_page : UserControl
+    public partial class Customer_dashboard : UserControl
     {
         private Login_page login_page;
-        public Customer_page()
+        public Customer_dashboard()
         {
             InitializeComponent();
             DateTime today = DateTime.Today;
