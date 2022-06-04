@@ -16,7 +16,7 @@ namespace Explore
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Explore());
+            Application.Run(new Main());
         }
     }
 }

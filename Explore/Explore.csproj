@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Explore.cs">
+    <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Explore.Designer.cs">
-      <DependentUpon>Explore.cs</DependentUpon>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -60,8 +60,23 @@
     <Compile Include="Login_page.Designer.cs">
       <DependentUpon>Login_page.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Explore.resx">
-      <DependentUpon>Explore.cs</DependentUpon>
+    <Compile Include="Employee_dashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee_dashboard.Designer.cs">
+      <DependentUpon>Employee_dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer_page.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer_page.Designer.cs">
+      <DependentUpon>Customer_page.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Customer_page.resx">
+      <DependentUpon>Customer_page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -74,6 +89,9 @@
     </Compile>
     <EmbeddedResource Include="Login_page.resx">
       <DependentUpon>Login_page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee_dashboard.resx">
+      <DependentUpon>Employee_dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
