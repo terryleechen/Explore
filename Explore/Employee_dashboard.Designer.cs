@@ -48,6 +48,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.title);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;

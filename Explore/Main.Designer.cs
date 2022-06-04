@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.employee_dashboard = new Explore.Employee_dashboard();
-            this.customer_page = new Explore.Customer_page();
-            this.login_page = new Explore.Login_page(this.employee_dashboard, this.customer_page);
+            this.customer_dashboard = new Explore.Customer_dashboard();
+            this.login_page = new Explore.Login_page(this.employee_dashboard, this.customer_dashboard);
             this.employee_dashboard.Get_login(this.login_page);
-            this.customer_page.Get_login(this.login_page);
+            this.customer_dashboard.Get_login(this.login_page);
+
             this.SuspendLayout();
             // 
             // employee_dashboard
@@ -55,21 +56,21 @@
             // 
             // customer_page
             // 
-            this.customer_page.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.customer_page.Location = new System.Drawing.Point(0, 0);
-            this.customer_page.Name = "customer_page";
-            this.customer_page.Size = new System.Drawing.Size(990, 560);
-            this.customer_page.TabIndex = 2;
+            this.customer_dashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.customer_dashboard.Location = new System.Drawing.Point(0, 0);
+            this.customer_dashboard.Name = "customer_page";
+            this.customer_dashboard.Size = new System.Drawing.Size(990, 560);
+            this.customer_dashboard.TabIndex = 2;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);
-            this.Controls.Add(this.customer_page);
+            this.Controls.Add(this.customer_dashboard);
             this.Controls.Add(this.employee_dashboard);
             this.Controls.Add(this.login_page);
-            this.customer_page.Hide();
+            this.customer_dashboard.Hide();
             this.employee_dashboard.Hide();
             this.Name = "Main";
             this.Text = "Explore";
@@ -81,6 +82,6 @@
 
         private Login_page login_page;
         private Employee_dashboard employee_dashboard;
-        private Customer_page customer_page;
+        private Customer_dashboard customer_dashboard;
     }
 }
