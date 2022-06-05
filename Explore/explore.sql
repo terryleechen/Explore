@@ -5,16 +5,17 @@ drop table Branch;
 
 CREATE TABLE Branch (
 	BID NCHAR(4) PRIMARY KEY,
-	Address_1 NCHAR(50),
+	Address_1 NCHAR(50)NOT NULL,
 	Address_2 NCHAR(50) NULL,
-	City NCHAR(20),
-	Province NCHAR(2),
-	Postal_code NCHAR(6)
+	City NCHAR(20) NOT NULL,
+	Province NCHAR(2) NOT NULL,
+	Postal_code NCHAR(6) NOT NULL
 );
 
 CREATE TABLE Branch_Phone (
-	BID NCHAR(4) FOREIGN KEY REFERENCES Branch(BID),
-	Phone NCHAR(10) PRIMARY KEY
+	BID NCHAR(4) FOREIGN KEY REFERENCES Branch(BID) NOT NULL,
+	Phone_Number NCHAR(10),
+	PRIMARY KEY (BID, Phone_Number)
 );
 
 CREATE TABLE Type (
@@ -53,3 +54,15 @@ CREATE TABLE Customer (
 	Email NCHAR(50),
 	Preferred_Branch NCHAR(4) FOREIGN KEY REFERENCES Branch(BID) NULL,
 );
+
+CREATE TABLE Customer_Phone (
+	CID NCHAR(7) FOREIGN KEY REFERENCES Customer(CID),
+	Phone_Number NCHAR(10),
+	PRIMARY KEY (CID, Phone_Number)
+)
+
+CREATE TABLE Employee (
+	EID NCHAR(5) PRIMARY KEY,
+	BID NCHAR(4) FOREIGN KEY REFERENCES Branch(BID),
+	
+)
