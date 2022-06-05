@@ -9,9 +9,9 @@ namespace Explore
 {
     internal class SQL_connection
     {
-        private SqlConnection my_connection;
+        private readonly SqlConnection my_connection;
         private SqlCommand my_command;
-        private SqlDataReader my_reader;
+        private readonly SqlDataReader my_reader;
 
         public SQL_connection() 
         {
@@ -20,8 +20,21 @@ namespace Explore
 
             SqlConnection my_connection = new SqlConnection(connection_string); // Timeout in seconds
             my_connection.Open(); // Open connection
+
             my_command = new SqlCommand();
             my_command.Connection = my_connection;
+
+           
+        }
+
+        public SqlCommand Command()
+        {
+            return my_command;
+        }
+
+        public SqlDataReader Reader()
+        {
+            return my_reader;
         }
     }
 }

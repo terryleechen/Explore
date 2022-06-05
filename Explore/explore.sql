@@ -1,5 +1,16 @@
 use explore;
 
+--DROP TABLE Rental_Transaction;
+DROP TABLE Branch;
+DROP TABLE Branch_Phone;
+DROP TABLE [Type];
+DROP TABLE Car;
+DROP TABLE Customer;
+DROP TABLE Customer_Phone;
+DROP TABLE Employee;
+DROP TABLE Employee_Phone;
+
+
 CREATE TABLE Branch (
 	BID NCHAR(4) PRIMARY KEY,
 	Address_1 NCHAR(50)NOT NULL,
@@ -61,9 +72,9 @@ CREATE TABLE Customer_Phone (
 CREATE TABLE Employee (
 	EID NCHAR(5) PRIMARY KEY,
 	BID NCHAR(4) FOREIGN KEY REFERENCES Branch(BID) NOT NULL,
+	Title NCHAR(10) NOT NULL,
 	First_Name NCHAR(20) NOT NULL,
 	Last_Name NCHAR(20) NOT NULL,
-	Title NCHAR(10) NOT NULL,
 	Address_1 NCHAR(50) NOT NULL,
 	Address_2 NCHAR(50) NULL,
 	City NCHAR(20) NOT NULL,
