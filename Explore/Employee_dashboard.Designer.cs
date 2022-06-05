@@ -30,20 +30,27 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.reports = new System.Windows.Forms.Button();
-            this.customer = new System.Windows.Forms.Button();
-            this.booking = new System.Windows.Forms.Button();
-            this.retrn = new System.Windows.Forms.Button();
-            this.inventory = new System.Windows.Forms.Button();
-            this.home = new System.Windows.Forms.Button();
+            this.button_reports = new System.Windows.Forms.Button();
+            this.button_customer = new System.Windows.Forms.Button();
+            this.button_booking = new System.Windows.Forms.Button();
+            this.button_return = new System.Windows.Forms.Button();
+            this.button_inventory = new System.Windows.Forms.Button();
+            this.button_home = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.employee_date = new System.Windows.Forms.Label();
             this.employee_logout = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.employee_home = new Explore.Home();
+            this.employee_customer = new Explore.Customer();
+            this.employee_booking = new Explore.booking();
+            this.employee_return = new Explore.Return();
+            this.employee_inventory = new Explore.Inventory();
+            this.employee_reports = new Explore.Reports();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -59,102 +66,106 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.reports);
-            this.panel4.Controls.Add(this.customer);
-            this.panel4.Controls.Add(this.booking);
-            this.panel4.Controls.Add(this.retrn);
-            this.panel4.Controls.Add(this.inventory);
-            this.panel4.Controls.Add(this.home);
+            this.panel4.Controls.Add(this.button_reports);
+            this.panel4.Controls.Add(this.button_customer);
+            this.panel4.Controls.Add(this.button_booking);
+            this.panel4.Controls.Add(this.button_return);
+            this.panel4.Controls.Add(this.button_inventory);
+            this.panel4.Controls.Add(this.button_home);
             this.panel4.Location = new System.Drawing.Point(3, 97);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(197, 460);
             this.panel4.TabIndex = 0;
             // 
-            // reports
+            // button_reports
             // 
-            this.reports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.reports.FlatAppearance.BorderSize = 0;
-            this.reports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reports.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reports.ForeColor = System.Drawing.Color.SeaGreen;
-            this.reports.Location = new System.Drawing.Point(3, 388);
-            this.reports.Name = "reports";
-            this.reports.Size = new System.Drawing.Size(191, 41);
-            this.reports.TabIndex = 5;
-            this.reports.Text = "REPORTS";
-            this.reports.UseVisualStyleBackColor = false;
-            this.reports.Click += new System.EventHandler(this.button6_Click);
+            this.button_reports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.button_reports.FlatAppearance.BorderSize = 0;
+            this.button_reports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_reports.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_reports.ForeColor = System.Drawing.Color.SeaGreen;
+            this.button_reports.Location = new System.Drawing.Point(3, 388);
+            this.button_reports.Name = "button_reports";
+            this.button_reports.Size = new System.Drawing.Size(191, 41);
+            this.button_reports.TabIndex = 5;
+            this.button_reports.Text = "REPORTS";
+            this.button_reports.UseVisualStyleBackColor = false;
+            this.button_reports.Click += new System.EventHandler(this.button_report_click);
             // 
-            // customer
+            // button_customer
             // 
-            this.customer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.customer.FlatAppearance.BorderSize = 0;
-            this.customer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.customer.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customer.ForeColor = System.Drawing.Color.SeaGreen;
-            this.customer.Location = new System.Drawing.Point(3, 89);
-            this.customer.Name = "customer";
-            this.customer.Size = new System.Drawing.Size(191, 41);
-            this.customer.TabIndex = 4;
-            this.customer.Text = "CUSTOMER";
-            this.customer.UseVisualStyleBackColor = false;
-            this.customer.Click += new System.EventHandler(this.button5_Click);
+            this.button_customer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.button_customer.FlatAppearance.BorderSize = 0;
+            this.button_customer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_customer.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_customer.ForeColor = System.Drawing.Color.SeaGreen;
+            this.button_customer.Location = new System.Drawing.Point(3, 89);
+            this.button_customer.Name = "button_customer";
+            this.button_customer.Size = new System.Drawing.Size(191, 41);
+            this.button_customer.TabIndex = 4;
+            this.button_customer.Text = "CUSTOMER";
+            this.button_customer.UseVisualStyleBackColor = false;
+            this.button_customer.Click += new System.EventHandler(this.button_customer_click);
             // 
-            // booking
+            // button_booking
             // 
-            this.booking.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.booking.FlatAppearance.BorderSize = 0;
-            this.booking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.booking.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.booking.ForeColor = System.Drawing.Color.SeaGreen;
-            this.booking.Location = new System.Drawing.Point(3, 167);
-            this.booking.Name = "booking";
-            this.booking.Size = new System.Drawing.Size(191, 41);
-            this.booking.TabIndex = 3;
-            this.booking.Text = "BOOKING";
-            this.booking.UseVisualStyleBackColor = false;
+            this.button_booking.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.button_booking.FlatAppearance.BorderSize = 0;
+            this.button_booking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_booking.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_booking.ForeColor = System.Drawing.Color.SeaGreen;
+            this.button_booking.Location = new System.Drawing.Point(3, 167);
+            this.button_booking.Name = "button_booking";
+            this.button_booking.Size = new System.Drawing.Size(191, 41);
+            this.button_booking.TabIndex = 3;
+            this.button_booking.Text = "BOOKING";
+            this.button_booking.UseVisualStyleBackColor = false;
+            this.button_booking.Click += new System.EventHandler(this.button_booking_click);
             // 
-            // retrn
+            // button_return
             // 
-            this.retrn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.retrn.FlatAppearance.BorderSize = 0;
-            this.retrn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.retrn.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.retrn.ForeColor = System.Drawing.Color.SeaGreen;
-            this.retrn.Location = new System.Drawing.Point(3, 239);
-            this.retrn.Name = "retrn";
-            this.retrn.Size = new System.Drawing.Size(191, 41);
-            this.retrn.TabIndex = 2;
-            this.retrn.Text = "RETURN";
-            this.retrn.UseVisualStyleBackColor = false;
+            this.button_return.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.button_return.FlatAppearance.BorderSize = 0;
+            this.button_return.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_return.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_return.ForeColor = System.Drawing.Color.SeaGreen;
+            this.button_return.Location = new System.Drawing.Point(3, 239);
+            this.button_return.Name = "button_return";
+            this.button_return.Size = new System.Drawing.Size(191, 41);
+            this.button_return.TabIndex = 2;
+            this.button_return.Text = "RETURN";
+            this.button_return.UseVisualStyleBackColor = false;
+            this.button_return.Click += new System.EventHandler(this.button_return_click);
             // 
-            // inventory
+            // button_inventory
             // 
-            this.inventory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.inventory.FlatAppearance.BorderSize = 0;
-            this.inventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.inventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventory.ForeColor = System.Drawing.Color.SeaGreen;
-            this.inventory.Location = new System.Drawing.Point(3, 311);
-            this.inventory.Name = "inventory";
-            this.inventory.Size = new System.Drawing.Size(191, 41);
-            this.inventory.TabIndex = 1;
-            this.inventory.Text = "INVENTORY";
-            this.inventory.UseVisualStyleBackColor = false;
+            this.button_inventory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.button_inventory.FlatAppearance.BorderSize = 0;
+            this.button_inventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_inventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_inventory.ForeColor = System.Drawing.Color.SeaGreen;
+            this.button_inventory.Location = new System.Drawing.Point(3, 311);
+            this.button_inventory.Name = "button_inventory";
+            this.button_inventory.Size = new System.Drawing.Size(191, 41);
+            this.button_inventory.TabIndex = 1;
+            this.button_inventory.Text = "INVENTORY";
+            this.button_inventory.UseVisualStyleBackColor = false;
+            this.button_inventory.Click += new System.EventHandler(this.button_inventory_click);
             // 
-            // home
+            // button_home
             // 
-            this.home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.home.FlatAppearance.BorderSize = 0;
-            this.home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.home.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.home.ForeColor = System.Drawing.Color.SeaGreen;
-            this.home.Location = new System.Drawing.Point(3, 31);
-            this.home.Name = "home";
-            this.home.Size = new System.Drawing.Size(191, 41);
-            this.home.TabIndex = 0;
-            this.home.Text = "HOME";
-            this.home.UseVisualStyleBackColor = false;
+            this.button_home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.button_home.FlatAppearance.BorderSize = 0;
+            this.button_home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_home.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_home.ForeColor = System.Drawing.Color.SeaGreen;
+            this.button_home.Location = new System.Drawing.Point(3, 31);
+            this.button_home.Name = "button_home";
+            this.button_home.Size = new System.Drawing.Size(191, 41);
+            this.button_home.TabIndex = 0;
+            this.button_home.Text = "HOME";
+            this.button_home.UseVisualStyleBackColor = false;
+            this.button_home.Click += new System.EventHandler(this.button_home_click);
             // 
             // title
             // 
@@ -207,11 +218,68 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.employee_home);
+            this.panel3.Controls.Add(this.employee_customer);
+            this.panel3.Controls.Add(this.employee_booking);
+            this.panel3.Controls.Add(this.employee_return);
+            this.panel3.Controls.Add(this.employee_inventory);
+            this.panel3.Controls.Add(this.employee_reports);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(200, 100);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(790, 460);
             this.panel3.TabIndex = 2;
+            // 
+            // employee_home
+            // 
+            this.employee_home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.employee_home.Location = new System.Drawing.Point(0, 0);
+            this.employee_home.Name = "employee_home";
+            this.employee_home.Size = new System.Drawing.Size(790, 460);
+            this.employee_home.TabIndex = 5;
+            // 
+            // employee_customer
+            // 
+            this.employee_customer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.employee_customer.Location = new System.Drawing.Point(0, 0);
+            this.employee_customer.Name = "employee_customer";
+            this.employee_customer.Size = new System.Drawing.Size(790, 460);
+            this.employee_customer.TabIndex = 4;
+            // 
+            // employee_booking
+            // 
+            this.employee_booking.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.employee_booking.Location = new System.Drawing.Point(0, 0);
+            this.employee_booking.Name = "employee_booking";
+            this.employee_booking.Size = new System.Drawing.Size(790, 460);
+            this.employee_booking.TabIndex = 3;
+            // 
+            // employee_return
+            // 
+            this.employee_return.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.employee_return.ForeColor = System.Drawing.Color.SeaGreen;
+            this.employee_return.Location = new System.Drawing.Point(0, 0);
+            this.employee_return.Name = "employee_return";
+            this.employee_return.Size = new System.Drawing.Size(790, 460);
+            this.employee_return.TabIndex = 2;
+            // 
+            // employee_inventory
+            // 
+            this.employee_inventory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.employee_inventory.ForeColor = System.Drawing.Color.SeaGreen;
+            this.employee_inventory.Location = new System.Drawing.Point(0, 0);
+            this.employee_inventory.Name = "employee_inventory";
+            this.employee_inventory.Size = new System.Drawing.Size(790, 460);
+            this.employee_inventory.TabIndex = 1;
+            // 
+            // employee_reports
+            // 
+            this.employee_reports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.employee_reports.ForeColor = System.Drawing.Color.SeaGreen;
+            this.employee_reports.Location = new System.Drawing.Point(0, 0);
+            this.employee_reports.Name = "employee_reports";
+            this.employee_reports.Size = new System.Drawing.Size(790, 460);
+            this.employee_reports.TabIndex = 0;
             // 
             // Employee_dashboard
             // 
@@ -228,6 +296,7 @@
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -239,13 +308,19 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label title;
-        private System.Windows.Forms.Button home;
-        private System.Windows.Forms.Button customer;
-        private System.Windows.Forms.Button booking;
-        private System.Windows.Forms.Button retrn;
-        private System.Windows.Forms.Button inventory;
-        private System.Windows.Forms.Button reports;
+        private System.Windows.Forms.Button button_home;
+        private System.Windows.Forms.Button button_customer;
+        private System.Windows.Forms.Button button_booking;
+        private System.Windows.Forms.Button button_return;
+        private System.Windows.Forms.Button button_inventory;
+        private System.Windows.Forms.Button button_reports;
         private System.Windows.Forms.Button employee_logout;
         private System.Windows.Forms.Label employee_date;
+        private Reports employee_reports;
+        private Inventory employee_inventory;
+        private Return employee_return;
+        private booking employee_booking;
+        private Customer employee_customer;
+        private Home employee_home;
     }
 }

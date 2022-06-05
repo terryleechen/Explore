@@ -47,12 +47,10 @@ namespace Explore
         {
             String ID = user_textbox.Text;
 
-            if (ID[0].ToString().ToUpper() == "E")
+            if (ID[0].ToString().ToUpper().Equals("E"))
             {
                 command.CommandText = "select EID from Employee";
                 Console.WriteLine(command.ExecuteScalar());
-                Console.WriteLine(user_textbox.Text);
-                Console.WriteLine(command.ExecuteScalar().ToString() == user_textbox.Text);
 
                 if(command.ExecuteScalar().ToString().Equals(user_textbox.Text))
                 {
@@ -62,24 +60,12 @@ namespace Explore
                 {
                     MessageBox.Show("error");
                 }
-                
-                /*
-                command.CommandText = "select * from Employee";
-                Console.WriteLine(command.CommandText);
-                reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    Console.WriteLine(reader["First_Name"].ToString());
-                }
-                */
-
             }
             else if (ID[0].ToString().ToUpper() == "C")
             {
                 this.customer_page.Show();
             }
             this.user_textbox.Clear();
-            //this.Hide();
         }
         
     }
