@@ -41,12 +41,19 @@
             this.employee_date = new System.Windows.Forms.Label();
             this.employee_logout = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.customer_detail = new Explore.Customer_detail();
+            this.booking_selection = new Explore.Booking_selection();
             this.employee_home = new Explore.Home();
-            this.employee_customer = new Explore.Customer();
-            this.employee_booking = new Explore.booking();
+            // link customer and customer detail
+            this.employee_customer = new Explore.Customer(customer_detail);
+            this.customer_detail.Get_customer(this);
+            // linke booking and booking selection
+            this.employee_booking = new Explore.Booking(this.booking_selection);
+            this.booking_selection.Get_employee_dashboard(this);
             this.employee_return = new Explore.Return();
             this.employee_inventory = new Explore.Inventory();
             this.employee_reports = new Explore.Reports();
+            
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -218,6 +225,8 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.booking_selection);
+            this.panel3.Controls.Add(this.customer_detail);
             this.panel3.Controls.Add(this.employee_home);
             this.panel3.Controls.Add(this.employee_customer);
             this.panel3.Controls.Add(this.employee_booking);
@@ -230,13 +239,13 @@
             this.panel3.Size = new System.Drawing.Size(790, 460);
             this.panel3.TabIndex = 2;
             // 
-            // employee_home
+            // customer_detail
             // 
-            this.employee_home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.employee_home.Location = new System.Drawing.Point(0, 0);
-            this.employee_home.Name = "employee_home";
-            this.employee_home.Size = new System.Drawing.Size(790, 460);
-            this.employee_home.TabIndex = 5;
+            this.customer_detail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.customer_detail.Location = new System.Drawing.Point(0, 0);
+            this.customer_detail.Name = "customer_detail";
+            this.customer_detail.Size = new System.Drawing.Size(790, 460);
+            this.customer_detail.TabIndex = 6;
             // 
             // employee_customer
             // 
@@ -245,6 +254,14 @@
             this.employee_customer.Name = "employee_customer";
             this.employee_customer.Size = new System.Drawing.Size(790, 460);
             this.employee_customer.TabIndex = 4;
+            // 
+            // employee_home
+            // 
+            this.employee_home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.employee_home.Location = new System.Drawing.Point(0, 0);
+            this.employee_home.Name = "employee_home";
+            this.employee_home.Size = new System.Drawing.Size(790, 460);
+            this.employee_home.TabIndex = 5;
             // 
             // employee_booking
             // 
@@ -280,6 +297,14 @@
             this.employee_reports.Name = "employee_reports";
             this.employee_reports.Size = new System.Drawing.Size(790, 460);
             this.employee_reports.TabIndex = 0;
+            // 
+            // booking_selection
+            // 
+            this.booking_selection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.booking_selection.Location = new System.Drawing.Point(0, 0);
+            this.booking_selection.Name = "booking_selection";
+            this.booking_selection.Size = new System.Drawing.Size(790, 460);
+            this.booking_selection.TabIndex = 7;
             // 
             // Employee_dashboard
             // 
@@ -319,8 +344,10 @@
         private Reports employee_reports;
         private Inventory employee_inventory;
         private Return employee_return;
-        private booking employee_booking;
+        private Booking employee_booking;
         private Customer employee_customer;
         private Home employee_home;
+        private Customer_detail customer_detail;
+        private Booking_selection booking_selection;
     }
 }

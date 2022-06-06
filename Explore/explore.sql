@@ -1,15 +1,14 @@
 use explore;
 
-DROP TABLE Rental_Transaction;
-DROP TABLE Branch;
-DROP TABLE Branch_Phone;
-DROP TABLE [Type];
-DROP TABLE Car;
-DROP TABLE Customer;
-DROP TABLE Customer_Phone;
-DROP TABLE Employee;
-DROP TABLE Employee_Phone;
-
+--DROP TABLE Rental_Transaction;
+--DROP TABLE Branch;
+--DROP TABLE Branch_Phone;
+--DROP TABLE [Type];
+--DROP TABLE Car;
+--DROP TABLE Customer;
+--DROP TABLE Customer_Phone;
+--DROP TABLE Employee;
+--DROP TABLE Employee_Phone;
 
 CREATE TABLE Branch (
 	BID NCHAR(4) PRIMARY KEY,

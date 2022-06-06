@@ -25,12 +25,26 @@ namespace Explore
             this.employee_return.Hide();
             this.employee_booking.Hide();
             this.employee_customer.Hide();
+            this.customer_detail.Hide();
+            this.booking_selection.Hide();
         }
-
+        //====================== Getter methods ==============================================
         public void Get_login(Login_page login_page)
         {
             this.login_page = login_page;
         }
+        
+        public Customer Get_Customer()
+        {
+            return this.employee_customer;
+        }
+
+        public Booking Get_booking()
+        {
+            return this.employee_booking;
+        }
+
+        //====================================================================================
 
         private void logout_Click(object sender, EventArgs e)
         {
@@ -53,6 +67,7 @@ namespace Explore
         {
             this.employee_home.Hide();
             this.employee_customer.Show();
+            this.customer_detail.Hide();
             this.employee_booking.Hide();
             this.employee_return.Hide();
             this.employee_inventory.Hide();
