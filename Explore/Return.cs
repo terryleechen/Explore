@@ -12,9 +12,23 @@ namespace Explore
 {
     public partial class Return : UserControl
     {
-        public Return()
+        private Return_detail return_detail;
+        public Return(Return_detail return_detail)
         {
             InitializeComponent();
+            this.return_detail = return_detail;
+            this.button_next.Hide();
+        }
+
+        private void Button_search_click(object sender, EventArgs e)
+        {
+            this.button_next.Show();
+        }
+
+        private void Button_next_click(object sender, EventArgs e)
+        {
+            this.return_detail.Show();
+            this.Hide();
         }
     }
 }

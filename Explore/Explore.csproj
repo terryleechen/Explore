@@ -121,6 +121,12 @@
     <Compile Include="Booking_selection.Designer.cs">
       <DependentUpon>Booking_selection.cs</DependentUpon>
     </Compile>
+    <Compile Include="Return_detail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Return_detail.Designer.cs">
+      <DependentUpon>Return_detail.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Booking_selection.resx">
       <DependentUpon>Booking_selection.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Return_detail.resx">
+      <DependentUpon>Return_detail.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

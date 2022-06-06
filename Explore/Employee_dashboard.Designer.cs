@@ -41,21 +41,26 @@
             this.employee_date = new System.Windows.Forms.Label();
             this.employee_logout = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            // ================= add new dependency form ===============================
             this.customer_detail = new Explore.Customer_detail();
             this.booking_selection = new Explore.Booking_selection();
+            this.return_detail = new Explore.Return_detail();
             this.employee_home = new Explore.Home();
             // link customer and customer detail
             this.employee_customer = new Explore.Customer(customer_detail);
             // for some reason this is giving errors
             this.customer_detail.Get_employee_dashboard(this);
-            // linke booking and booking selection
+            // link booking and booking selection
             this.employee_booking = new Explore.Booking(this.booking_selection);
             // for some reason this is giving errors
             this.booking_selection.Get_employee_dashboard(this);
-            this.employee_return = new Explore.Return();
+            // link return and return detail
+            this.employee_return = new Explore.Return(this.return_detail);
+            this.return_detail.Get_employee_dashboard(this);
+            // link inventory and ??
             this.employee_inventory = new Explore.Inventory();
             this.employee_reports = new Explore.Reports();
-            
+            // =========================================================================
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -235,6 +240,7 @@
             this.panel3.Controls.Add(this.employee_return);
             this.panel3.Controls.Add(this.employee_inventory);
             this.panel3.Controls.Add(this.employee_reports);
+            this.panel3.Controls.Add(this.return_detail);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(200, 100);
             this.panel3.Name = "panel3";
@@ -308,6 +314,14 @@
             this.booking_selection.Size = new System.Drawing.Size(790, 460);
             this.booking_selection.TabIndex = 7;
             // 
+            // return_detail
+            // 
+            this.return_detail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.return_detail.Location = new System.Drawing.Point(0, 0);
+            this.return_detail.Name = "return_detail";
+            this.return_detail.Size = new System.Drawing.Size(790, 460);
+            this.return_detail.TabIndex = 8;
+            // 
             // Employee_dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -351,5 +365,6 @@
         private Home employee_home;
         private Customer_detail customer_detail;
         private Booking_selection booking_selection;
+        private Return_detail return_detail;
     }
 }

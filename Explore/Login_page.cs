@@ -63,7 +63,6 @@ namespace Explore
             if (ID[0].ToString().ToUpper().Equals("E"))
             {
                 this.sql.Command().CommandText = "select EID from Employee";
-                Console.WriteLine(this.sql.Command().ExecuteScalar());
 
                 if(this.sql.Command().ExecuteScalar().ToString().Equals(user_textbox.Text))
                 {
@@ -78,6 +77,10 @@ namespace Explore
             {
                 // not started
                 this.customer_page.Show();
+            }
+            else
+            {
+                MessageBox.Show("error");
             }
             this.user_textbox.Clear();
         }
