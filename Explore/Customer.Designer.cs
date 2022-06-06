@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.customer_firstname = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.customer_firstname = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.customer_lastname = new System.Windows.Forms.TextBox();
@@ -58,15 +58,13 @@
             this.panel1.Size = new System.Drawing.Size(330, 51);
             this.panel1.TabIndex = 0;
             // 
-            // label1
+            // panel2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "First Name:";
+            this.panel2.BackColor = System.Drawing.Color.SeaGreen;
+            this.panel2.Location = new System.Drawing.Point(106, 36);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(150, 1);
+            this.panel2.TabIndex = 3;
             // 
             // customer_firstname
             // 
@@ -79,13 +77,15 @@
             this.customer_firstname.Size = new System.Drawing.Size(150, 22);
             this.customer_firstname.TabIndex = 2;
             // 
-            // panel2
+            // label1
             // 
-            this.panel2.BackColor = System.Drawing.Color.SeaGreen;
-            this.panel2.Location = new System.Drawing.Point(106, 36);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(150, 1);
-            this.panel2.TabIndex = 3;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 24);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "First Name:";
             // 
             // panel3
             // 
@@ -181,6 +181,7 @@
             this.button_add.TabIndex = 6;
             this.button_add.Text = "Add";
             this.button_add.UseVisualStyleBackColor = false;
+            this.button_add.Click += new System.EventHandler(this.Button_add_click);
             // 
             // customer_edit
             // 
@@ -196,6 +197,7 @@
             this.customer_edit.TabIndex = 7;
             this.customer_edit.Text = "Edit";
             this.customer_edit.UseVisualStyleBackColor = false;
+            this.customer_edit.Click += new System.EventHandler(this.Button_edit_click);
             // 
             // Customer
             // 

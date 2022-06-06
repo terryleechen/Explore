@@ -85,11 +85,11 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Book.cs">
+    <Compile Include="Booking.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Book.Designer.cs">
-      <DependentUpon>Book.cs</DependentUpon>
+    <Compile Include="Booking.Designer.cs">
+      <DependentUpon>Booking.cs</DependentUpon>
     </Compile>
     <Compile Include="Return.cs">
       <SubType>UserControl</SubType>
@@ -109,11 +109,29 @@
     <Compile Include="Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
     </Compile>
+    <Compile Include="Customer_detail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer_detail.Designer.cs">
+      <DependentUpon>Customer_detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booking_selection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Booking_selection.Designer.cs">
+      <DependentUpon>Booking_selection.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Booking_selection.resx">
+      <DependentUpon>Booking_selection.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Customer_dashboard.resx">
       <DependentUpon>Customer_dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer.resx">
       <DependentUpon>Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer_detail.resx">
+      <DependentUpon>Customer_detail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
@@ -136,8 +154,8 @@
     <EmbeddedResource Include="Employee_dashboard.resx">
       <DependentUpon>Employee_dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Book.resx">
-      <DependentUpon>Book.cs</DependentUpon>
+    <EmbeddedResource Include="Booking.resx">
+      <DependentUpon>Booking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Return.resx">
       <DependentUpon>Return.cs</DependentUpon>
