@@ -83,7 +83,7 @@
             this.button_reports.FlatAppearance.BorderSize = 0;
             this.button_reports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_reports.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_reports.ForeColor = System.Drawing.Color.SeaGreen;
+            this.button_reports.ForeColor = System.Drawing.Color.SeaShell;
             this.button_reports.Location = new System.Drawing.Point(3, 388);
             this.button_reports.Name = "button_reports";
             this.button_reports.Size = new System.Drawing.Size(191, 41);
@@ -98,7 +98,7 @@
             this.button_customer.FlatAppearance.BorderSize = 0;
             this.button_customer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_customer.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_customer.ForeColor = System.Drawing.Color.SeaGreen;
+            this.button_customer.ForeColor = System.Drawing.Color.SeaShell;
             this.button_customer.Location = new System.Drawing.Point(3, 89);
             this.button_customer.Name = "button_customer";
             this.button_customer.Size = new System.Drawing.Size(191, 41);
@@ -113,7 +113,7 @@
             this.button_booking.FlatAppearance.BorderSize = 0;
             this.button_booking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_booking.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_booking.ForeColor = System.Drawing.Color.SeaGreen;
+            this.button_booking.ForeColor = System.Drawing.Color.SeaShell;
             this.button_booking.Location = new System.Drawing.Point(3, 167);
             this.button_booking.Name = "button_booking";
             this.button_booking.Size = new System.Drawing.Size(191, 41);
@@ -128,7 +128,7 @@
             this.button_return.FlatAppearance.BorderSize = 0;
             this.button_return.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_return.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_return.ForeColor = System.Drawing.Color.SeaGreen;
+            this.button_return.ForeColor = System.Drawing.Color.SeaShell;
             this.button_return.Location = new System.Drawing.Point(3, 239);
             this.button_return.Name = "button_return";
             this.button_return.Size = new System.Drawing.Size(191, 41);
@@ -143,7 +143,7 @@
             this.button_inventory.FlatAppearance.BorderSize = 0;
             this.button_inventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_inventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_inventory.ForeColor = System.Drawing.Color.SeaGreen;
+            this.button_inventory.ForeColor = System.Drawing.Color.SeaShell;
             this.button_inventory.Location = new System.Drawing.Point(3, 311);
             this.button_inventory.Name = "button_inventory";
             this.button_inventory.Size = new System.Drawing.Size(191, 41);
@@ -158,7 +158,7 @@
             this.button_home.FlatAppearance.BorderSize = 0;
             this.button_home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_home.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_home.ForeColor = System.Drawing.Color.SeaGreen;
+            this.button_home.ForeColor = System.Drawing.Color.SeaShell;
             this.button_home.Location = new System.Drawing.Point(3, 31);
             this.button_home.Name = "button_home";
             this.button_home.Size = new System.Drawing.Size(191, 41);
@@ -173,7 +173,7 @@
             this.title.AutoSize = true;
             this.title.BackColor = System.Drawing.Color.Transparent;
             this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title.ForeColor = System.Drawing.Color.SeaGreen;
+            this.title.ForeColor = System.Drawing.Color.Gold;
             this.title.Location = new System.Drawing.Point(6, 24);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(194, 55);
@@ -194,7 +194,7 @@
             // 
             this.employee_date.AutoSize = true;
             this.employee_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.employee_date.ForeColor = System.Drawing.Color.SeaGreen;
+            this.employee_date.ForeColor = System.Drawing.Color.SeaShell;
             this.employee_date.Location = new System.Drawing.Point(30, 38);
             this.employee_date.Name = "employee_date";
             this.employee_date.Size = new System.Drawing.Size(57, 25);
@@ -207,12 +207,12 @@
             this.employee_logout.FlatAppearance.BorderSize = 0;
             this.employee_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.employee_logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.employee_logout.ForeColor = System.Drawing.Color.SeaGreen;
+            this.employee_logout.ForeColor = System.Drawing.Color.Red;
             this.employee_logout.Location = new System.Drawing.Point(679, 32);
             this.employee_logout.Name = "employee_logout";
             this.employee_logout.Size = new System.Drawing.Size(108, 39);
             this.employee_logout.TabIndex = 1;
-            this.employee_logout.Text = "LOGOUT";
+            this.employee_logout.Text = "Sign Out";
             this.employee_logout.UseVisualStyleBackColor = false;
             this.employee_logout.Click += new System.EventHandler(this.logout_Click);
             // 

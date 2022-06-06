@@ -43,7 +43,7 @@
             this.title.AutoSize = true;
             this.title.BackColor = System.Drawing.Color.Transparent;
             this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title.ForeColor = System.Drawing.Color.SeaGreen;
+            this.title.ForeColor = System.Drawing.Color.Gold;
             this.title.Location = new System.Drawing.Point(293, 116);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(376, 108);
@@ -57,21 +57,21 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.user_textbox);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(299, 289);
+            this.panel1.Location = new System.Drawing.Point(345, 288);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(349, 113);
+            this.panel1.Size = new System.Drawing.Size(252, 113);
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button_login
             // 
             this.button_login.BackColor = System.Drawing.Color.Transparent;
-            this.button_login.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
-            this.button_login.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button_login.FlatAppearance.BorderColor = System.Drawing.Color.Gold;
+            this.button_login.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaShell;
             this.button_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_login.ForeColor = System.Drawing.Color.SeaGreen;
-            this.button_login.Location = new System.Drawing.Point(115, 70);
+            this.button_login.ForeColor = System.Drawing.Color.Gold;
+            this.button_login.Location = new System.Drawing.Point(84, 70);
             this.button_login.Name = "button_login";
             this.button_login.Size = new System.Drawing.Size(142, 40);
             this.button_login.TabIndex = 3;
@@ -81,11 +81,11 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.SeaGreen;
-            this.panel2.ForeColor = System.Drawing.Color.Black;
+            this.panel2.BackColor = System.Drawing.Color.SeaShell;
+            this.panel2.ForeColor = System.Drawing.Color.SeaShell;
             this.panel2.Location = new System.Drawing.Point(84, 60);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(254, 1);
+            this.panel2.Size = new System.Drawing.Size(150, 1);
             this.panel2.TabIndex = 2;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -94,10 +94,10 @@
             this.user_textbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.user_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.user_textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.user_textbox.ForeColor = System.Drawing.Color.SeaGreen;
+            this.user_textbox.ForeColor = System.Drawing.Color.SeaShell;
             this.user_textbox.Location = new System.Drawing.Point(84, 37);
             this.user_textbox.Name = "user_textbox";
-            this.user_textbox.Size = new System.Drawing.Size(254, 22);
+            this.user_textbox.Size = new System.Drawing.Size(150, 22);
             this.user_textbox.TabIndex = 1;
             // 
             // label1
@@ -105,7 +105,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.SeaGreen;
+            this.label1.ForeColor = System.Drawing.Color.SeaShell;
             this.label1.Location = new System.Drawing.Point(8, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 24);

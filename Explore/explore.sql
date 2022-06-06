@@ -1,6 +1,6 @@
 use explore;
 
---DROP TABLE Rental_Transaction;
+DROP TABLE Rental_Transaction;
 DROP TABLE Branch;
 DROP TABLE Branch_Phone;
 DROP TABLE [Type];
@@ -51,6 +51,7 @@ CREATE TABLE Customer (
 	CID NCHAR(7) PRIMARY KEY,
 	First_Name NCHAR(20) NOT NULL,
 	Last_Name NCHAR(20) NOT NULL,
+	Driver_License NUMERIC(9,0) NOT NULL,
 	Gender NCHAR(1) NOT NULL,
 	DOB NUMERIC(8,0) NOT NULL,
 	Membership NUMERIC(1) NOT NULL,
