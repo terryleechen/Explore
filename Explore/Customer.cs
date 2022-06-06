@@ -22,6 +22,7 @@ namespace Explore
 
         private void Button_add_click(object sender, EventArgs e)
         {
+
             this.customer_detail.Show();
         }
 

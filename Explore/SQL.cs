@@ -7,15 +7,19 @@ using System.Data.SqlClient;
 
 namespace Explore
 {
-    internal class SQL_connection
+    internal class SQL
     {
         private readonly SqlConnection my_connection;
         private SqlCommand my_command;
         private readonly SqlDataReader my_reader;
 
-        public SQL_connection() 
+        public SQL() 
         {
-            // need to change server based on your computer
+            // make sure to change the server to yours computer name
+            // first time running this will need to create the database name it explore
+            // ensure run explore.sql then exlpore_insert.sql
+            // to login type "E0001" as employee
+            // to login type "C000001" as customer
             String connection_string = "Server = DESKTOP-781GNEK; Database = explore; Trusted_Connection = yes;";
 
             SqlConnection my_connection = new SqlConnection(connection_string); // Timeout in seconds
