@@ -1,6 +1,6 @@
 ﻿namespace Explore
 {
-    partial class Customer_detail
+    partial class Return_detail
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,27 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.customer_save = new System.Windows.Forms.Button();
-            this.button_previous = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.return_confirm = new System.Windows.Forms.Button();
+            this.button_previous = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // customer_save
+            // label1
             // 
-            this.customer_save.BackColor = System.Drawing.Color.Transparent;
-            this.customer_save.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
-            this.customer_save.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.customer_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.customer_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customer_save.ForeColor = System.Drawing.Color.SeaShell;
-            this.customer_save.Location = new System.Drawing.Point(129, 36);
-            this.customer_save.Name = "customer_save";
-            this.customer_save.Size = new System.Drawing.Size(82, 40);
-            this.customer_save.TabIndex = 9;
-            this.customer_save.Text = "Save";
-            this.customer_save.UseVisualStyleBackColor = false;
-            this.customer_save.Click += new System.EventHandler(this.Button_save_click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(181, 163);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "return detail";
+            // 
+            // return_confirm
+            // 
+            this.return_confirm.BackColor = System.Drawing.Color.Transparent;
+            this.return_confirm.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.return_confirm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.return_confirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.return_confirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.return_confirm.ForeColor = System.Drawing.Color.SeaShell;
+            this.return_confirm.Location = new System.Drawing.Point(129, 36);
+            this.return_confirm.Name = "return_confirm";
+            this.return_confirm.Size = new System.Drawing.Size(89, 40);
+            this.return_confirm.TabIndex = 11;
+            this.return_confirm.Text = "Confirm";
+            this.return_confirm.UseVisualStyleBackColor = false;
             // 
             // button_previous
             // 
@@ -61,39 +68,21 @@
             this.button_previous.Location = new System.Drawing.Point(26, 36);
             this.button_previous.Name = "button_previous";
             this.button_previous.Size = new System.Drawing.Size(97, 40);
-            this.button_previous.TabIndex = 8;
+            this.button_previous.TabIndex = 10;
             this.button_previous.Text = "Previous";
             this.button_previous.UseVisualStyleBackColor = false;
-            this.button_previous.Click += new System.EventHandler(this.Button_previous_click);
+            this.button_previous.Click += new System.EventHandler(this.button_previous_Click);
             // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 23);
-            this.label1.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(314, 228);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "customer detail";
-            // 
-            // Customer_detail
+            // Return_detail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.customer_save);
+            this.Controls.Add(this.return_confirm);
             this.Controls.Add(this.button_previous);
+            this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.Color.SeaShell;
-            this.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.Name = "Customer_detail";
+            this.Name = "Return_detail";
             this.Size = new System.Drawing.Size(790, 460);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -102,9 +91,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button customer_save;
-        private System.Windows.Forms.Button button_previous;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button return_confirm;
+        private System.Windows.Forms.Button button_previous;
     }
 }

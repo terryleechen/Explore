@@ -22,7 +22,10 @@ namespace Explore
 
         private void Button_add_click(object sender, EventArgs e)
         {
-
+            if(customer_driver_license == null)
+            {
+                
+            }
             this.customer_detail.Show();
         }
 

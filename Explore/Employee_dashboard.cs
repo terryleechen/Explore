@@ -44,6 +44,11 @@ namespace Explore
             return this.employee_booking;
         }
 
+        public Return Get_return()
+        {
+            return this.employee_return;
+        }
+
         //====================================================================================
 
         private void logout_Click(object sender, EventArgs e)
