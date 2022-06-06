@@ -46,9 +46,11 @@
             this.employee_home = new Explore.Home();
             // link customer and customer detail
             this.employee_customer = new Explore.Customer(customer_detail);
-            this.customer_detail.Get_customer(this);
+            // for some reason this is giving errors
+            this.customer_detail.Get_employee_dashboard(this);
             // linke booking and booking selection
             this.employee_booking = new Explore.Booking(this.booking_selection);
+            // for some reason this is giving errors
             this.booking_selection.Get_employee_dashboard(this);
             this.employee_return = new Explore.Return();
             this.employee_inventory = new Explore.Inventory();

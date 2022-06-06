@@ -60,7 +60,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.SeaGreen;
+            this.panel2.BackColor = System.Drawing.Color.SeaShell;
             this.panel2.Location = new System.Drawing.Point(106, 36);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(150, 1);
@@ -71,7 +71,7 @@
             this.customer_firstname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.customer_firstname.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.customer_firstname.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customer_firstname.ForeColor = System.Drawing.Color.SeaGreen;
+            this.customer_firstname.ForeColor = System.Drawing.Color.SeaShell;
             this.customer_firstname.Location = new System.Drawing.Point(106, 9);
             this.customer_firstname.Name = "customer_firstname";
             this.customer_firstname.Size = new System.Drawing.Size(150, 22);
@@ -81,6 +81,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.SeaShell;
             this.label1.Location = new System.Drawing.Point(3, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 24);
@@ -100,7 +101,8 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.SeaGreen;
+            this.panel4.BackColor = System.Drawing.Color.SeaShell;
+            this.panel4.ForeColor = System.Drawing.Color.SeaShell;
             this.panel4.Location = new System.Drawing.Point(106, 36);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(150, 1);
@@ -111,7 +113,7 @@
             this.customer_lastname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.customer_lastname.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.customer_lastname.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customer_lastname.ForeColor = System.Drawing.Color.SeaGreen;
+            this.customer_lastname.ForeColor = System.Drawing.Color.SeaShell;
             this.customer_lastname.Location = new System.Drawing.Point(106, 9);
             this.customer_lastname.Name = "customer_lastname";
             this.customer_lastname.Size = new System.Drawing.Size(150, 22);
@@ -121,6 +123,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.SeaShell;
             this.label2.Location = new System.Drawing.Point(3, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(104, 24);
@@ -140,7 +143,8 @@
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.Color.SeaGreen;
+            this.panel6.BackColor = System.Drawing.Color.SeaShell;
+            this.panel6.ForeColor = System.Drawing.Color.SeaShell;
             this.panel6.Location = new System.Drawing.Point(133, 36);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(125, 1);
@@ -151,7 +155,7 @@
             this.customer_driver_license.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.customer_driver_license.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.customer_driver_license.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customer_driver_license.ForeColor = System.Drawing.Color.SeaGreen;
+            this.customer_driver_license.ForeColor = System.Drawing.Color.SeaShell;
             this.customer_driver_license.Location = new System.Drawing.Point(133, 9);
             this.customer_driver_license.Name = "customer_driver_license";
             this.customer_driver_license.Size = new System.Drawing.Size(125, 22);
@@ -161,6 +165,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.SeaShell;
             this.label3.Location = new System.Drawing.Point(3, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(135, 24);
@@ -170,11 +175,11 @@
             // button_add
             // 
             this.button_add.BackColor = System.Drawing.Color.Transparent;
-            this.button_add.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.button_add.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
             this.button_add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.button_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_add.ForeColor = System.Drawing.Color.SeaGreen;
+            this.button_add.ForeColor = System.Drawing.Color.SeaShell;
             this.button_add.Location = new System.Drawing.Point(23, 26);
             this.button_add.Name = "button_add";
             this.button_add.Size = new System.Drawing.Size(82, 40);
@@ -186,11 +191,10 @@
             // customer_edit
             // 
             this.customer_edit.BackColor = System.Drawing.Color.Transparent;
-            this.customer_edit.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
-            this.customer_edit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.customer_edit.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
             this.customer_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.customer_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customer_edit.ForeColor = System.Drawing.Color.SeaGreen;
+            this.customer_edit.ForeColor = System.Drawing.Color.SeaShell;
             this.customer_edit.Location = new System.Drawing.Point(129, 26);
             this.customer_edit.Name = "customer_edit";
             this.customer_edit.Size = new System.Drawing.Size(82, 40);
