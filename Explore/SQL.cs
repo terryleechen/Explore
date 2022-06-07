@@ -20,7 +20,7 @@ namespace Explore
             // ensure run explore.sql then exlpore_insert.sql
             // to login type "E0001" as employee
             // to login type "C000001" as customer
-            String connection_string = "Server = DESKTOP-781GNEK; Database = explore; Trusted_Connection = yes;";
+            String connection_string = "Server = COMPUTER; Database = explore; Trusted_Connection = yes;";
 
             SqlConnection my_connection = new SqlConnection(connection_string); // Timeout in seconds
             my_connection.Open(); // Open connection

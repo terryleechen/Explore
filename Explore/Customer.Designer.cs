@@ -42,6 +42,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button_add = new System.Windows.Forms.Button();
             this.customer_edit = new System.Windows.Forms.Button();
+            this.customer_view = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -203,11 +204,27 @@
             this.customer_edit.UseVisualStyleBackColor = false;
             this.customer_edit.Click += new System.EventHandler(this.Button_edit_click);
             // 
+            // customer_view
+            // 
+            this.customer_view.BackColor = System.Drawing.Color.Transparent;
+            this.customer_view.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.customer_view.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.customer_view.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer_view.ForeColor = System.Drawing.Color.SeaShell;
+            this.customer_view.Location = new System.Drawing.Point(232, 26);
+            this.customer_view.Name = "customer_view";
+            this.customer_view.Size = new System.Drawing.Size(82, 40);
+            this.customer_view.TabIndex = 8;
+            this.customer_view.Text = "View";
+            this.customer_view.UseVisualStyleBackColor = false;
+            this.customer_view.Click += new System.EventHandler(this.Button_view_click);
+            // 
             // Customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.Controls.Add(this.customer_view);
             this.Controls.Add(this.customer_edit);
             this.Controls.Add(this.button_add);
             this.Controls.Add(this.panel5);
@@ -241,5 +258,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button_add;
         private System.Windows.Forms.Button customer_edit;
+        private System.Windows.Forms.Button customer_view;
     }
 }

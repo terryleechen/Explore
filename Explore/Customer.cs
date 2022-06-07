@@ -33,5 +33,10 @@ namespace Explore
         {
 
         }
+
+        private void Button_view_click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
