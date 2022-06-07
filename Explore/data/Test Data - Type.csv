@@ -1,0 +1,5 @@
+Type_ID,Type_Name,Price_Per_Day,Price_Per_Week,Price_Per_Month,Change_Branch_Fee,Late_Fee
+1,Economy,10,66.5,239.4,10,50
+2,Compact,20,133,478.8,20,50
+3,Standard,30,199.5,718.2,30,50
+4,Luxury,40,266,957.6,40,70
