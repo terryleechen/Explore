@@ -50,30 +50,36 @@
             this.Address_Label = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+
+            this.City = new System.Windows.Forms.TextBox();
             this.City_Label = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.PostalCode = new System.Windows.Forms.TextBox();
+
             this.PostalCode_Label = new System.Windows.Forms.Label();
             this.Province_Label = new System.Windows.Forms.Label();
             this.Province = new System.Windows.Forms.ComboBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.Membership_Label = new System.Windows.Forms.Label();
             this.Membership = new System.Windows.Forms.CheckBox();
-            this.panel10 = new System.Windows.Forms.Panel();
+
+            this.PhoneNumber_Panel = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.PhoneNumber = new System.Windows.Forms.TextBox();
+            this.PhoneNumber_Label = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.Email = new System.Windows.Forms.TextBox();
+            this.Email_Label = new System.Windows.Forms.Label();
+
             this.CID_Panel.SuspendLayout();
             this.Name_Panel.SuspendLayout();
             this.Address_Panel.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel9.SuspendLayout();
-            this.panel10.SuspendLayout();
+
+            this.PhoneNumber_Panel.SuspendLayout();
+
             this.panel11.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,7 +126,7 @@
             // 
             this.CID_Label.AutoSize = true;
             this.CID_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CID_Label.Location = new System.Drawing.Point(9, 11);
+            this.CID_Label.Location = new System.Drawing.Point(9, 15);
             this.CID_Label.Name = "CID_Label";
             this.CID_Label.Size = new System.Drawing.Size(45, 24);
             this.CID_Label.TabIndex = 10;
@@ -195,7 +201,7 @@
             // 
             this.FirstName_Label.AutoSize = true;
             this.FirstName_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FirstName_Label.Location = new System.Drawing.Point(9, 11);
+            this.FirstName_Label.Location = new System.Drawing.Point(9, 15);
             this.FirstName_Label.Name = "FirstName_Label";
             this.FirstName_Label.Size = new System.Drawing.Size(106, 24);
             this.FirstName_Label.TabIndex = 10;
@@ -226,7 +232,7 @@
             // 
             this.LastName_Label.AutoSize = true;
             this.LastName_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LastName_Label.Location = new System.Drawing.Point(9, 58);
+            this.LastName_Label.Location = new System.Drawing.Point(9, 62);
             this.LastName_Label.Name = "LastName_Label";
             this.LastName_Label.Size = new System.Drawing.Size(104, 24);
             this.LastName_Label.TabIndex = 13;
@@ -290,7 +296,7 @@
             // 
             this.Address_Label.AutoSize = true;
             this.Address_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Address_Label.Location = new System.Drawing.Point(9, 11);
+            this.Address_Label.Location = new System.Drawing.Point(9, 15);
             this.Address_Label.Name = "Address_Label";
             this.Address_Label.Size = new System.Drawing.Size(85, 24);
             this.Address_Label.TabIndex = 10;
@@ -301,10 +307,10 @@
             this.panel7.Controls.Add(this.Province);
             this.panel7.Controls.Add(this.Province_Label);
             this.panel7.Controls.Add(this.panel1);
-            this.panel7.Controls.Add(this.textBox2);
+            this.panel7.Controls.Add(this.PostalCode);
             this.panel7.Controls.Add(this.PostalCode_Label);
             this.panel7.Controls.Add(this.panel8);
-            this.panel7.Controls.Add(this.textBox1);
+            this.panel7.Controls.Add(this.City);
             this.panel7.Controls.Add(this.City_Label);
             this.panel7.Location = new System.Drawing.Point(26, 360);
             this.panel7.Name = "panel7";
@@ -320,17 +326,17 @@
             this.panel8.Size = new System.Drawing.Size(125, 1);
             this.panel8.TabIndex = 12;
             // 
-            // textBox1
+            // City
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.SeaShell;
-            this.textBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox1.Location = new System.Drawing.Point(60, 7);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 22);
-            this.textBox1.TabIndex = 11;
+            this.City.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.City.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.City.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.City.ForeColor = System.Drawing.Color.SeaShell;
+            this.City.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.City.Location = new System.Drawing.Point(60, 7);
+            this.City.Name = "City";
+            this.City.Size = new System.Drawing.Size(125, 22);
+            this.City.TabIndex = 11;
             // 
             // City_Label
             // 
@@ -351,17 +357,17 @@
             this.panel1.Size = new System.Drawing.Size(125, 1);
             this.panel1.TabIndex = 15;
             // 
-            // textBox2
+            // PostalCode
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.SeaShell;
-            this.textBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox2.Location = new System.Drawing.Point(121, 50);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(125, 22);
-            this.textBox2.TabIndex = 14;
+            this.PostalCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.PostalCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PostalCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PostalCode.ForeColor = System.Drawing.Color.SeaShell;
+            this.PostalCode.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.PostalCode.Location = new System.Drawing.Point(121, 50);
+            this.PostalCode.Name = "PostalCode";
+            this.PostalCode.Size = new System.Drawing.Size(125, 22);
+            this.PostalCode.TabIndex = 14;
             // 
             // PostalCode_Label
             // 
@@ -424,15 +430,15 @@
             this.Membership.TabIndex = 11;
             this.Membership.UseVisualStyleBackColor = true;
             // 
-            // panel10
+            // PhoneNumber_Panel
             // 
-            this.panel10.Controls.Add(this.panel12);
-            this.panel10.Controls.Add(this.textBox4);
-            this.panel10.Controls.Add(this.label3);
-            this.panel10.Location = new System.Drawing.Point(433, 146);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(337, 56);
-            this.panel10.TabIndex = 16;
+            this.PhoneNumber_Panel.Controls.Add(this.panel12);
+            this.PhoneNumber_Panel.Controls.Add(this.PhoneNumber);
+            this.PhoneNumber_Panel.Controls.Add(this.PhoneNumber_Label);
+            this.PhoneNumber_Panel.Location = new System.Drawing.Point(433, 146);
+            this.PhoneNumber_Panel.Name = "PhoneNumber_Panel";
+            this.PhoneNumber_Panel.Size = new System.Drawing.Size(337, 56);
+            this.PhoneNumber_Panel.TabIndex = 16;
             // 
             // panel12
             // 
@@ -443,33 +449,33 @@
             this.panel12.Size = new System.Drawing.Size(165, 1);
             this.panel12.TabIndex = 12;
             // 
-            // textBox4
+            // PhoneNumber
             // 
-            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.Color.SeaShell;
-            this.textBox4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox4.Location = new System.Drawing.Point(152, 11);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(165, 22);
-            this.textBox4.TabIndex = 11;
+            this.PhoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.PhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PhoneNumber.ForeColor = System.Drawing.Color.SeaShell;
+            this.PhoneNumber.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.PhoneNumber.Location = new System.Drawing.Point(152, 11);
+            this.PhoneNumber.Name = "PhoneNumber";
+            this.PhoneNumber.Size = new System.Drawing.Size(165, 22);
+            this.PhoneNumber.TabIndex = 11;
             // 
-            // label3
+            // PhoneNumber_Label
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(9, 11);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(145, 24);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Phone Number:";
+            this.PhoneNumber_Label.AutoSize = true;
+            this.PhoneNumber_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PhoneNumber_Label.Location = new System.Drawing.Point(9, 11);
+            this.PhoneNumber_Label.Name = "PhoneNumber_Label";
+            this.PhoneNumber_Label.Size = new System.Drawing.Size(145, 24);
+            this.PhoneNumber_Label.TabIndex = 10;
+            this.PhoneNumber_Label.Text = "Phone Number:";
             // 
             // panel11
             // 
             this.panel11.Controls.Add(this.panel13);
-            this.panel11.Controls.Add(this.textBox3);
-            this.panel11.Controls.Add(this.label2);
+            this.panel11.Controls.Add(this.Email);
+            this.panel11.Controls.Add(this.Email_Label);
             this.panel11.Location = new System.Drawing.Point(433, 208);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(337, 56);
@@ -484,27 +490,28 @@
             this.panel13.Size = new System.Drawing.Size(240, 1);
             this.panel13.TabIndex = 12;
             // 
-            // textBox3
+            // Email
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.SeaShell;
-            this.textBox3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox3.Location = new System.Drawing.Point(77, 11);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(240, 22);
-            this.textBox3.TabIndex = 11;
+            this.Email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.Email.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Email.ForeColor = System.Drawing.Color.SeaShell;
+            this.Email.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Email.Location = new System.Drawing.Point(77, 11);
+            this.Email.Name = "Email";
+            this.Email.Size = new System.Drawing.Size(240, 22);
+            this.Email.TabIndex = 11;
             // 
-            // label2
+            // Email_Label
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 24);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Email:";
+            this.Email_Label.AutoSize = true;
+            this.Email_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Email_Label.Location = new System.Drawing.Point(9, 11);
+            this.Email_Label.Name = "Email_Label";
+            this.Email_Label.Size = new System.Drawing.Size(62, 24);
+            this.Email_Label.TabIndex = 10;
+            this.Email_Label.Text = "Email:";
+
             // 
             // Customer_detail
             // 
@@ -512,7 +519,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.Controls.Add(this.panel11);
-            this.Controls.Add(this.panel10);
+
+            this.Controls.Add(this.PhoneNumber_Panel);
+
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.Address_Panel);
@@ -535,8 +544,10 @@
             this.panel7.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
+
+            this.PhoneNumber_Panel.ResumeLayout(false);
+            this.PhoneNumber_Panel.PerformLayout();
+
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.ResumeLayout(false);
@@ -569,21 +580,25 @@
         private System.Windows.Forms.ComboBox Province;
         private System.Windows.Forms.Label Province_Label;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox2;
+
+        private System.Windows.Forms.TextBox PostalCode;
         private System.Windows.Forms.Label PostalCode_Label;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox City;
+
         private System.Windows.Forms.Label City_Label;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.CheckBox Membership;
         private System.Windows.Forms.Label Membership_Label;
-        private System.Windows.Forms.Panel panel10;
+
+        private System.Windows.Forms.Panel PhoneNumber_Panel;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox PhoneNumber;
+        private System.Windows.Forms.Label PhoneNumber_Label;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox Email;
+        private System.Windows.Forms.Label Email_Label;
+
     }
 }

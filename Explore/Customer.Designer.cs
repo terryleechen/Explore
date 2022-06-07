@@ -181,7 +181,7 @@
             this.button_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_add.ForeColor = System.Drawing.Color.SeaShell;
-            this.button_add.Location = new System.Drawing.Point(23, 26);
+            this.button_add.Location = new System.Drawing.Point(129, 32);
             this.button_add.Name = "button_add";
             this.button_add.Size = new System.Drawing.Size(82, 40);
             this.button_add.TabIndex = 6;
@@ -196,7 +196,7 @@
             this.customer_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.customer_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customer_edit.ForeColor = System.Drawing.Color.SeaShell;
-            this.customer_edit.Location = new System.Drawing.Point(129, 26);
+            this.customer_edit.Location = new System.Drawing.Point(235, 32);
             this.customer_edit.Name = "customer_edit";
             this.customer_edit.Size = new System.Drawing.Size(82, 40);
             this.customer_edit.TabIndex = 7;
@@ -211,7 +211,8 @@
             this.customer_view.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.customer_view.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customer_view.ForeColor = System.Drawing.Color.SeaShell;
-            this.customer_view.Location = new System.Drawing.Point(232, 26);
+            this.customer_view.Location = new System.Drawing.Point(23, 32);
+
             this.customer_view.Name = "customer_view";
             this.customer_view.Size = new System.Drawing.Size(82, 40);
             this.customer_view.TabIndex = 8;
