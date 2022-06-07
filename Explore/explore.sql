@@ -53,11 +53,7 @@ CREATE TABLE Customer (
 	Driver_License NUMERIC(9,0) NOT NULL,
 	Gender NCHAR(1) NOT NULL,
 	DOB NUMERIC(8,0) NOT NULL,
-<<<<<<< HEAD
-	Membership NUMERIC(1) NULL,
-=======
 	Membership NCHAR(1) NOT NULL,
->>>>>>> master
 	Address_1 NCHAR(50) NOT NULL,
 	Address_2 NCHAR(50) NULL,
 	City NCHAR(20) NOT NULL,
