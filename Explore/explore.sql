@@ -16,7 +16,7 @@ CREATE TABLE Branch (
 	Address_2 NCHAR(50) NULL,
 	City NCHAR(20) NOT NULL,
 	Province NCHAR(2) NOT NULL,
-	Postal_code NCHAR(6) NOT NULL
+	Postal_Code NCHAR(6) NOT NULL
 );
 
 CREATE TABLE Branch_Phone (
@@ -53,14 +53,17 @@ CREATE TABLE Customer (
 	Driver_License NUMERIC(9,0) NOT NULL,
 	Gender NCHAR(1) NOT NULL,
 	DOB NUMERIC(8,0) NOT NULL,
+<<<<<<< HEAD
 	Membership NUMERIC(1) NULL,
+=======
+	Membership NCHAR(1) NOT NULL,
+>>>>>>> master
 	Address_1 NCHAR(50) NOT NULL,
 	Address_2 NCHAR(50) NULL,
 	City NCHAR(20) NOT NULL,
 	Province NCHAR(2) NOT NULL,
-	Postal_code NCHAR(6) NOT NULL,
+	Postal_Code NCHAR(6) NOT NULL,
 	Email NCHAR(50) NOT NULL,
-	Preferred_Branch NCHAR(4) FOREIGN KEY REFERENCES Branch(BID) NULL,
 );
 
 CREATE TABLE Customer_Phone (
@@ -72,16 +75,15 @@ CREATE TABLE Customer_Phone (
 CREATE TABLE Employee (
 	EID NCHAR(5) PRIMARY KEY,
 	BID NCHAR(4) FOREIGN KEY REFERENCES Branch(BID) NOT NULL,
-	Title NCHAR(10) NOT NULL,
 	First_Name NCHAR(20) NOT NULL,
 	Last_Name NCHAR(20) NOT NULL,
 	Address_1 NCHAR(50) NOT NULL,
 	Address_2 NCHAR(50) NULL,
 	City NCHAR(20) NOT NULL,
 	Province NCHAR(2) NOT NULL,
-	Postal_code NCHAR(6) NOT NULL,
+	Postal_Code NCHAR(6) NOT NULL,
 	Work_Email NCHAR(50) NOT NULL,
-	Person_Email NCHAR(50) NOT NULL,
+	Personal_Email NCHAR(50) NOT NULL,
 );
 
 CREATE TABLE Employee_Phone (
