@@ -212,6 +212,7 @@
             this.customer_view.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customer_view.ForeColor = System.Drawing.Color.SeaShell;
             this.customer_view.Location = new System.Drawing.Point(23, 32);
+
             this.customer_view.Name = "customer_view";
             this.customer_view.Size = new System.Drawing.Size(82, 40);
             this.customer_view.TabIndex = 8;

@@ -50,16 +50,19 @@
             this.Address_Label = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+
             this.City = new System.Windows.Forms.TextBox();
             this.City_Label = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PostalCode = new System.Windows.Forms.TextBox();
+
             this.PostalCode_Label = new System.Windows.Forms.Label();
             this.Province_Label = new System.Windows.Forms.Label();
             this.Province = new System.Windows.Forms.ComboBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.Membership_Label = new System.Windows.Forms.Label();
             this.Membership = new System.Windows.Forms.CheckBox();
+
             this.PhoneNumber_Panel = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.PhoneNumber = new System.Windows.Forms.TextBox();
@@ -68,12 +71,15 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.Email = new System.Windows.Forms.TextBox();
             this.Email_Label = new System.Windows.Forms.Label();
+
             this.CID_Panel.SuspendLayout();
             this.Name_Panel.SuspendLayout();
             this.Address_Panel.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel9.SuspendLayout();
+
             this.PhoneNumber_Panel.SuspendLayout();
+
             this.panel11.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -505,6 +511,7 @@
             this.Email_Label.Size = new System.Drawing.Size(62, 24);
             this.Email_Label.TabIndex = 10;
             this.Email_Label.Text = "Email:";
+
             // 
             // Customer_detail
             // 
@@ -512,7 +519,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.Controls.Add(this.panel11);
+
             this.Controls.Add(this.PhoneNumber_Panel);
+
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.Address_Panel);
@@ -535,8 +544,10 @@
             this.panel7.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+
             this.PhoneNumber_Panel.ResumeLayout(false);
             this.PhoneNumber_Panel.PerformLayout();
+
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.ResumeLayout(false);
@@ -569,14 +580,17 @@
         private System.Windows.Forms.ComboBox Province;
         private System.Windows.Forms.Label Province_Label;
         private System.Windows.Forms.Panel panel1;
+
         private System.Windows.Forms.TextBox PostalCode;
         private System.Windows.Forms.Label PostalCode_Label;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TextBox City;
+
         private System.Windows.Forms.Label City_Label;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.CheckBox Membership;
         private System.Windows.Forms.Label Membership_Label;
+
         private System.Windows.Forms.Panel PhoneNumber_Panel;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.TextBox PhoneNumber;
@@ -585,5 +599,6 @@
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.TextBox Email;
         private System.Windows.Forms.Label Email_Label;
+
     }
 }
