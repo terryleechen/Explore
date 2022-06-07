@@ -1,14 +1,14 @@
 use explore;
 
---DROP TABLE Rental_Transaction;
---DROP TABLE Branch;
---DROP TABLE Branch_Phone;
---DROP TABLE [Type];
---DROP TABLE Car;
---DROP TABLE Customer;
---DROP TABLE Customer_Phone;
---DROP TABLE Employee;
---DROP TABLE Employee_Phone;
+DROP TABLE Rental_Transaction;
+DROP TABLE Branch;
+DROP TABLE Branch_Phone;
+DROP TABLE [Type];
+DROP TABLE Car;
+DROP TABLE Customer;
+DROP TABLE Customer_Phone;
+DROP TABLE Employee;
+DROP TABLE Employee_Phone;
 
 CREATE TABLE Branch (
 	BID NCHAR(4) PRIMARY KEY,
@@ -53,7 +53,7 @@ CREATE TABLE Customer (
 	Driver_License NUMERIC(9,0) NOT NULL,
 	Gender NCHAR(1) NOT NULL,
 	DOB NUMERIC(8,0) NOT NULL,
-	Membership NUMERIC(1) NOT NULL,
+	Membership NUMERIC(1) NULL,
 	Address_1 NCHAR(50) NOT NULL,
 	Address_2 NCHAR(50) NULL,
 	City NCHAR(20) NOT NULL,
@@ -98,7 +98,6 @@ CREATE TABLE Rental_Transaction (
 	Pickup_Branch_ID NCHAR(4) FOREIGN KEY REFERENCES Branch(BID) NOT NULL,
 	Return_Branch_ID NCHAR(4) FOREIGN KEY REFERENCES Branch(BID) NULL,
 	EID_Pickup NCHAR(5) FOREIGN KEY REFERENCES Employee(EID) NOT NULL,
-	EID_Return NCHAR(5) FOREIGN KEY REFERENCES Employee(EID) NULL,
 	[Start_Date] NUMERIC(8,0) NOT NULL,
 	[End_Date] NUMERIC(8,0) NOT NULL,
 	Reservation_Price NUMERIC(5,2) NOT NULL,
