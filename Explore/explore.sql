@@ -53,14 +53,13 @@ CREATE TABLE Customer (
 	Driver_License NUMERIC(9,0) NOT NULL,
 	Gender NCHAR(1) NOT NULL,
 	DOB NUMERIC(8,0) NOT NULL,
-	Membership NUMERIC(1) NOT NULL,
+	Membership NCHAR(1) NOT NULL,
 	Address_1 NCHAR(50) NOT NULL,
 	Address_2 NCHAR(50) NULL,
 	City NCHAR(20) NOT NULL,
 	Province NCHAR(2) NOT NULL,
 	Postal_code NCHAR(6) NOT NULL,
 	Email NCHAR(50) NOT NULL,
-	Preferred_Branch NCHAR(4) FOREIGN KEY REFERENCES Branch(BID) NULL,
 );
 
 CREATE TABLE Customer_Phone (
