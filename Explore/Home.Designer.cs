@@ -28,35 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
+            this.main_car_picture = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.main_car_picture)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // main_car_picture
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label1.Location = new System.Drawing.Point(328, 167);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(299, 108);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.main_car_picture.Image = ((System.Drawing.Image)(resources.GetObject("main_car_picture.Image")));
+            this.main_car_picture.Location = new System.Drawing.Point(200, 21);
+            this.main_car_picture.Name = "main_car_picture";
+            this.main_car_picture.Size = new System.Drawing.Size(414, 418);
+            this.main_car_picture.TabIndex = 0;
+            this.main_car_picture.TabStop = false;
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.main_car_picture);
             this.Name = "Home";
             this.Size = new System.Drawing.Size(790, 460);
+            ((System.ComponentModel.ISupportInitialize)(this.main_car_picture)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox main_car_picture;
     }
 }
