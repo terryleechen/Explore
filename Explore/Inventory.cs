@@ -16,15 +16,5 @@ namespace Explore
         {
             InitializeComponent();
         }
-
-        private void employee_inventory_datagridview_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void selected_branch_combobox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
