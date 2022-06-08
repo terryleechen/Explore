@@ -59,18 +59,29 @@ namespace Explore
         private void Button_login_click(object sender, EventArgs e)
         {
             String ID = user_textbox.Text;
+            bool check = false;
 
             if (ID[0].ToString().ToUpper().Equals("E"))
             {
-                this.sql.Command().CommandText = "select EID from Employee";
+                this.sql.Query("select EID from Employee");
 
-                if(this.sql.Command().ExecuteScalar().ToString().Equals(user_textbox.Text))
+                while(this.sql.Reader().Read())
+                {
+                    if(this.sql.Reader()["EID"].ToString().Equals(user_textbox.Text))
+                    {
+                        check = true;
+                        
+                    }
+                    else
+                    {
+                        check = false;
+                    }
+
+                }
+
+                if (check)
                 {
                     this.employee_dashboard.Show();
-                }
-                else
-                {
-                    MessageBox.Show("error");
                 }
             }
             else if (ID[0].ToString().ToUpper() == "C")

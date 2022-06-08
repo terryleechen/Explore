@@ -9,9 +9,9 @@ namespace Explore
 {
     internal class SQL
     {
-        private readonly SqlConnection my_connection;
+        private SqlConnection my_connection;
         private SqlCommand my_command;
-        private readonly SqlDataReader my_reader;
+        private SqlDataReader my_reader;
 
         public SQL() 
         {
@@ -20,25 +20,42 @@ namespace Explore
             // ensure run explore.sql then exlpore_insert.sql
             // to login type "E0001" as employee
             // to login type "C000001" as customer
-            String connection_string = "Server = COMPUTER; Database = explore; Trusted_Connection = yes;";
-
-            SqlConnection my_connection = new SqlConnection(connection_string); // Timeout in seconds
-            my_connection.Open(); // Open connection
-
-            my_command = new SqlCommand();
-            my_command.Connection = my_connection;
-
-           
+            String connection_string = "Server = DESKTOP-781GNEK; Database = explore; Trusted_Connection = yes;";
+            my_connection = new SqlConnection(connection_string); // Timeout in seconds
+            
+            try
+            {
+                this.my_connection.Open();
+                this.my_command = new SqlCommand();
+                this.my_command.Connection = my_connection;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        
+        public void Insert(String statement)
+        {
+            this.my_command.CommandText = statement;
+            this.my_command.ExecuteNonQuery();
         }
 
-        public SqlCommand Command()
+
+        public void Query(String query)
         {
-            return my_command;
+            this.my_command.CommandText = query;
+            this.my_reader = this.my_command.ExecuteReader();
         }
 
         public SqlDataReader Reader()
         {
-            return my_reader;
+            return this.my_reader;
+        }
+
+        public void Close()
+        {
+            this.my_reader.Close();
         }
     }
 }
