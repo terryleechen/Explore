@@ -45,8 +45,8 @@
             this.pickup_combo = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
             this.start_date_picker = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.end_date_picker = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
@@ -88,7 +88,7 @@
             this.panel5.Controls.Add(this.customer_driver_license);
             this.panel5.Controls.Add(this.label3);
             this.panel5.ForeColor = System.Drawing.Color.SeaGreen;
-            this.panel5.Location = new System.Drawing.Point(30, 204);
+            this.panel5.Location = new System.Drawing.Point(30, 45);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(330, 51);
             this.panel5.TabIndex = 15;
@@ -130,7 +130,7 @@
             this.panel3.Controls.Add(this.customer_lastname);
             this.panel3.Controls.Add(this.label2);
             this.panel3.ForeColor = System.Drawing.Color.SeaGreen;
-            this.panel3.Location = new System.Drawing.Point(30, 127);
+            this.panel3.Location = new System.Drawing.Point(30, 209);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(330, 51);
             this.panel3.TabIndex = 14;
@@ -172,7 +172,7 @@
             this.panel1.Controls.Add(this.customer_firstname);
             this.panel1.Controls.Add(this.label4);
             this.panel1.ForeColor = System.Drawing.Color.SeaGreen;
-            this.panel1.Location = new System.Drawing.Point(30, 45);
+            this.panel1.Location = new System.Drawing.Point(30, 127);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(330, 51);
             this.panel1.TabIndex = 13;
@@ -248,6 +248,13 @@
             this.panel8.Size = new System.Drawing.Size(330, 51);
             this.panel8.TabIndex = 17;
             // 
+            // start_date_picker
+            // 
+            this.start_date_picker.Location = new System.Drawing.Point(103, 13);
+            this.start_date_picker.Name = "start_date_picker";
+            this.start_date_picker.Size = new System.Drawing.Size(190, 20);
+            this.start_date_picker.TabIndex = 1;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -258,13 +265,6 @@
             this.label6.Size = new System.Drawing.Size(94, 24);
             this.label6.TabIndex = 0;
             this.label6.Text = "Start Date:";
-            // 
-            // start_date_picker
-            // 
-            this.start_date_picker.Location = new System.Drawing.Point(103, 13);
-            this.start_date_picker.Name = "start_date_picker";
-            this.start_date_picker.Size = new System.Drawing.Size(190, 20);
-            this.start_date_picker.TabIndex = 1;
             // 
             // panel9
             // 
