@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="explore_dataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>explore_dataset.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SQL.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -175,6 +180,17 @@
     <EmbeddedResource Include="Return_detail.resx">
       <DependentUpon>Return_detail.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="explore_dataset.xsc">
+      <DependentUpon>explore_dataset.xsd</DependentUpon>
+    </None>
+    <None Include="explore_dataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>explore_dataset.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="explore_dataset.xss">
+      <DependentUpon>explore_dataset.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
