@@ -76,8 +76,13 @@
             this.Driver_License = new System.Windows.Forms.TextBox();
             this.DriverLicense_Label = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.DOB_Label = new System.Windows.Forms.Label();
             this.DOB = new System.Windows.Forms.DateTimePicker();
+            this.DOB_Label = new System.Windows.Forms.Label();
+            this.Gender_Panel = new System.Windows.Forms.Panel();
+            this.Gender_Label = new System.Windows.Forms.Label();
+            this.M = new System.Windows.Forms.RadioButton();
+            this.F = new System.Windows.Forms.RadioButton();
+            this.N = new System.Windows.Forms.RadioButton();
             this.CID_Panel.SuspendLayout();
             this.Name_Panel.SuspendLayout();
             this.Address_Panel.SuspendLayout();
@@ -87,6 +92,7 @@
             this.Email_Panel.SuspendLayout();
             this.DriverLicense_Panel.SuspendLayout();
             this.panel10.SuspendLayout();
+            this.Gender_Panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // customer_save
@@ -605,6 +611,14 @@
             this.panel10.Size = new System.Drawing.Size(377, 79);
             this.panel10.TabIndex = 18;
             // 
+            // DOB
+            // 
+            this.DOB.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.DOB.Location = new System.Drawing.Point(84, 13);
+            this.DOB.Name = "DOB";
+            this.DOB.Size = new System.Drawing.Size(240, 20);
+            this.DOB.TabIndex = 14;
+            // 
             // DOB_Label
             // 
             this.DOB_Label.AutoSize = true;
@@ -615,19 +629,69 @@
             this.DOB_Label.TabIndex = 13;
             this.DOB_Label.Text = "DOB:";
             // 
-            // DOB
+            // Gender_Panel
             // 
-            this.DOB.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.DOB.Location = new System.Drawing.Point(84, 13);
-            this.DOB.Name = "DOB";
-            this.DOB.Size = new System.Drawing.Size(240, 20);
-            this.DOB.TabIndex = 14;
+            this.Gender_Panel.Controls.Add(this.N);
+            this.Gender_Panel.Controls.Add(this.F);
+            this.Gender_Panel.Controls.Add(this.M);
+            this.Gender_Panel.Controls.Add(this.Gender_Label);
+            this.Gender_Panel.Location = new System.Drawing.Point(507, 333);
+            this.Gender_Panel.Name = "Gender_Panel";
+            this.Gender_Panel.Size = new System.Drawing.Size(255, 85);
+            this.Gender_Panel.TabIndex = 19;
+            // 
+            // Gender_Label
+            // 
+            this.Gender_Label.AutoSize = true;
+            this.Gender_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Gender_Label.Location = new System.Drawing.Point(13, 10);
+            this.Gender_Label.Name = "Gender_Label";
+            this.Gender_Label.Size = new System.Drawing.Size(79, 24);
+            this.Gender_Label.TabIndex = 14;
+            this.Gender_Label.Text = "Gender:";
+            // 
+            // M
+            // 
+            this.M.AutoSize = true;
+            this.M.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.M.Location = new System.Drawing.Point(96, 6);
+            this.M.Name = "M";
+            this.M.Size = new System.Drawing.Size(69, 28);
+            this.M.TabIndex = 15;
+            this.M.TabStop = true;
+            this.M.Text = "Male";
+            this.M.UseVisualStyleBackColor = true;
+            // 
+            // F
+            // 
+            this.F.AutoSize = true;
+            this.F.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.F.Location = new System.Drawing.Point(96, 29);
+            this.F.Name = "F";
+            this.F.Size = new System.Drawing.Size(92, 28);
+            this.F.TabIndex = 16;
+            this.F.TabStop = true;
+            this.F.Text = "Female";
+            this.F.UseVisualStyleBackColor = true;
+            // 
+            // N
+            // 
+            this.N.AutoSize = true;
+            this.N.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.N.Location = new System.Drawing.Point(96, 52);
+            this.N.Name = "N";
+            this.N.Size = new System.Drawing.Size(153, 28);
+            this.N.TabIndex = 17;
+            this.N.TabStop = true;
+            this.N.Text = "Rather Not Say";
+            this.N.UseVisualStyleBackColor = true;
             // 
             // Customer_detail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.Controls.Add(this.Gender_Panel);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.DriverLicense_Panel);
             this.Controls.Add(this.Email_Panel);
@@ -662,6 +726,8 @@
             this.DriverLicense_Panel.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
+            this.Gender_Panel.ResumeLayout(false);
+            this.Gender_Panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -721,5 +787,10 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label DOB_Label;
         private System.Windows.Forms.DateTimePicker DOB;
+        private System.Windows.Forms.Panel Gender_Panel;
+        private System.Windows.Forms.RadioButton N;
+        private System.Windows.Forms.RadioButton F;
+        private System.Windows.Forms.RadioButton M;
+        private System.Windows.Forms.Label Gender_Label;
     }
 }
