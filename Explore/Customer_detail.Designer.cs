@@ -33,15 +33,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.CID_Label = new System.Windows.Forms.Label();
             this.CID_Panel = new System.Windows.Forms.Panel();
-            this.CID = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.CID = new System.Windows.Forms.TextBox();
             this.Name_Panel = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.FirstName = new System.Windows.Forms.TextBox();
-            this.FirstName_Label = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.LastName = new System.Windows.Forms.TextBox();
             this.LastName_Label = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.FirstName = new System.Windows.Forms.TextBox();
+            this.FirstName_Label = new System.Windows.Forms.Label();
             this.Address_Panel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Address_2 = new System.Windows.Forms.TextBox();
@@ -49,20 +49,17 @@
             this.Address_1 = new System.Windows.Forms.TextBox();
             this.Address_Label = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-
-            this.City = new System.Windows.Forms.TextBox();
-            this.City_Label = new System.Windows.Forms.Label();
+            this.Province = new System.Windows.Forms.ComboBox();
+            this.Province_Label = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PostalCode = new System.Windows.Forms.TextBox();
-
             this.PostalCode_Label = new System.Windows.Forms.Label();
-            this.Province_Label = new System.Windows.Forms.Label();
-            this.Province = new System.Windows.Forms.ComboBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.City = new System.Windows.Forms.TextBox();
+            this.City_Label = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.Membership_Label = new System.Windows.Forms.Label();
             this.Membership = new System.Windows.Forms.CheckBox();
-
+            this.Membership_Label = new System.Windows.Forms.Label();
             this.PhoneNumber_Panel = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.PhoneNumber = new System.Windows.Forms.TextBox();
@@ -71,15 +68,12 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.Email = new System.Windows.Forms.TextBox();
             this.Email_Label = new System.Windows.Forms.Label();
-
             this.CID_Panel.SuspendLayout();
             this.Name_Panel.SuspendLayout();
             this.Address_Panel.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel9.SuspendLayout();
-
             this.PhoneNumber_Panel.SuspendLayout();
-
             this.panel11.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -142,6 +136,15 @@
             this.CID_Panel.Size = new System.Drawing.Size(196, 46);
             this.CID_Panel.TabIndex = 11;
             // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.SeaShell;
+            this.panel6.ForeColor = System.Drawing.Color.SeaShell;
+            this.panel6.Location = new System.Drawing.Point(60, 34);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(125, 1);
+            this.panel6.TabIndex = 12;
+            // 
             // CID
             // 
             this.CID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
@@ -153,15 +156,6 @@
             this.CID.Name = "CID";
             this.CID.Size = new System.Drawing.Size(125, 22);
             this.CID.TabIndex = 11;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.SeaShell;
-            this.panel6.ForeColor = System.Drawing.Color.SeaShell;
-            this.panel6.Location = new System.Drawing.Point(60, 34);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(125, 1);
-            this.panel6.TabIndex = 12;
             // 
             // Name_Panel
             // 
@@ -175,37 +169,6 @@
             this.Name_Panel.Name = "Name_Panel";
             this.Name_Panel.Size = new System.Drawing.Size(401, 101);
             this.Name_Panel.TabIndex = 13;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.SeaShell;
-            this.panel3.ForeColor = System.Drawing.Color.SeaShell;
-            this.panel3.Location = new System.Drawing.Point(121, 38);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(185, 1);
-            this.panel3.TabIndex = 12;
-            // 
-            // FirstName
-            // 
-            this.FirstName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.FirstName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.FirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FirstName.ForeColor = System.Drawing.Color.SeaShell;
-            this.FirstName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.FirstName.Location = new System.Drawing.Point(121, 11);
-            this.FirstName.Name = "FirstName";
-            this.FirstName.Size = new System.Drawing.Size(185, 22);
-            this.FirstName.TabIndex = 11;
-            // 
-            // FirstName_Label
-            // 
-            this.FirstName_Label.AutoSize = true;
-            this.FirstName_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FirstName_Label.Location = new System.Drawing.Point(9, 15);
-            this.FirstName_Label.Name = "FirstName_Label";
-            this.FirstName_Label.Size = new System.Drawing.Size(106, 24);
-            this.FirstName_Label.TabIndex = 10;
-            this.FirstName_Label.Text = "First Name:";
             // 
             // panel4
             // 
@@ -237,6 +200,37 @@
             this.LastName_Label.Size = new System.Drawing.Size(104, 24);
             this.LastName_Label.TabIndex = 13;
             this.LastName_Label.Text = "Last Name:";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.SeaShell;
+            this.panel3.ForeColor = System.Drawing.Color.SeaShell;
+            this.panel3.Location = new System.Drawing.Point(121, 38);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(185, 1);
+            this.panel3.TabIndex = 12;
+            // 
+            // FirstName
+            // 
+            this.FirstName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.FirstName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.FirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FirstName.ForeColor = System.Drawing.Color.SeaShell;
+            this.FirstName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.FirstName.Location = new System.Drawing.Point(121, 11);
+            this.FirstName.Name = "FirstName";
+            this.FirstName.Size = new System.Drawing.Size(185, 22);
+            this.FirstName.TabIndex = 11;
+            // 
+            // FirstName_Label
+            // 
+            this.FirstName_Label.AutoSize = true;
+            this.FirstName_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FirstName_Label.Location = new System.Drawing.Point(9, 15);
+            this.FirstName_Label.Name = "FirstName_Label";
+            this.FirstName_Label.Size = new System.Drawing.Size(106, 24);
+            this.FirstName_Label.TabIndex = 10;
+            this.FirstName_Label.Text = "First Name:";
             // 
             // Address_Panel
             // 
@@ -317,36 +311,25 @@
             this.panel7.Size = new System.Drawing.Size(440, 86);
             this.panel7.TabIndex = 13;
             // 
-            // panel8
+            // Province
             // 
-            this.panel8.BackColor = System.Drawing.Color.SeaShell;
-            this.panel8.ForeColor = System.Drawing.Color.SeaShell;
-            this.panel8.Location = new System.Drawing.Point(60, 34);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(125, 1);
-            this.panel8.TabIndex = 12;
+            this.Province.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.Province.ForeColor = System.Drawing.Color.SeaShell;
+            this.Province.FormattingEnabled = true;
+            this.Province.Location = new System.Drawing.Point(296, 12);
+            this.Province.Name = "Province";
+            this.Province.Size = new System.Drawing.Size(121, 21);
+            this.Province.TabIndex = 17;
             // 
-            // City
+            // Province_Label
             // 
-            this.City.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.City.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.City.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.City.ForeColor = System.Drawing.Color.SeaShell;
-            this.City.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.City.Location = new System.Drawing.Point(60, 7);
-            this.City.Name = "City";
-            this.City.Size = new System.Drawing.Size(125, 22);
-            this.City.TabIndex = 11;
-            // 
-            // City_Label
-            // 
-            this.City_Label.AutoSize = true;
-            this.City_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.City_Label.Location = new System.Drawing.Point(9, 11);
-            this.City_Label.Name = "City_Label";
-            this.City_Label.Size = new System.Drawing.Size(45, 24);
-            this.City_Label.TabIndex = 10;
-            this.City_Label.Text = "City:";
+            this.Province_Label.AutoSize = true;
+            this.Province_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Province_Label.Location = new System.Drawing.Point(201, 11);
+            this.Province_Label.Name = "Province_Label";
+            this.Province_Label.Size = new System.Drawing.Size(89, 24);
+            this.Province_Label.TabIndex = 16;
+            this.Province_Label.Text = "Province:";
             // 
             // panel1
             // 
@@ -379,25 +362,36 @@
             this.PostalCode_Label.TabIndex = 13;
             this.PostalCode_Label.Text = "Postal Code:";
             // 
-            // Province_Label
+            // panel8
             // 
-            this.Province_Label.AutoSize = true;
-            this.Province_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Province_Label.Location = new System.Drawing.Point(201, 11);
-            this.Province_Label.Name = "Province_Label";
-            this.Province_Label.Size = new System.Drawing.Size(89, 24);
-            this.Province_Label.TabIndex = 16;
-            this.Province_Label.Text = "Province:";
+            this.panel8.BackColor = System.Drawing.Color.SeaShell;
+            this.panel8.ForeColor = System.Drawing.Color.SeaShell;
+            this.panel8.Location = new System.Drawing.Point(60, 34);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(125, 1);
+            this.panel8.TabIndex = 12;
             // 
-            // Province
+            // City
             // 
-            this.Province.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.Province.ForeColor = System.Drawing.Color.SeaShell;
-            this.Province.FormattingEnabled = true;
-            this.Province.Location = new System.Drawing.Point(296, 12);
-            this.Province.Name = "Province";
-            this.Province.Size = new System.Drawing.Size(121, 21);
-            this.Province.TabIndex = 17;
+            this.City.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.City.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.City.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.City.ForeColor = System.Drawing.Color.SeaShell;
+            this.City.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.City.Location = new System.Drawing.Point(60, 7);
+            this.City.Name = "City";
+            this.City.Size = new System.Drawing.Size(125, 22);
+            this.City.TabIndex = 11;
+            // 
+            // City_Label
+            // 
+            this.City_Label.AutoSize = true;
+            this.City_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.City_Label.Location = new System.Drawing.Point(9, 11);
+            this.City_Label.Name = "City_Label";
+            this.City_Label.Size = new System.Drawing.Size(45, 24);
+            this.City_Label.TabIndex = 10;
+            this.City_Label.Text = "City:";
             // 
             // panel9
             // 
@@ -408,6 +402,19 @@
             this.panel9.Size = new System.Drawing.Size(196, 46);
             this.panel9.TabIndex = 13;
             // 
+            // Membership
+            // 
+            this.Membership.Appearance = System.Windows.Forms.Appearance.Button;
+            this.Membership.AutoSize = true;
+            this.Membership.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Membership.Location = new System.Drawing.Point(136, 15);
+            this.Membership.MaximumSize = new System.Drawing.Size(25, 25);
+            this.Membership.MinimumSize = new System.Drawing.Size(20, 20);
+            this.Membership.Name = "Membership";
+            this.Membership.Size = new System.Drawing.Size(20, 20);
+            this.Membership.TabIndex = 11;
+            this.Membership.UseVisualStyleBackColor = true;
+            // 
             // Membership_Label
             // 
             this.Membership_Label.AutoSize = true;
@@ -417,18 +424,6 @@
             this.Membership_Label.Size = new System.Drawing.Size(121, 24);
             this.Membership_Label.TabIndex = 10;
             this.Membership_Label.Text = "Membership:";
-            // 
-            // Membership
-            // 
-            this.Membership.Appearance = System.Windows.Forms.Appearance.Button;
-            this.Membership.AutoSize = true;
-            this.Membership.Location = new System.Drawing.Point(136, 15);
-            this.Membership.MaximumSize = new System.Drawing.Size(25, 25);
-            this.Membership.MinimumSize = new System.Drawing.Size(20, 20);
-            this.Membership.Name = "Membership";
-            this.Membership.Size = new System.Drawing.Size(20, 20);
-            this.Membership.TabIndex = 11;
-            this.Membership.UseVisualStyleBackColor = true;
             // 
             // PhoneNumber_Panel
             // 
@@ -511,7 +506,6 @@
             this.Email_Label.Size = new System.Drawing.Size(62, 24);
             this.Email_Label.TabIndex = 10;
             this.Email_Label.Text = "Email:";
-
             // 
             // Customer_detail
             // 
@@ -519,9 +513,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.Controls.Add(this.panel11);
-
             this.Controls.Add(this.PhoneNumber_Panel);
-
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.Address_Panel);
@@ -544,10 +536,8 @@
             this.panel7.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-
             this.PhoneNumber_Panel.ResumeLayout(false);
             this.PhoneNumber_Panel.PerformLayout();
-
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.ResumeLayout(false);

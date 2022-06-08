@@ -15,11 +15,6 @@ namespace Explore
     {
         private Employee_dashboard employee_dashboard;
         private Customer_dashboard customer_page;
-        /*
-        private SqlConnection connection;
-        private SqlCommand command;
-        private SqlDataReader reader;
-        */
         private SQL sql;
 
         public Login_page(Employee_dashboard employee_dashboard, Customer_dashboard customer_page)
@@ -30,20 +25,6 @@ namespace Explore
 
             // sql
             this.sql = new SQL();
-
-            // make sure to change the server to yours computer name
-            // first time running this will need to create the database name it explore
-            // ensure run explore.sql then exlpore_insert.sql
-            // to login type "E0001" as employee
-            // to login type "C000001" as customer
-            /*
-            String connection_string = "Server = DESKTOP-781GNEK; Database = explore; Trusted_Connection = yes;";
-            connection = new SqlConnection(connection_string);
-            connection.Open();
-            command = new SqlCommand();
-            command.Connection = connection;
-            */
-
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -59,19 +40,31 @@ namespace Explore
         private void Button_login_click(object sender, EventArgs e)
         {
             String ID = user_textbox.Text;
+            bool check = false;
 
             if (ID[0].ToString().ToUpper().Equals("E"))
             {
-                this.sql.Command().CommandText = "select EID from Employee";
+                this.sql.Query("select EID from Employee");
 
-                if(this.sql.Command().ExecuteScalar().ToString().Equals(user_textbox.Text))
+                while(this.sql.Reader().Read())
+                {
+                    if(this.sql.Reader()["EID"].ToString().Equals(user_textbox.Text))
+                    {
+                        check = true;
+                        break;
+                        
+                    }
+                    else
+                    {
+                        check = false;
+                    }
+                }
+
+                if (check)
                 {
                     this.employee_dashboard.Show();
                 }
-                else
-                {
-                    MessageBox.Show("error");
-                }
+                this.sql.Close();
             }
             else if (ID[0].ToString().ToUpper() == "C")
             {
