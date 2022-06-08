@@ -64,17 +64,29 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.PhoneNumber = new System.Windows.Forms.TextBox();
             this.PhoneNumber_Label = new System.Windows.Forms.Label();
-            this.panel11 = new System.Windows.Forms.Panel();
+            this.Email_Panel = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.Email = new System.Windows.Forms.TextBox();
             this.Email_Label = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.DriverLicense_Panel = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.Driver_License = new System.Windows.Forms.TextBox();
+            this.DriverLicense_Label = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.DOB_Label = new System.Windows.Forms.Label();
+            this.DOB = new System.Windows.Forms.DateTimePicker();
             this.CID_Panel.SuspendLayout();
             this.Name_Panel.SuspendLayout();
             this.Address_Panel.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel9.SuspendLayout();
             this.PhoneNumber_Panel.SuspendLayout();
-            this.panel11.SuspendLayout();
+            this.Email_Panel.SuspendLayout();
+            this.DriverLicense_Panel.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // customer_save
@@ -167,7 +179,7 @@
             this.Name_Panel.Controls.Add(this.FirstName_Label);
             this.Name_Panel.Location = new System.Drawing.Point(26, 146);
             this.Name_Panel.Name = "Name_Panel";
-            this.Name_Panel.Size = new System.Drawing.Size(401, 101);
+            this.Name_Panel.Size = new System.Drawing.Size(352, 95);
             this.Name_Panel.TabIndex = 13;
             // 
             // panel4
@@ -239,16 +251,16 @@
             this.Address_Panel.Controls.Add(this.panel5);
             this.Address_Panel.Controls.Add(this.Address_1);
             this.Address_Panel.Controls.Add(this.Address_Label);
-            this.Address_Panel.Location = new System.Drawing.Point(26, 253);
+            this.Address_Panel.Location = new System.Drawing.Point(26, 247);
             this.Address_Panel.Name = "Address_Panel";
-            this.Address_Panel.Size = new System.Drawing.Size(401, 101);
+            this.Address_Panel.Size = new System.Drawing.Size(352, 79);
             this.Address_Panel.TabIndex = 16;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.SeaShell;
             this.panel2.ForeColor = System.Drawing.Color.SeaShell;
-            this.panel2.Location = new System.Drawing.Point(121, 85);
+            this.panel2.Location = new System.Drawing.Point(121, 68);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(185, 1);
             this.panel2.TabIndex = 15;
@@ -260,7 +272,7 @@
             this.Address_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Address_2.ForeColor = System.Drawing.Color.SeaShell;
             this.Address_2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Address_2.Location = new System.Drawing.Point(121, 58);
+            this.Address_2.Location = new System.Drawing.Point(121, 41);
             this.Address_2.Name = "Address_2";
             this.Address_2.Size = new System.Drawing.Size(185, 22);
             this.Address_2.TabIndex = 14;
@@ -269,7 +281,7 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.SeaShell;
             this.panel5.ForeColor = System.Drawing.Color.SeaShell;
-            this.panel5.Location = new System.Drawing.Point(121, 38);
+            this.panel5.Location = new System.Drawing.Point(121, 34);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(185, 1);
             this.panel5.TabIndex = 12;
@@ -281,7 +293,7 @@
             this.Address_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Address_1.ForeColor = System.Drawing.Color.SeaShell;
             this.Address_1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Address_1.Location = new System.Drawing.Point(121, 11);
+            this.Address_1.Location = new System.Drawing.Point(121, 7);
             this.Address_1.Name = "Address_1";
             this.Address_1.Size = new System.Drawing.Size(185, 22);
             this.Address_1.TabIndex = 11;
@@ -290,7 +302,7 @@
             // 
             this.Address_Label.AutoSize = true;
             this.Address_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Address_Label.Location = new System.Drawing.Point(9, 15);
+            this.Address_Label.Location = new System.Drawing.Point(9, 11);
             this.Address_Label.Name = "Address_Label";
             this.Address_Label.Size = new System.Drawing.Size(85, 24);
             this.Address_Label.TabIndex = 10;
@@ -306,19 +318,34 @@
             this.panel7.Controls.Add(this.panel8);
             this.panel7.Controls.Add(this.City);
             this.panel7.Controls.Add(this.City_Label);
-            this.panel7.Location = new System.Drawing.Point(26, 360);
+            this.panel7.Location = new System.Drawing.Point(26, 332);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(440, 86);
+            this.panel7.Size = new System.Drawing.Size(474, 86);
             this.panel7.TabIndex = 13;
             // 
             // Province
             // 
             this.Province.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.Province.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Province.ForeColor = System.Drawing.Color.SeaShell;
             this.Province.FormattingEnabled = true;
-            this.Province.Location = new System.Drawing.Point(296, 12);
+            this.Province.Items.AddRange(new object[] {
+            "Alberta",
+            "British Columbia",
+            "Manitoba",
+            "New Brunswick",
+            "Newfoundland & Labrador",
+            "Northwest Territories",
+            "Nova Scotia",
+            "Nunavut",
+            "Ontario",
+            "Prince Edward Island",
+            "Quebec",
+            "Saskatchewan",
+            "Yukon Territories"});
+            this.Province.Location = new System.Drawing.Point(292, 7);
             this.Province.Name = "Province";
-            this.Province.Size = new System.Drawing.Size(121, 21);
+            this.Province.Size = new System.Drawing.Size(175, 28);
             this.Province.TabIndex = 17;
             // 
             // Province_Label
@@ -407,7 +434,7 @@
             this.Membership.Appearance = System.Windows.Forms.Appearance.Button;
             this.Membership.AutoSize = true;
             this.Membership.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Membership.Location = new System.Drawing.Point(136, 15);
+            this.Membership.Location = new System.Drawing.Point(136, 19);
             this.Membership.MaximumSize = new System.Drawing.Size(25, 25);
             this.Membership.MinimumSize = new System.Drawing.Size(20, 20);
             this.Membership.Name = "Membership";
@@ -419,7 +446,7 @@
             // 
             this.Membership_Label.AutoSize = true;
             this.Membership_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Membership_Label.Location = new System.Drawing.Point(9, 11);
+            this.Membership_Label.Location = new System.Drawing.Point(9, 15);
             this.Membership_Label.Name = "Membership_Label";
             this.Membership_Label.Size = new System.Drawing.Size(121, 24);
             this.Membership_Label.TabIndex = 10;
@@ -430,16 +457,16 @@
             this.PhoneNumber_Panel.Controls.Add(this.panel12);
             this.PhoneNumber_Panel.Controls.Add(this.PhoneNumber);
             this.PhoneNumber_Panel.Controls.Add(this.PhoneNumber_Label);
-            this.PhoneNumber_Panel.Location = new System.Drawing.Point(433, 146);
+            this.PhoneNumber_Panel.Location = new System.Drawing.Point(384, 146);
             this.PhoneNumber_Panel.Name = "PhoneNumber_Panel";
-            this.PhoneNumber_Panel.Size = new System.Drawing.Size(337, 56);
+            this.PhoneNumber_Panel.Size = new System.Drawing.Size(378, 46);
             this.PhoneNumber_Panel.TabIndex = 16;
             // 
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.SeaShell;
             this.panel12.ForeColor = System.Drawing.Color.SeaShell;
-            this.panel12.Location = new System.Drawing.Point(152, 38);
+            this.panel12.Location = new System.Drawing.Point(160, 38);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(165, 1);
             this.panel12.TabIndex = 12;
@@ -451,7 +478,7 @@
             this.PhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PhoneNumber.ForeColor = System.Drawing.Color.SeaShell;
             this.PhoneNumber.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.PhoneNumber.Location = new System.Drawing.Point(152, 11);
+            this.PhoneNumber.Location = new System.Drawing.Point(160, 11);
             this.PhoneNumber.Name = "PhoneNumber";
             this.PhoneNumber.Size = new System.Drawing.Size(165, 22);
             this.PhoneNumber.TabIndex = 11;
@@ -466,15 +493,15 @@
             this.PhoneNumber_Label.TabIndex = 10;
             this.PhoneNumber_Label.Text = "Phone Number:";
             // 
-            // panel11
+            // Email_Panel
             // 
-            this.panel11.Controls.Add(this.panel13);
-            this.panel11.Controls.Add(this.Email);
-            this.panel11.Controls.Add(this.Email_Label);
-            this.panel11.Location = new System.Drawing.Point(433, 208);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(337, 56);
-            this.panel11.TabIndex = 17;
+            this.Email_Panel.Controls.Add(this.panel13);
+            this.Email_Panel.Controls.Add(this.Email);
+            this.Email_Panel.Controls.Add(this.Email_Label);
+            this.Email_Panel.Location = new System.Drawing.Point(384, 195);
+            this.Email_Panel.Name = "Email_Panel";
+            this.Email_Panel.Size = new System.Drawing.Size(378, 46);
+            this.Email_Panel.TabIndex = 17;
             // 
             // panel13
             // 
@@ -482,7 +509,7 @@
             this.panel13.ForeColor = System.Drawing.Color.SeaShell;
             this.panel13.Location = new System.Drawing.Point(77, 38);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(240, 1);
+            this.panel13.Size = new System.Drawing.Size(248, 1);
             this.panel13.TabIndex = 12;
             // 
             // Email
@@ -494,7 +521,7 @@
             this.Email.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Email.Location = new System.Drawing.Point(77, 11);
             this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(240, 22);
+            this.Email.Size = new System.Drawing.Size(248, 22);
             this.Email.TabIndex = 11;
             // 
             // Email_Label
@@ -507,12 +534,103 @@
             this.Email_Label.TabIndex = 10;
             this.Email_Label.Text = "Email:";
             // 
+            // panel14
+            // 
+            this.panel14.Location = new System.Drawing.Point(0, 0);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(200, 100);
+            this.panel14.TabIndex = 0;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(0, 0);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 23);
+            this.label2.TabIndex = 0;
+            // 
+            // DriverLicense_Panel
+            // 
+            this.DriverLicense_Panel.Controls.Add(this.panel15);
+            this.DriverLicense_Panel.Controls.Add(this.Driver_License);
+            this.DriverLicense_Panel.Controls.Add(this.DriverLicense_Label);
+            this.DriverLicense_Panel.Location = new System.Drawing.Point(433, 94);
+            this.DriverLicense_Panel.Name = "DriverLicense_Panel";
+            this.DriverLicense_Panel.Size = new System.Drawing.Size(329, 46);
+            this.DriverLicense_Panel.TabIndex = 13;
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.SeaShell;
+            this.panel15.ForeColor = System.Drawing.Color.SeaShell;
+            this.panel15.Location = new System.Drawing.Point(170, 34);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(150, 1);
+            this.panel15.TabIndex = 12;
+            // 
+            // Driver_License
+            // 
+            this.Driver_License.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.Driver_License.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Driver_License.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Driver_License.ForeColor = System.Drawing.Color.SeaShell;
+            this.Driver_License.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Driver_License.Location = new System.Drawing.Point(170, 7);
+            this.Driver_License.Name = "Driver_License";
+            this.Driver_License.Size = new System.Drawing.Size(150, 22);
+            this.Driver_License.TabIndex = 11;
+            // 
+            // DriverLicense_Label
+            // 
+            this.DriverLicense_Label.AutoSize = true;
+            this.DriverLicense_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DriverLicense_Label.Location = new System.Drawing.Point(9, 15);
+            this.DriverLicense_Label.Name = "DriverLicense_Label";
+            this.DriverLicense_Label.Size = new System.Drawing.Size(155, 24);
+            this.DriverLicense_Label.TabIndex = 10;
+            this.DriverLicense_Label.Text = "License Number:";
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.DOB);
+            this.panel10.Controls.Add(this.DOB_Label);
+            this.panel10.Location = new System.Drawing.Point(385, 247);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(377, 79);
+            this.panel10.TabIndex = 18;
+            // 
+            // DOB_Label
+            // 
+            this.DOB_Label.AutoSize = true;
+            this.DOB_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DOB_Label.Location = new System.Drawing.Point(8, 11);
+            this.DOB_Label.Name = "DOB_Label";
+            this.DOB_Label.Size = new System.Drawing.Size(55, 24);
+            this.DOB_Label.TabIndex = 13;
+            this.DOB_Label.Text = "DOB:";
+            // 
+            // DOB
+            // 
+            this.DOB.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.DOB.Location = new System.Drawing.Point(84, 13);
+            this.DOB.Name = "DOB";
+            this.DOB.Size = new System.Drawing.Size(240, 20);
+            this.DOB.TabIndex = 14;
+            // 
             // Customer_detail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.Controls.Add(this.panel11);
+            this.Controls.Add(this.panel10);
+            this.Controls.Add(this.DriverLicense_Panel);
+            this.Controls.Add(this.Email_Panel);
             this.Controls.Add(this.PhoneNumber_Panel);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel7);
@@ -538,8 +656,12 @@
             this.panel9.PerformLayout();
             this.PhoneNumber_Panel.ResumeLayout(false);
             this.PhoneNumber_Panel.PerformLayout();
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
+            this.Email_Panel.ResumeLayout(false);
+            this.Email_Panel.PerformLayout();
+            this.DriverLicense_Panel.ResumeLayout(false);
+            this.DriverLicense_Panel.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -585,10 +707,19 @@
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.TextBox PhoneNumber;
         private System.Windows.Forms.Label PhoneNumber_Label;
-        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel Email_Panel;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.TextBox Email;
         private System.Windows.Forms.Label Email_Label;
-
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel DriverLicense_Panel;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.TextBox Driver_License;
+        private System.Windows.Forms.Label DriverLicense_Label;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label DOB_Label;
+        private System.Windows.Forms.DateTimePicker DOB;
     }
 }
