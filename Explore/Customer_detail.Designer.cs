@@ -644,7 +644,7 @@
             // 
             this.Gender_Label.AutoSize = true;
             this.Gender_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Gender_Label.Location = new System.Drawing.Point(13, 10);
+            this.Gender_Label.Location = new System.Drawing.Point(0, 14);
             this.Gender_Label.Name = "Gender_Label";
             this.Gender_Label.Size = new System.Drawing.Size(79, 24);
             this.Gender_Label.TabIndex = 14;
@@ -654,7 +654,7 @@
             // 
             this.M.AutoSize = true;
             this.M.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.M.Location = new System.Drawing.Point(96, 6);
+            this.M.Location = new System.Drawing.Point(83, 10);
             this.M.Name = "M";
             this.M.Size = new System.Drawing.Size(69, 28);
             this.M.TabIndex = 15;
@@ -666,7 +666,7 @@
             // 
             this.F.AutoSize = true;
             this.F.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.F.Location = new System.Drawing.Point(96, 29);
+            this.F.Location = new System.Drawing.Point(83, 33);
             this.F.Name = "F";
             this.F.Size = new System.Drawing.Size(92, 28);
             this.F.TabIndex = 16;
@@ -678,12 +678,12 @@
             // 
             this.N.AutoSize = true;
             this.N.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.N.Location = new System.Drawing.Point(96, 52);
+            this.N.Location = new System.Drawing.Point(83, 56);
             this.N.Name = "N";
-            this.N.Size = new System.Drawing.Size(153, 28);
+            this.N.Size = new System.Drawing.Size(176, 28);
             this.N.TabIndex = 17;
             this.N.TabStop = true;
-            this.N.Text = "Rather Not Say";
+            this.N.Text = "Prefer Not To Say";
             this.N.UseVisualStyleBackColor = true;
             // 
             // Customer_detail
