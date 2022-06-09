@@ -29,13 +29,72 @@ namespace Explore
 
         private void Button_edit_click(object sender, EventArgs e)
         {
+            String driver_license = customer_driver_license.Text;
+            bool check = false;
+            this.customer_driver_license.Clear();
 
+            if (driver_license == null)
+            {
+                MessageBox.Show("Please enter a valid driver's license number");
+                this.sql.Close();
+            }
+            else
+            {
+                this.sql.Query("select Driver_License from Customer");
+                while (this.sql.Reader().Read())
+                {
+                    if (this.sql.Reader()["Driver_License"].ToString().Equals(driver_license))
+                    {
+                        check = true;
+                        this.sql.Close();
+                        break;
+                    }
+                }
+
+                if (check == true)
+                {
+                    this.sql.Query("select * from Customer where Driver_License = " + driver_license);
+                    this.customer_detail.Clear();
+                    while (this.sql.Reader().Read())
+                    {
+                        this.customer_detail.Edit(
+                            this.sql.Reader()["CID"].ToString().Trim(),
+                            this.sql.Reader()["First_Name"].ToString().Trim(),
+                            this.sql.Reader()["Last_Name"].ToString().Trim(),
+                            this.sql.Reader()["Driver_License"].ToString().Trim(),
+                            this.sql.Reader()["Address_1"].ToString().Trim(),
+                            this.sql.Reader()["Address_2"].ToString().Trim(),
+                            this.sql.Reader()["City"].ToString().Trim(),
+                            this.sql.Reader()["Postal_code"].ToString().Trim(),
+                            this.sql.Reader()["Email"].ToString().Trim(),
+                            this.sql.Reader()["Membership"].ToString(),
+                            this.sql.Reader()["DOB"].ToString(),
+                            this.sql.Reader()["Province"].ToString(),
+                            this.sql.Reader()["Gender"].ToString());
+                    }
+                    this.sql.Close();
+                    this.sql.Query("select Phone_Number from Customer, Customer_Phone " +
+                        "where Customer.CID = Customer_Phone.CID and Customer.Driver_License = " + driver_license);
+                    while (this.sql.Reader().Read())
+                    {
+                        this.customer_detail.UpdatePhoneNumber(this.sql.Reader()["Phone_Number"].ToString().Trim());
+                    }
+                    this.customer_detail.Show();
+                }
+                else
+                {
+                    MessageBox.Show("No such customer exists");
+
+                }
+                this.sql.Close();
+            }
         }
 
         private void Button_view_click(object sender, EventArgs e)
         {
             String driver_license = customer_driver_license.Text;
             bool check = false;
+            this.customer_driver_license.Clear();
             
 
             if (driver_license == null)
@@ -82,7 +141,7 @@ namespace Explore
                         "where Customer.CID = Customer_Phone.CID and Customer.Driver_License = " + driver_license);
                     while (this.sql.Reader().Read())
                     {
-                        this.customer_detail.UpdateView(this.sql.Reader()["Phone_Number"].ToString());
+                        this.customer_detail.UpdatePhoneNumber(this.sql.Reader()["Phone_Number"].ToString());
                     }
                     this.customer_detail.Show();
                 } 

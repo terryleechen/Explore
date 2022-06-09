@@ -439,14 +439,17 @@
             // 
             this.Membership.Appearance = System.Windows.Forms.Appearance.Button;
             this.Membership.AutoSize = true;
+            this.Membership.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.Membership.CausesValidation = false;
+            this.Membership.FlatAppearance.CheckedBackColor = System.Drawing.Color.SeaShell;
             this.Membership.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Membership.Location = new System.Drawing.Point(136, 19);
+            this.Membership.Location = new System.Drawing.Point(136, 15);
             this.Membership.MaximumSize = new System.Drawing.Size(25, 25);
             this.Membership.MinimumSize = new System.Drawing.Size(20, 20);
             this.Membership.Name = "Membership";
             this.Membership.Size = new System.Drawing.Size(20, 20);
             this.Membership.TabIndex = 11;
-            this.Membership.UseVisualStyleBackColor = true;
+            this.Membership.UseVisualStyleBackColor = false;
             // 
             // Membership_Label
             // 
