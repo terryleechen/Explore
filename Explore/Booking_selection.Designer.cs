@@ -89,7 +89,7 @@
             this.selected_branch.FormattingEnabled = true;
             this.selected_branch.Location = new System.Drawing.Point(164, 11);
             this.selected_branch.Name = "selected_branch";
-            this.selected_branch.Size = new System.Drawing.Size(121, 21);
+            this.selected_branch.Size = new System.Drawing.Size(130, 21);
             this.selected_branch.TabIndex = 1;
             // 
             // label4
@@ -153,6 +153,7 @@
             this.Controls.Add(this.button_previous);
             this.Name = "Booking_selection";
             this.Size = new System.Drawing.Size(790, 460);
+            this.Load += new System.EventHandler(this.Booking_selection_load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
