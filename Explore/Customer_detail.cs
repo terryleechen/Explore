@@ -18,6 +18,58 @@ namespace Explore
             InitializeComponent();
         }
 
+        public void UpdateView(String CID, String First_Name, String Last_Name, String Driver_License,
+            String Address_1, String Address_2, String City, String Postal_Code, String Email,
+            String Membership, String DOB, String Province, String Gender)
+        {
+            customer_save.Enabled = false;
+            this.ReadOnly(true);
+
+            this.CID.Text = CID;
+            this.FirstName.Text = First_Name;
+            this.LastName.Text = Last_Name;
+            this.Driver_License.Text = Driver_License;
+            this.Address_1.Text = Address_1;
+            this.Address_2.Text = Address_2;
+            this.City.Text = City;
+            this.PostalCode.Text = Postal_Code;
+            this.Email.Text = Email;
+
+            if (Membership == "Y")
+            {
+                this.Membership.Checked = true;
+            } else
+            {
+                this.Membership.Checked = false;
+            }
+
+            char[] parseChars = DOB.ToCharArray();
+            DateTime DateTimeDOB = DateTime.Parse(parseChars[0].ToString() + 
+                parseChars[1] + parseChars[2] + parseChars[3] + "-" +
+                parseChars[4] + parseChars[5] + '-' + parseChars[6] + parseChars[7]);
+            this.DOB.Value = DateTimeDOB;
+        }
+
+        public void Clear()
+        {
+            this.CID.Text = null; this.FirstName.Text = null;
+            this.LastName.Text = null; this.Driver_License.Text = null;
+            this.Address_1.Text = null; this.Address_2.Text = null;
+            this.City.Text = null; this.PostalCode.Text = null;
+            this.Email.Text = null; this.Membership.Checked = false;
+        }
+
+        public void ReadOnly(bool set)
+        {
+            this.CID.ReadOnly = set; this.FirstName.ReadOnly = set;
+            this.LastName.ReadOnly = set; this.Driver_License.ReadOnly = set;
+            this.Address_1.ReadOnly = set;
+            this.Address_2.ReadOnly = set; this.City.ReadOnly = set;
+            this.PostalCode.ReadOnly = set; this.Email.ReadOnly = set;
+            this.Membership.Enabled = !set;
+            this.DOB.Enabled = !set;
+        }
+
         public void Get_employee_dashboard(Employee_dashboard employee_dashboard)
         {
             this.employee_dashboard = employee_dashboard;
@@ -25,6 +77,7 @@ namespace Explore
 
         private void Button_previous_click(object sender, EventArgs e)
         {
+            this.ReadOnly(false);
             this.employee_dashboard.Get_Customer().Show();
             this.Hide();
         }
@@ -33,5 +86,6 @@ namespace Explore
         {
 
         }
+
     }
 }
