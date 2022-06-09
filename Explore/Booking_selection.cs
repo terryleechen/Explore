@@ -28,7 +28,11 @@ namespace Explore
 
         public void Get_all(string start_date, string return_date, string return_BID, string pickup_BID, string car_type)
         {
-
+            this.start_date = start_date;
+            this.return_date = return_date;
+            this.return_BID = return_BID;
+            this.pickup_BID = pickup_BID;
+            this.car_type = car_type;
         }
 
         public void Get_availability()
