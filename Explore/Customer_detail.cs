@@ -87,6 +87,7 @@ namespace Explore
             this.Address_1.Text = null; this.Address_2.Text = null;
             this.City.Text = null; this.PostalCode.Text = null;
             this.Email.Text = null; this.Membership.Checked = false;
+            this.PhoneNumber.Text = null;
         }
 
         public void ReadOnly(bool set)
@@ -109,6 +110,7 @@ namespace Explore
         private void Button_previous_click(object sender, EventArgs e)
         {
             this.ReadOnly(false);
+            this.Clear();
             this.employee_dashboard.Get_Customer().Show();
             this.Hide();
         }
@@ -172,24 +174,7 @@ namespace Explore
                 this.sql.Insert("Insert Into Customer_Phone " +
                     "(CID, Phone_Number) " +
                     "Values ('" + this.CID.Text + "', '" + this.PhoneNumber.Text + "')");
-/*                this.sql.Insert("Insert Into Customer " +
-                    "Set First_Name = '" + this.FirstName.Text + "', " +
-                    "CID = '" + this.CID.Text + "', " +
-                    "Last_Name = '" + this.LastName.Text + "', " +
-                    "Driver_License = '" + this.Driver_License.Text + "', " +
-                    "Address_1 = '" + this.Address_1.Text + "', " +
-                    "Membership = '" + mem + "', " +
-                    "City = '" + this.City.Text + "', " +
-                    "Postal_code = '" + this.PostalCode.Text + "', " +
-                    "Email = '" + this.Email.Text + "', " +
-                    "Gender = '" + gen + "', " +
-                    "Province = '" + this.Province.SelectedItem + "', " +
-                    "DOB = '" + date + "', " +
-                    "Address_2 = '" + this.Address_2.Text + "' " +
-                    "Where CID = '" + this.CID.Text + "'");
-                this.sql.Insert("Insert Customer_Phone " +
-                    "Set Phone_Number = '" + this.PhoneNumber.Text + "' " +
-                    "Where CID = '" + this.CID.Text + "'");*/
+
             }
 
             this.employee_dashboard.Get_Customer().Show();
