@@ -153,6 +153,7 @@
             this.Controls.Add(this.button_previous);
             this.Name = "Booking_selection";
             this.Size = new System.Drawing.Size(790, 460);
+            this.Load += new System.EventHandler(this.Booking_selection_load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

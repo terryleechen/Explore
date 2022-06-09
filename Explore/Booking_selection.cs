@@ -35,5 +35,24 @@ namespace Explore
             this.Hide();
             this.employee_dashboard.Get_booking().Show();
         }
+
+        private void Booking_selection_load(object sender, EventArgs e)
+        {
+            try
+            {
+                this.sql.Query("select Trim(Address_1) + ' ' + Trim(Address_2) as Address from branch");
+
+                while (this.sql.Reader().Read())
+                {
+                    this.selected_branch.Items.Add(this.sql.Reader()["Address"]);
+                }
+                this.selected_branch.Text = this.employee_dashboard.Get_booking().Get_pickup_branch();
+                this.sql.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error");
+            }
+        }
     }
 }
