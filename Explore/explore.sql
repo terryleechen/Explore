@@ -1,14 +1,15 @@
 use explore;
 
 DROP TABLE Rental_Transaction;
-DROP TABLE Branch;
 DROP TABLE Branch_Phone;
-DROP TABLE [Type];
-DROP TABLE Car;
-DROP TABLE Customer;
-DROP TABLE Customer_Phone;
-DROP TABLE Employee;
 DROP TABLE Employee_Phone;
+DROP TABLE Customer_Phone;
+DROP TABLE Branch;
+DROP TABLE Car;
+DROP TABLE [Type];
+DROP TABLE Customer;
+DROP TABLE Employee;
+
 
 CREATE TABLE Branch (
 	BID NCHAR(4) PRIMARY KEY,
@@ -26,8 +27,8 @@ CREATE TABLE Branch_Phone (
 );
 
 CREATE TABLE [Type] (
-	Type_ID NCHAR(2) PRIMARY KEY,
-	Type_Name NCHAR(20) NOT NULL,
+	[Type_ID] NCHAR(2) PRIMARY KEY,
+	[Type_Name] NCHAR(20) NOT NULL,
 	Price_Per_Day NUMERIC(5,0) NOT NULL,
 	Price_Per_Week NUMERIC(5,0) NOT NULL,
 	Price_Per_Month NUMERIC(5,0) NOT NULL,
@@ -39,8 +40,8 @@ CREATE TABLE [Type] (
 CREATE TABLE Car (
 	Car_ID NCHAR(7) PRIMARY KEY,
 	BID NCHAR(4) FOREIGN KEY REFERENCES Branch(BID) NOT NULL,
-	Type_ID NCHAR(2) FOREIGN KEY REFERENCES [Type](Type_ID) NOT NULL,
-	Year NUMERIC(4) NOT NULL,
+	[Type_ID] NCHAR(2) FOREIGN KEY REFERENCES [Type](Type_ID) NOT NULL,
+	[Year] NUMERIC(4) NOT NULL,
 	Brand NCHAR(10) NOT NULL,
 	Model NCHAR(10) NOT NULL,
 	Mileage NUMERIC(7) NOT NULL
@@ -52,7 +53,7 @@ CREATE TABLE Customer (
 	Last_Name NCHAR(20) NOT NULL,
 	Driver_License NUMERIC(9,0) NOT NULL,
 	Gender NCHAR(1) NOT NULL,
-	DOB NUMERIC(8,0) NOT NULL,
+	DOB NCHAR(10) NOT NULL,
 	Membership NCHAR(1) NOT NULL,
 	Address_1 NCHAR(50) NOT NULL,
 	Address_2 NCHAR(50) NULL,
@@ -96,9 +97,9 @@ CREATE TABLE Rental_Transaction (
 	Pickup_Branch_ID NCHAR(4) FOREIGN KEY REFERENCES Branch(BID) NOT NULL,
 	Return_Branch_ID NCHAR(4) FOREIGN KEY REFERENCES Branch(BID) NULL,
 	EID_Pickup NCHAR(5) FOREIGN KEY REFERENCES Employee(EID) NOT NULL,
-	[Start_Date] NUMERIC(8,0) NOT NULL,
-	[End_Date] NUMERIC(8,0) NOT NULL,
+	[Start_Date] NCHAR(10) NOT NULL,
+	[End_Date] NCHAR(10) NOT NULL,
 	Reservation_Price NUMERIC(5,2) NOT NULL,
-	Return_Date NUMERIC(8,0) NULL,
+	Return_Date NCHAR(10) NULL,
 	Total_Price NUMERIC(5,2) NULL
 );
