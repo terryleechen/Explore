@@ -14,6 +14,7 @@ namespace Explore
     {
         private Employee_dashboard employee_dashboard;
         private SQL sql;
+        private string start_date, return_date, return_BID, pickup_BID, car_type;
         public Booking_selection()
         {
             InitializeComponent();
@@ -23,6 +24,11 @@ namespace Explore
         public void Get_employee_dashboard(Employee_dashboard employee_dashboard)
         {
             this.employee_dashboard = employee_dashboard;
+        }
+
+        public void Get_all(string start_date, string return_date, string return_BID, string pickup_BID, string car_type)
+        {
+
         }
 
         public void Get_availability()

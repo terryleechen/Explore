@@ -89,7 +89,7 @@
             this.selected_branch.FormattingEnabled = true;
             this.selected_branch.Location = new System.Drawing.Point(164, 11);
             this.selected_branch.Name = "selected_branch";
-            this.selected_branch.Size = new System.Drawing.Size(121, 21);
+            this.selected_branch.Size = new System.Drawing.Size(130, 21);
             this.selected_branch.TabIndex = 1;
             // 
             // label4
