@@ -38,7 +38,7 @@ namespace Explore
         public void Insert(String statement)
         {
             this.my_command.CommandText = statement;
-            this.my_command.ExecuteNonQuery();
+            this.my_command.ExecuteNonQuery(); 
         }
 
         public void Update(String statement)
