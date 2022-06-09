@@ -47,7 +47,6 @@ namespace Explore
             this.my_command.ExecuteNonQuery();
         }
 
-
         public void Query(String query)
         {
             this.my_command.CommandText = query;
