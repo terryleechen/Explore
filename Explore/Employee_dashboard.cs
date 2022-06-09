@@ -44,11 +44,6 @@ namespace Explore
             return this.employee_booking;
         }
 
-        public Inventory Get_inventory()
-        {
-            return this.employee_inventory;
-        }
-
         public Return Get_return()
         {
             return this.employee_return;

@@ -18,12 +18,10 @@ namespace Explore
         DataTable dt;*/
 
         private SQL sql;
-        private Inventory_add inventory_add;
 
-        public Inventory(Inventory_add inventory_add)
+        public Inventory()
         {
             InitializeComponent();
-            this.inventory_add = inventory_add;
             sql = new SQL();
         }
 
@@ -71,12 +69,6 @@ namespace Explore
                 MessageBox.Show(ex.ToString(), "Error");
             }
             this.sql.Close();
-        }
-
-        private void Button_add_click(object sender, EventArgs e)
-        {
-            this.Hide();
-            this.inventory_add.Show();
         }
     }
 }

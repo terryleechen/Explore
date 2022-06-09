@@ -128,7 +128,6 @@
             this.inventory_add_button.TabIndex = 3;
             this.inventory_add_button.Text = "Add";
             this.inventory_add_button.UseVisualStyleBackColor = true;
-            this.inventory_add_button.Click += new System.EventHandler(this.Button_add_click);
             // 
             // inventory_update_button
             // 

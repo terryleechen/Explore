@@ -27,7 +27,7 @@ CREATE TABLE Branch_Phone (
 );
 
 CREATE TABLE [Type] (
-	[Type_ID] NCHAR(1) PRIMARY KEY,
+	[Type_ID] NCHAR(2) PRIMARY KEY,
 	[Type_Name] NCHAR(20) NOT NULL,
 	Price_Per_Day NUMERIC(5,0) NOT NULL,
 	Price_Per_Week NUMERIC(5,0) NOT NULL,
