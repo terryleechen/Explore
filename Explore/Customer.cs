@@ -56,7 +56,6 @@ namespace Explore
                     } 
                 }
                 
-
                 if (check == true)
                 {
                     this.sql.Query("select * from Customer where Driver_License = " + driver_license);
@@ -77,6 +76,13 @@ namespace Explore
                             this.sql.Reader()["DOB"].ToString(),
                             this.sql.Reader()["Province"].ToString(),
                             this.sql.Reader()["Gender"].ToString());
+                    }
+                    this.sql.Close();
+                    this.sql.Query("select Phone_Number from Customer, Customer_Phone " +
+                        "where Customer.CID = Customer_Phone.CID and Customer.Driver_License = " + driver_license);
+                    while (this.sql.Reader().Read())
+                    {
+                        this.customer_detail.UpdateView(this.sql.Reader()["Phone_Number"].ToString());
                     }
                     this.customer_detail.Show();
                 } 

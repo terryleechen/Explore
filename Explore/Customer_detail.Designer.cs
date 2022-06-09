@@ -79,10 +79,10 @@
             this.DOB = new System.Windows.Forms.DateTimePicker();
             this.DOB_Label = new System.Windows.Forms.Label();
             this.Gender_Panel = new System.Windows.Forms.Panel();
-            this.Gender_Label = new System.Windows.Forms.Label();
-            this.M = new System.Windows.Forms.RadioButton();
-            this.F = new System.Windows.Forms.RadioButton();
             this.N = new System.Windows.Forms.RadioButton();
+            this.F = new System.Windows.Forms.RadioButton();
+            this.M = new System.Windows.Forms.RadioButton();
+            this.Gender_Label = new System.Windows.Forms.Label();
             this.CID_Panel.SuspendLayout();
             this.Name_Panel.SuspendLayout();
             this.Address_Panel.SuspendLayout();
@@ -336,22 +336,22 @@
             this.Province.ForeColor = System.Drawing.Color.SeaShell;
             this.Province.FormattingEnabled = true;
             this.Province.Items.AddRange(new object[] {
-            "Alberta",
-            "British Columbia",
-            "Manitoba",
-            "New Brunswick",
-            "Newfoundland & Labrador",
-            "Northwest Territories",
-            "Nova Scotia",
-            "Nunavut",
-            "Ontario",
-            "Prince Edward Island",
-            "Quebec",
-            "Saskatchewan",
-            "Yukon Territories"});
+            "AB",
+            "BC",
+            "MB",
+            "NB",
+            "NL",
+            "NT",
+            "NS",
+            "NU",
+            "ON",
+            "PE",
+            "QC",
+            "SK",
+            "YT"});
             this.Province.Location = new System.Drawing.Point(292, 7);
             this.Province.Name = "Province";
-            this.Province.Size = new System.Drawing.Size(175, 28);
+            this.Province.Size = new System.Drawing.Size(130, 28);
             this.Province.TabIndex = 17;
             // 
             // Province_Label
@@ -640,27 +640,17 @@
             this.Gender_Panel.Size = new System.Drawing.Size(255, 85);
             this.Gender_Panel.TabIndex = 19;
             // 
-            // Gender_Label
+            // N
             // 
-            this.Gender_Label.AutoSize = true;
-            this.Gender_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Gender_Label.Location = new System.Drawing.Point(0, 14);
-            this.Gender_Label.Name = "Gender_Label";
-            this.Gender_Label.Size = new System.Drawing.Size(79, 24);
-            this.Gender_Label.TabIndex = 14;
-            this.Gender_Label.Text = "Gender:";
-            // 
-            // M
-            // 
-            this.M.AutoSize = true;
-            this.M.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.M.Location = new System.Drawing.Point(83, 10);
-            this.M.Name = "M";
-            this.M.Size = new System.Drawing.Size(69, 28);
-            this.M.TabIndex = 15;
-            this.M.TabStop = true;
-            this.M.Text = "Male";
-            this.M.UseVisualStyleBackColor = true;
+            this.N.AutoSize = true;
+            this.N.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.N.Location = new System.Drawing.Point(83, 56);
+            this.N.Name = "N";
+            this.N.Size = new System.Drawing.Size(176, 28);
+            this.N.TabIndex = 17;
+            this.N.TabStop = true;
+            this.N.Text = "Prefer Not To Say";
+            this.N.UseVisualStyleBackColor = true;
             // 
             // F
             // 
@@ -674,17 +664,27 @@
             this.F.Text = "Female";
             this.F.UseVisualStyleBackColor = true;
             // 
-            // N
+            // M
             // 
-            this.N.AutoSize = true;
-            this.N.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.N.Location = new System.Drawing.Point(83, 56);
-            this.N.Name = "N";
-            this.N.Size = new System.Drawing.Size(176, 28);
-            this.N.TabIndex = 17;
-            this.N.TabStop = true;
-            this.N.Text = "Prefer Not To Say";
-            this.N.UseVisualStyleBackColor = true;
+            this.M.AutoSize = true;
+            this.M.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.M.Location = new System.Drawing.Point(83, 10);
+            this.M.Name = "M";
+            this.M.Size = new System.Drawing.Size(69, 28);
+            this.M.TabIndex = 15;
+            this.M.TabStop = true;
+            this.M.Text = "Male";
+            this.M.UseVisualStyleBackColor = true;
+            // 
+            // Gender_Label
+            // 
+            this.Gender_Label.AutoSize = true;
+            this.Gender_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Gender_Label.Location = new System.Drawing.Point(3, 6);
+            this.Gender_Label.Name = "Gender_Label";
+            this.Gender_Label.Size = new System.Drawing.Size(79, 24);
+            this.Gender_Label.TabIndex = 14;
+            this.Gender_Label.Text = "Gender:";
             // 
             // Customer_detail
             // 

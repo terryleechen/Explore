@@ -48,6 +48,24 @@ namespace Explore
                 parseChars[1] + parseChars[2] + parseChars[3] + "-" +
                 parseChars[4] + parseChars[5] + '-' + parseChars[6] + parseChars[7]);
             this.DOB.Value = DateTimeDOB;
+
+            this.Province.SelectedItem = Province;
+
+            if (Gender == "M")
+            {
+                this.M.Checked = true; this.M.Enabled = true;
+            } else if (Gender == "F")
+            {
+                this.F.Checked = true; this.F.Enabled = true;
+            } else if (Gender == "N")
+            {
+                this.N.Checked = true; this.N.Enabled = true;
+            }
+        }
+
+        public void UpdateView(string Phone_Number)
+        {
+            this.PhoneNumber.Text = Phone_Number;
         }
 
         public void Clear()
@@ -63,11 +81,12 @@ namespace Explore
         {
             this.CID.ReadOnly = set; this.FirstName.ReadOnly = set;
             this.LastName.ReadOnly = set; this.Driver_License.ReadOnly = set;
-            this.Address_1.ReadOnly = set;
+            this.Address_1.ReadOnly = set; this.PhoneNumber.ReadOnly = set;
             this.Address_2.ReadOnly = set; this.City.ReadOnly = set;
             this.PostalCode.ReadOnly = set; this.Email.ReadOnly = set;
             this.Membership.Enabled = !set;
-            this.DOB.Enabled = !set;
+            this.DOB.Enabled = !set; this.Province.Enabled = !set;
+            this.M.Enabled = !set; this.F.Enabled = !set; this.N.Enabled = !set;
         }
 
         public void Get_employee_dashboard(Employee_dashboard employee_dashboard)
