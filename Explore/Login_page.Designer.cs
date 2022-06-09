@@ -99,6 +99,7 @@
             this.user_textbox.Name = "user_textbox";
             this.user_textbox.Size = new System.Drawing.Size(150, 22);
             this.user_textbox.TabIndex = 1;
+            this.user_textbox.Enter += new System.EventHandler(this.enter_press);
             // 
             // label1
             // 
