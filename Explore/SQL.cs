@@ -41,6 +41,11 @@ namespace Explore
             this.my_command.ExecuteNonQuery(); 
         }
 
+        public void Update(String statement) 
+        {
+            this.my_command.CommandText = statement;
+            this.my_command.ExecuteNonQuery();
+        }
 
         public void Query(String query)
         {
