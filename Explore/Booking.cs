@@ -23,6 +23,12 @@ namespace Explore
             this.sql = new SQL();
         }
 
+        // Get pickup_branch
+        public string Get_pickup_branch()
+        {
+            return this.pickup_branch;
+        }
+
         private void Button_next_click(object sender, EventArgs e)
         {
             // format start date
@@ -35,7 +41,11 @@ namespace Explore
                 this.return_date_picker.Value.Month.ToString() + "/" +
                 this.return_date_picker.Value.Day.ToString();
 
+            //Console.WriteLine((this.return_date_picker.Value - this.start_date_picker.Value).TotalDays);
+
             this.car_type = this.car_type_combo.Text;
+            this.pickup_branch = this.pickup_combo.Text;
+            this.return_branch = this.return_combo.Text;
             this.pickup_BID = Get_BID(this.pickup_combo.Text);
             this.return_BID = Get_BID(this.return_combo.Text);
          
