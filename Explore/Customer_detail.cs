@@ -119,7 +119,6 @@ namespace Explore
 
         private void Button_save_click(object sender, EventArgs e)
         {
-            Console.WriteLine(state);
             String mem = ""; String gen = "";
 
             if (this.Membership.Checked) { mem = "Y"; }
