@@ -41,14 +41,13 @@ namespace Explore
                 this.return_date_picker.Value.Month.ToString() + "/" +
                 this.return_date_picker.Value.Day.ToString();
 
-            //Console.WriteLine((this.return_date_picker.Value - this.start_date_picker.Value).TotalDays);
-
+            // set up all the info needed for selection
             this.car_type = this.car_type_combo.Text;
             this.pickup_branch = this.pickup_combo.Text;
             this.return_branch = this.return_combo.Text;
             this.pickup_BID = Get_BID(this.pickup_combo.Text);
             this.return_BID = Get_BID(this.return_combo.Text);
-         
+            this.booking_selection.Get_all(start_date, return_date, return_BID, pickup_BID, car_type);
             this.Hide();
             this.booking_selection.Show();
         }
