@@ -13,14 +13,21 @@ namespace Explore
     public partial class Booking_selection : UserControl
     {
         private Employee_dashboard employee_dashboard;
+        private SQL sql;
         public Booking_selection()
         {
             InitializeComponent();
+            this.sql = new SQL();
         }
 
         public void Get_employee_dashboard(Employee_dashboard employee_dashboard)
         {
             this.employee_dashboard = employee_dashboard;
+        }
+
+        public void Get_availability()
+        {
+
         }
 
         private void Button_previous_click(object sender, EventArgs e)

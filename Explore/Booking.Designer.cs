@@ -48,7 +48,7 @@
             this.start_date_picker = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.end_date_picker = new System.Windows.Forms.DateTimePicker();
+            this.return_date_picker = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.return_combo = new System.Windows.Forms.ComboBox();
@@ -80,7 +80,7 @@
             this.customer_book_next.TabIndex = 12;
             this.customer_book_next.Text = "Next";
             this.customer_book_next.UseVisualStyleBackColor = false;
-            this.customer_book_next.Click += new System.EventHandler(this.button_next_click);
+            this.customer_book_next.Click += new System.EventHandler(this.Button_next_click);
             // 
             // panel5
             // 
@@ -112,6 +112,8 @@
             this.customer_driver_license.Name = "customer_driver_license";
             this.customer_driver_license.Size = new System.Drawing.Size(125, 22);
             this.customer_driver_license.TabIndex = 2;
+            this.customer_driver_license.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Driver_license_keydown);
+            this.customer_driver_license.Leave += new System.EventHandler(this.Driver_license_leave);
             // 
             // label3
             // 
@@ -224,7 +226,7 @@
             this.pickup_combo.FormattingEnabled = true;
             this.pickup_combo.Location = new System.Drawing.Point(137, 12);
             this.pickup_combo.Name = "pickup_combo";
-            this.pickup_combo.Size = new System.Drawing.Size(121, 21);
+            this.pickup_combo.Size = new System.Drawing.Size(130, 21);
             this.pickup_combo.TabIndex = 1;
             // 
             // label5
@@ -250,6 +252,7 @@
             // 
             // start_date_picker
             // 
+            this.start_date_picker.CustomFormat = "yyyy/mm/dd";
             this.start_date_picker.Location = new System.Drawing.Point(103, 13);
             this.start_date_picker.Name = "start_date_picker";
             this.start_date_picker.Size = new System.Drawing.Size(190, 20);
@@ -268,7 +271,7 @@
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.end_date_picker);
+            this.panel9.Controls.Add(this.return_date_picker);
             this.panel9.Controls.Add(this.label7);
             this.panel9.ForeColor = System.Drawing.Color.SeaGreen;
             this.panel9.Location = new System.Drawing.Point(396, 282);
@@ -276,12 +279,12 @@
             this.panel9.Size = new System.Drawing.Size(330, 51);
             this.panel9.TabIndex = 18;
             // 
-            // end_date_picker
+            // return_date_picker
             // 
-            this.end_date_picker.Location = new System.Drawing.Point(103, 13);
-            this.end_date_picker.Name = "end_date_picker";
-            this.end_date_picker.Size = new System.Drawing.Size(190, 20);
-            this.end_date_picker.TabIndex = 1;
+            this.return_date_picker.Location = new System.Drawing.Point(123, 13);
+            this.return_date_picker.Name = "return_date_picker";
+            this.return_date_picker.Size = new System.Drawing.Size(190, 20);
+            this.return_date_picker.TabIndex = 1;
             // 
             // label7
             // 
@@ -290,9 +293,9 @@
             this.label7.ForeColor = System.Drawing.Color.SeaShell;
             this.label7.Location = new System.Drawing.Point(3, 9);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(93, 24);
+            this.label7.Size = new System.Drawing.Size(114, 24);
             this.label7.TabIndex = 0;
-            this.label7.Text = "End Date:";
+            this.label7.Text = "Return Date:";
             // 
             // panel10
             // 
@@ -311,7 +314,7 @@
             this.return_combo.FormattingEnabled = true;
             this.return_combo.Location = new System.Drawing.Point(137, 12);
             this.return_combo.Name = "return_combo";
-            this.return_combo.Size = new System.Drawing.Size(121, 21);
+            this.return_combo.Size = new System.Drawing.Size(130, 21);
             this.return_combo.TabIndex = 1;
             // 
             // label8
@@ -372,6 +375,7 @@
             this.Controls.Add(this.customer_book_next);
             this.Name = "Booking";
             this.Size = new System.Drawing.Size(790, 460);
+            this.Load += new System.EventHandler(this.Booking_load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -413,7 +417,7 @@
         private System.Windows.Forms.DateTimePicker start_date_picker;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.DateTimePicker end_date_picker;
+        private System.Windows.Forms.DateTimePicker return_date_picker;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.ComboBox return_combo;
