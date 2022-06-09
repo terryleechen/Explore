@@ -24,7 +24,8 @@ namespace Explore
 
         private void Button_add_click(object sender, EventArgs e)
         {
-            
+            this.customer_detail.AddCustomer();
+            this.customer_detail.Show();
         }
 
         private void Button_edit_click(object sender, EventArgs e)
@@ -57,7 +58,7 @@ namespace Explore
                     this.customer_detail.Clear();
                     while (this.sql.Reader().Read())
                     {
-                        this.customer_detail.Edit(
+                        this.customer_detail.EditCustomer(
                             this.sql.Reader()["CID"].ToString().Trim(),
                             this.sql.Reader()["First_Name"].ToString().Trim(),
                             this.sql.Reader()["Last_Name"].ToString().Trim(),
