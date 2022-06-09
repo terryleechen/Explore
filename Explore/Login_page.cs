@@ -77,6 +77,10 @@ namespace Explore
             }
             this.user_textbox.Clear();
         }
-        
+
+        private void enter_press(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
