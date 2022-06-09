@@ -22,11 +22,12 @@ namespace Explore
             state = "Waiting";
         }
 
-        public void UpdateView(String CID, String First_Name, String Last_Name, String Driver_License,
+        public void ViewCustomer(String CID, String First_Name, String Last_Name, String Driver_License,
             String Address_1, String Address_2, String City, String Postal_Code, String Email,
             String Membership, String DOB, String Province, String Gender)
         {
-            state = "Update";
+            state = "View";
+           
             customer_save.Enabled = false;
             this.ReadOnly(true);
 
@@ -87,7 +88,7 @@ namespace Explore
             this.Address_1.Text = null; this.Address_2.Text = null;
             this.City.Text = null; this.PostalCode.Text = null;
             this.Email.Text = null; this.Membership.Checked = false;
-            this.PhoneNumber.Text = null;
+            this.PhoneNumber.Text = null; this.DOB.Value = DateTime.Today;
         }
 
         public void ReadOnly(bool set)
@@ -109,6 +110,7 @@ namespace Explore
 
         private void Button_previous_click(object sender, EventArgs e)
         {
+            
             this.ReadOnly(false);
             this.Clear();
             this.employee_dashboard.Get_Customer().Show();
@@ -117,6 +119,7 @@ namespace Explore
 
         private void Button_save_click(object sender, EventArgs e)
         {
+            Console.WriteLine(state);
             String mem = ""; String gen = "";
 
             if (this.Membership.Checked) { mem = "Y"; }
@@ -132,7 +135,7 @@ namespace Explore
                  "/" + birthdate[5] + birthdate[6] + "/" + birthdate[8] + birthdate[9];
 
 
-            if (state == "Update")
+            if (this.state == "Edit")
             {
                 this.sql.Update("Update Customer " +
                     "Set First_Name = '" + this.FirstName.Text + "', " +
@@ -153,7 +156,7 @@ namespace Explore
                     "Set Phone_Number = '" + this.PhoneNumber.Text + "' " +
                     "Where CID = '" + this.CID.Text + "'");
             } 
-            else if (state == "Add")
+            else if (this.state == "Add")
             {
                 this.sql.Insert("Insert Into Customer " +
                     "(CID, First_Name, Last_Name, Driver_License, Address_1, Address_2, " +
@@ -177,6 +180,8 @@ namespace Explore
 
             }
 
+            this.state = "Waiting";
+            this.Clear();
             this.employee_dashboard.Get_Customer().Show();
             this.Hide();
         }

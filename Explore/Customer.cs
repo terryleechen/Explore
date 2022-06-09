@@ -122,7 +122,7 @@ namespace Explore
                     this.customer_detail.Clear();
                     while (this.sql.Reader().Read())
                     {
-                        this.customer_detail.UpdateView(
+                        this.customer_detail.ViewCustomer(
                             this.sql.Reader()["CID"].ToString(),
                             this.sql.Reader()["First_Name"].ToString(),
                             this.sql.Reader()["Last_Name"].ToString(),
