@@ -376,7 +376,6 @@
             this.previous_button.TabIndex = 25;
             this.previous_button.Text = "Previous";
             this.previous_button.UseVisualStyleBackColor = true;
-            this.previous_button.Click += new System.EventHandler(this.Button_previous_click);
             // 
             // Inventory_add
             // 

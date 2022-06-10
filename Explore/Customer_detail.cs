@@ -119,7 +119,6 @@ namespace Explore
 
         private void Button_save_click(object sender, EventArgs e)
         {
-            Console.WriteLine(state);
             String mem = ""; String gen = "";
 
             if (this.Membership.Checked) { mem = "Y"; }
@@ -128,13 +127,7 @@ namespace Explore
             if (this.M.Checked) { gen = "M"; }
             else if (this.F.Checked) { gen = "F"; }
             else if (this.N.Checked) { gen = "N"; }
-
-            String date = "";
-            char[] birthdate = this.DOB.Value.ToString().ToCharArray();
-            date = birthdate[0].ToString() + birthdate[1] + birthdate[2] + birthdate[3] +
-                 "/" + birthdate[5] + birthdate[6] + "/" + birthdate[8] + birthdate[9];
-
-
+         
             if (this.state == "Edit")
             {
                 this.sql.Update("Update Customer " +
@@ -149,7 +142,7 @@ namespace Explore
                     "Email = '" + this.Email.Text + "', " +
                     "Gender = '" + gen + "', " +
                     "Province = '" + this.Province.SelectedItem + "', " +
-                    "DOB = '" + date + "', " +
+                    "DOB = '" + this.DOB.Value.ToString("yyyy/MM/dd") + "', " +
                     "Address_2 = '" + this.Address_2.Text + "' " +
                     "Where CID = '" + this.CID.Text + "'");
                 this.sql.Update("Update Customer_Phone " +
@@ -173,7 +166,7 @@ namespace Explore
                     "'" + this.Email.Text + "', " +
                     "'" + gen + "', " +
                     "'" + this.Province.SelectedItem + "', " +
-                    "'" + date + "')");
+                    "'" + this.DOB.Value.ToString("yyyy/MM/dd") + "')");
                 this.sql.Insert("Insert Into Customer_Phone " +
                     "(CID, Phone_Number) " +
                     "Values ('" + this.CID.Text + "', '" + this.PhoneNumber.Text + "')");
@@ -209,11 +202,7 @@ namespace Explore
                 this.Membership.Checked = false;
             }
 
-            char[] parseChars = DOB.ToCharArray();
-            DateTime DateTimeDOB = DateTime.Parse(parseChars[0].ToString() +
-                parseChars[1] + parseChars[2] + parseChars[3] + "-" +
-                parseChars[5] + parseChars[6] + "-" + parseChars[8] + parseChars[9]);
-            this.DOB.Value = DateTimeDOB;
+            this.DOB.Value = DateTime.Parse(DOB);
 
             this.Province.SelectedItem = Province;
 
