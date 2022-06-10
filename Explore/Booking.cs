@@ -76,6 +76,12 @@ namespace Explore
             return null;
         }
 
+        private void Initial_availability()
+        {
+            DataGridView availability_table = this.booking_selection.Get_table();
+            availability_table.Rows.Clear();
+            //this.sql.Query("")
+        }
         private void Driver_license_keydown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode.Equals(Keys.Enter))

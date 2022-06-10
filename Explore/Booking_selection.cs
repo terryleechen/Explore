@@ -40,6 +40,11 @@ namespace Explore
 
         }
 
+        public DataGridView Get_table()
+        {
+            return this.availability_table;
+        }
+
         private void Button_previous_click(object sender, EventArgs e)
         {
             this.Hide();
