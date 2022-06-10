@@ -14,7 +14,7 @@ namespace Explore
     {
         private Employee_dashboard employee_dashboard;
         private SQL sql;
-        private string start_date, return_date, return_BID, pickup_BID, car_type;
+        private string start_date, end_date, return_BID, pickup_BID, car_type;
         public Booking_selection()
         {
             InitializeComponent();
@@ -26,14 +26,23 @@ namespace Explore
             this.employee_dashboard = employee_dashboard;
         }
 
-        public void Get_all(string start_date, string return_date, string return_BID, string pickup_BID, string car_type)
+        public void Get_all(string start_date, string end_date, string return_BID, string pickup_BID, string car_type)
         {
-
+            this.start_date = start_date;
+            this.end_date = end_date;
+            this.return_BID = return_BID;
+            this.pickup_BID = pickup_BID;
+            this.car_type = car_type;
         }
 
-        public void Get_availability()
+        private void Selected_branch_changed(object sender, EventArgs e)
         {
+            
+        }
 
+        private void Get_BID(string address)
+        {
+            
         }
 
         public DataGridView Get_table()

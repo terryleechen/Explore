@@ -34,7 +34,8 @@
             this.selected_branch = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.availability_table = new System.Windows.Forms.DataGridView();
-            this.Type_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Car_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,11 +87,15 @@
             // 
             // selected_branch
             // 
+            this.selected_branch.BackColor = System.Drawing.SystemColors.Window;
+            this.selected_branch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.selected_branch.ForeColor = System.Drawing.SystemColors.WindowText;
             this.selected_branch.FormattingEnabled = true;
             this.selected_branch.Location = new System.Drawing.Point(164, 11);
             this.selected_branch.Name = "selected_branch";
             this.selected_branch.Size = new System.Drawing.Size(130, 21);
             this.selected_branch.TabIndex = 1;
+            this.selected_branch.SelectedIndexChanged += new System.EventHandler(this.Selected_branch_changed);
             // 
             // label4
             // 
@@ -107,40 +112,55 @@
             // 
             this.availability_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.availability_table.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Type_Name,
+            this.Car_ID,
+            this.Type_ID,
             this.Brand,
             this.Model,
             this.Year,
             this.Mileage});
-            this.availability_table.Location = new System.Drawing.Point(30, 161);
+            this.availability_table.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.availability_table.Location = new System.Drawing.Point(30, 102);
             this.availability_table.Name = "availability_table";
-            this.availability_table.Size = new System.Drawing.Size(543, 150);
+            this.availability_table.ReadOnly = true;
+            this.availability_table.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.availability_table.Size = new System.Drawing.Size(648, 279);
             this.availability_table.TabIndex = 15;
             // 
-            // Type_Name
+            // Car_ID
             // 
-            this.Type_Name.HeaderText = "Type_Name";
-            this.Type_Name.Name = "Type_Name";
+            this.Car_ID.HeaderText = "Car ID";
+            this.Car_ID.Name = "Car_ID";
+            this.Car_ID.ReadOnly = true;
+            // 
+            // Type_ID
+            // 
+            this.Type_ID.HeaderText = "Type ID";
+            this.Type_ID.Name = "Type_ID";
+            this.Type_ID.ReadOnly = true;
             // 
             // Brand
             // 
             this.Brand.HeaderText = "Brand";
             this.Brand.Name = "Brand";
+            this.Brand.ReadOnly = true;
             // 
             // Model
             // 
             this.Model.HeaderText = "Model";
             this.Model.Name = "Model";
+            this.Model.ReadOnly = true;
             // 
             // Year
             // 
             this.Year.HeaderText = "Year";
             this.Year.Name = "Year";
+            this.Year.ReadOnly = true;
             // 
             // Mileage
             // 
             this.Mileage.HeaderText = "Mileage";
             this.Mileage.Name = "Mileage";
+            this.Mileage.ReadOnly = true;
             // 
             // Booking_selection
             // 
@@ -151,6 +171,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.customer_book);
             this.Controls.Add(this.button_previous);
+            this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Name = "Booking_selection";
             this.Size = new System.Drawing.Size(790, 460);
             this.Load += new System.EventHandler(this.Booking_selection_load);
@@ -169,7 +190,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox selected_branch;
         private System.Windows.Forms.DataGridView availability_table;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Car_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Brand;
         private System.Windows.Forms.DataGridViewTextBoxColumn Model;
         private System.Windows.Forms.DataGridViewTextBoxColumn Year;
