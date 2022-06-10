@@ -34,7 +34,7 @@
             this.selected_branch = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.availability_table = new System.Windows.Forms.DataGridView();
-            this.Type_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -107,7 +107,7 @@
             // 
             this.availability_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.availability_table.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Type_ID,
+            this.Type_Name,
             this.Brand,
             this.Model,
             this.Year,
@@ -117,10 +117,10 @@
             this.availability_table.Size = new System.Drawing.Size(543, 150);
             this.availability_table.TabIndex = 15;
             // 
-            // Type_ID
+            // Type_Name
             // 
-            this.Type_ID.HeaderText = "Type_ID";
-            this.Type_ID.Name = "Type_ID";
+            this.Type_Name.HeaderText = "Type_Name";
+            this.Type_Name.Name = "Type_Name";
             // 
             // Brand
             // 
@@ -169,7 +169,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox selected_branch;
         private System.Windows.Forms.DataGridView availability_table;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Brand;
         private System.Windows.Forms.DataGridViewTextBoxColumn Model;
         private System.Windows.Forms.DataGridViewTextBoxColumn Year;

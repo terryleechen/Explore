@@ -44,6 +44,7 @@
             // ================= add new dependency form ===============================
             this.customer_detail = new Explore.Customer_detail();
             this.booking_selection = new Explore.Booking_selection();
+            this.inventory_add = new Explore.Inventory_add();
             this.return_detail = new Explore.Return_detail();
             this.employee_home = new Explore.Home();
             // link customer and customer detail
@@ -58,7 +59,8 @@
             this.employee_return = new Explore.Return(this.return_detail);
             this.return_detail.Get_employee_dashboard(this);
             // link inventory and ??
-            this.employee_inventory = new Explore.Inventory();
+            this.employee_inventory = new Explore.Inventory(this.inventory_add);
+            this.inventory_add.Get_employee_dashboard(this);
             this.employee_reports = new Explore.Reports();
             // =========================================================================
             this.panel1.SuspendLayout();
@@ -239,6 +241,7 @@
             this.panel3.Controls.Add(this.employee_booking);
             this.panel3.Controls.Add(this.employee_return);
             this.panel3.Controls.Add(this.employee_inventory);
+            this.panel3.Controls.Add(this.inventory_add);
             this.panel3.Controls.Add(this.employee_reports);
             this.panel3.Controls.Add(this.return_detail);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -296,6 +299,15 @@
             this.employee_inventory.Name = "employee_inventory";
             this.employee_inventory.Size = new System.Drawing.Size(790, 460);
             this.employee_inventory.TabIndex = 1;
+            // 
+            // inventory_add
+            // 
+            this.inventory_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.inventory_add.ForeColor = System.Drawing.Color.SeaGreen;
+            this.inventory_add.Location = new System.Drawing.Point(0, 0);
+            this.inventory_add.Name = "inventory_add";
+            this.inventory_add.Size = new System.Drawing.Size(790, 460);
+            this.inventory_add.TabIndex = 8;
             // 
             // employee_reports
             // 
@@ -359,6 +371,7 @@
         private System.Windows.Forms.Label employee_date;
         private Reports employee_reports;
         private Inventory employee_inventory;
+        private Inventory_add inventory_add;
         private Return employee_return;
         private Booking employee_booking;
         private Customer employee_customer;
