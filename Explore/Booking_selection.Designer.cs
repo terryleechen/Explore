@@ -33,14 +33,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.selected_branch = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.availability_table = new System.Windows.Forms.DataGridView();
             this.Type_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mileage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.availability_table)).BeginInit();
             this.SuspendLayout();
             // 
             // customer_book
@@ -103,19 +103,19 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Selected Branch:";
             // 
-            // dataGridView1
+            // availability_table
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.availability_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.availability_table.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Type_ID,
             this.Brand,
             this.Model,
             this.Year,
             this.Mileage});
-            this.dataGridView1.Location = new System.Drawing.Point(30, 161);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(543, 150);
-            this.dataGridView1.TabIndex = 15;
+            this.availability_table.Location = new System.Drawing.Point(30, 161);
+            this.availability_table.Name = "availability_table";
+            this.availability_table.Size = new System.Drawing.Size(543, 150);
+            this.availability_table.TabIndex = 15;
             // 
             // Type_ID
             // 
@@ -147,7 +147,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.availability_table);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.customer_book);
             this.Controls.Add(this.button_previous);
@@ -156,7 +156,7 @@
             this.Load += new System.EventHandler(this.Booking_selection_load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.availability_table)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -168,7 +168,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox selected_branch;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView availability_table;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Brand;
         private System.Windows.Forms.DataGridViewTextBoxColumn Model;
