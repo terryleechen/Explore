@@ -202,10 +202,6 @@ namespace Explore
                 this.Membership.Checked = false;
             }
 
-/*            char[] parseChars = DOB.ToCharArray();
-            DateTime DateTimeDOB = DateTime.Parse(parseChars[0].ToString() +
-                parseChars[1] + parseChars[2] + parseChars[3] + "/" +
-                parseChars[5] + parseChars[6] + "/" + parseChars[8] + parseChars[9]);*/
             this.DOB.Value = DateTime.Parse(DOB);
 
             this.Province.SelectedItem = Province;

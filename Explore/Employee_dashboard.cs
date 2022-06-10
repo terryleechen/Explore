@@ -20,13 +20,18 @@ namespace Explore
             employee_date.Text = today.ToString("D");
 
             //set up panels
-            this.employee_reports.Hide();
-            this.employee_inventory.Hide();
-            this.employee_return.Hide();
-            this.employee_booking.Hide();
+            this.employee_home.Show();
             this.employee_customer.Hide();
             this.customer_detail.Hide();
+            this.employee_booking.Hide();
             this.booking_selection.Hide();
+            this.employee_inventory.Hide();
+            this.inventory_add.Hide();
+            this.employee_return.Hide();
+            this.return_detail.Hide();
+            this.employee_reports.Hide();
+
+
         }
         //====================== Getter methods ==============================================
         public void Get_login(Login_page login_page)
@@ -61,10 +66,14 @@ namespace Explore
         {
             this.employee_home.Hide();
             this.employee_customer.Hide();
+            this.customer_detail.Hide();
             this.employee_booking.Hide();
-            this.employee_return.Hide();
+            this.booking_selection.Hide();
             this.employee_inventory.Hide();
-            this.employee_reports.Show();
+            this.inventory_add.Hide();
+            this.employee_return.Show();
+            this.return_detail.Hide();
+            this.employee_reports.Hide();
 
         }
 
@@ -74,8 +83,11 @@ namespace Explore
             this.employee_customer.Show();
             this.customer_detail.Hide();
             this.employee_booking.Hide();
-            this.employee_return.Hide();
+            this.booking_selection.Hide();
             this.employee_inventory.Hide();
+            this.inventory_add.Hide();
+            this.employee_return.Hide();
+            this.return_detail.Hide();
             this.employee_reports.Hide();
 
         }
@@ -84,9 +96,13 @@ namespace Explore
         {
             this.employee_home.Show();
             this.employee_customer.Hide();
+            this.customer_detail.Hide();
             this.employee_booking.Hide();
-            this.employee_return.Hide();
+            this.booking_selection.Hide();
             this.employee_inventory.Hide();
+            this.inventory_add.Hide();
+            this.employee_return.Hide();
+            this.return_detail.Hide();
             this.employee_reports.Hide();
         }
 
@@ -94,9 +110,13 @@ namespace Explore
         {
             this.employee_home.Hide();
             this.employee_customer.Hide();
+            this.customer_detail.Hide();
             this.employee_booking.Show();
-            this.employee_return.Hide();
+            this.booking_selection.Hide();
             this.employee_inventory.Hide();
+            this.inventory_add.Hide();
+            this.employee_return.Hide();
+            this.return_detail.Hide();
             this.employee_reports.Hide();
         }
 
@@ -104,9 +124,13 @@ namespace Explore
         {
             this.employee_home.Hide();
             this.employee_customer.Hide();
+            this.customer_detail.Hide();
             this.employee_booking.Hide();
-            this.employee_return.Show();
+            this.booking_selection.Hide();
             this.employee_inventory.Hide();
+            this.inventory_add.Hide();
+            this.employee_return.Show();
+            this.return_detail.Hide();
             this.employee_reports.Hide();
         }
 
@@ -114,9 +138,13 @@ namespace Explore
         {
             this.employee_home.Hide();
             this.employee_customer.Hide();
+            this.customer_detail.Hide();
             this.employee_booking.Hide();
-            this.employee_return.Hide();
+            this.booking_selection.Hide();
             this.employee_inventory.Show();
+            this.inventory_add.Hide();
+            this.employee_return.Hide();
+            this.return_detail.Hide();
             this.employee_reports.Hide();
         }
     }
