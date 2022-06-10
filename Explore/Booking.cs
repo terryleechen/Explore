@@ -48,7 +48,6 @@ namespace Explore
             this.pickup_BID = Get_BID(this.pickup_combo.Text);
             this.return_BID = Get_BID(this.return_combo.Text);
             this.booking_selection.Get_all(start_date, end_date, return_BID, pickup_BID, car_type);
-            Console.WriteLine(pickup_BID);
             Initial_availability();
             this.Hide();
             this.booking_selection.Show();
@@ -86,12 +85,12 @@ namespace Explore
             try
             {
                 this.sql.Query(
-                    "(select T.Type_ID, C.Brand, C.Model, C.Year, C.Mileage " +
-                    "from Car C, Branch B, Type T" +
+                    "(select C.Car_ID, T.Type_Name, C.Brand, C.Model, C.Year, C.Mileage " +
+                    "from Car C, Branch B, Type T " +
                     "where C.BID = B.BID and T.Type_ID = C.Type_ID and B.BID = '" + return_BID + "')" +
                     "except " +
-                    "(select C.Type_ID, C.Brand, C.Model, C.Year, C.Mileage " +
-                    "from Rental_Transaction R, Car C, Type T" +
+                    "(select C.Car_ID, T.Type_Name, C.Brand, C.Model, C.Year, C.Mileage " +
+                    "from Rental_Transaction R, Car C, Type T " +
                     "where C.Car_ID = R.Car_Received_ID and T.Type_ID = C.Type_ID and " +
                     "R.Return_Branch_ID = '" + return_BID + "' and " +
                     "R.Start_Date >= convert(datetime,'" + start_date + "') and " +
@@ -100,12 +99,14 @@ namespace Explore
                 while (this.sql.Reader().Read())
                 {
                     availability_table.Rows.Add(
+                        this.sql.Reader()["Car_ID"].ToString(),
                         this.sql.Reader()["Type_Name"].ToString(),
                         this.sql.Reader()["Brand"].ToString(),
                         this.sql.Reader()["Model"].ToString(),
                         this.sql.Reader()["Year"].ToString(),
                         this.sql.Reader()["Mileage"].ToString());
                 }
+                this.sql.Close();
                 
             }
             catch(Exception ex)
