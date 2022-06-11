@@ -28,6 +28,7 @@ namespace Explore
             this.booking_selection.Hide();
             this.employee_inventory.Hide();
             this.inventory_add.Hide();
+            this.inventory_update.Hide();
             this.employee_return.Hide();
             this.return_detail.Hide();
             this.employee_reports.Hide();
@@ -82,6 +83,7 @@ namespace Explore
             this.booking_selection.Hide();
             this.employee_inventory.Hide();
             this.inventory_add.Hide();
+            this.inventory_update.Hide();
             this.employee_return.Show();
             this.return_detail.Hide();
             this.employee_reports.Hide();
@@ -97,6 +99,7 @@ namespace Explore
             this.booking_selection.Hide();
             this.employee_inventory.Hide();
             this.inventory_add.Hide();
+            this.inventory_update.Hide();
             this.employee_return.Hide();
             this.return_detail.Hide();
             this.employee_reports.Hide();
@@ -112,6 +115,7 @@ namespace Explore
             this.booking_selection.Hide();
             this.employee_inventory.Hide();
             this.inventory_add.Hide();
+            this.inventory_update.Hide();
             this.employee_return.Hide();
             this.return_detail.Hide();
             this.employee_reports.Hide();
@@ -126,6 +130,7 @@ namespace Explore
             this.booking_selection.Hide();
             this.employee_inventory.Hide();
             this.inventory_add.Hide();
+            this.inventory_update.Hide();
             this.employee_return.Hide();
             this.return_detail.Hide();
             this.employee_reports.Hide();
@@ -140,6 +145,7 @@ namespace Explore
             this.booking_selection.Hide();
             this.employee_inventory.Hide();
             this.inventory_add.Hide();
+            this.inventory_update.Hide();
             this.employee_return.Show();
             this.return_detail.Hide();
             this.employee_reports.Hide();
@@ -154,6 +160,7 @@ namespace Explore
             this.booking_selection.Hide();
             this.employee_inventory.Show();
             this.inventory_add.Hide();
+            this.inventory_update.Hide();
             this.employee_return.Hide();
             this.return_detail.Hide();
             this.employee_reports.Hide();

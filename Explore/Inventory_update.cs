@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace Explore
 {
-    public partial class inventory_update : UserControl
+    public partial class Inventory_update : UserControl
     {
-        public inventory_update()
+        private Employee_dashboard employee_dashboard;
+        public Inventory_update()
         {
             InitializeComponent();
+        }
+
+        public void Set_employee_dashboard(Employee_dashboard employee_dashboard)
+        {
+            this.employee_dashboard = employee_dashboard;
         }
     }
 }

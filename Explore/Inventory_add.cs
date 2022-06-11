@@ -17,7 +17,7 @@ namespace Explore
         {
             InitializeComponent();
         }
-        public void Get_employee_dashboard(Employee_dashboard employee_dashboard)
+        public void Set_employee_dashboard(Employee_dashboard employee_dashboard)
         {
             this.employee_dashboard = employee_dashboard;
         }

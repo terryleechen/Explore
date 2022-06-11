@@ -19,12 +19,14 @@ namespace Explore
 
         private SQL sql;
         private Inventory_add inventory_add;
+        private Inventory_update inventory_update;
         private string selected_branch, car_ID, type_ID, brand, year, mileage; //need this for update
 
-        public Inventory(Inventory_add inventory_add)
+        public Inventory(Inventory_add inventory_add, Inventory_update inventory_update)
         {
             InitializeComponent();
             this.inventory_add = inventory_add;
+            this.inventory_update = inventory_update;
             sql = new SQL();
         }
 
@@ -35,6 +37,12 @@ namespace Explore
             this.brand = dataGridView_inventory.CurrentRow.Cells["Brand"].Value.ToString();
             this.year = dataGridView_inventory.CurrentRow.Cells["Year"].Value.ToString();
             this.mileage = dataGridView_inventory.CurrentRow.Cells["Mileage"].Value.ToString();
+        }
+
+        private void Button_update_click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.inventory_update.Show();
         }
 
         private void inventory_show_records_button_Click(object sender, EventArgs e)
