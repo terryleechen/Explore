@@ -52,7 +52,7 @@ namespace Explore
 
             // set up all the info needed for selection
             this.car_type = this.car_type_combo.Text;
-            Get_car_ID();
+            Get_type_ID();
             this.pickup_branch = this.pickup_combo.Text;
             this.return_branch = this.return_combo.Text;
             this.pickup_BID = Get_BID(this.pickup_combo.Text);
@@ -93,7 +93,7 @@ namespace Explore
             return null;
         }
 
-        private void Get_car_ID()
+        private void Get_type_ID()
         {
             this.sql.Query(
                 "select Type_ID " +
