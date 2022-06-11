@@ -31,8 +31,8 @@
             this.employee_dashboard = new Explore.Employee_dashboard();
             this.customer_dashboard = new Explore.Customer_dashboard();
             this.login_page = new Explore.Login_page(this.employee_dashboard, this.customer_dashboard);
-            this.employee_dashboard.Get_login(this.login_page);
-            this.customer_dashboard.Get_login(this.login_page);
+            this.employee_dashboard.Set_login(this.login_page);
+            this.customer_dashboard.Set_login(this.login_page);
 
             this.SuspendLayout();
             // 

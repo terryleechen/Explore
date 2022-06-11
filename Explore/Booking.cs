@@ -14,8 +14,10 @@ namespace Explore
     {
         private Booking_selection booking_selection;
         private int driver_license;
-        private string first_name, last_name, start_date, end_date, return_BID, pickup_BID, pickup_branch, return_branch, car_type;
+        private double number_days;
+        private string first_name, last_name, start_date, end_date, return_BID, pickup_BID, pickup_branch, return_branch, car_type, CID;
         private SQL sql;
+
         public Booking(Booking_selection booking_selection)
         {
             InitializeComponent();
@@ -23,14 +25,21 @@ namespace Explore
             this.sql = new SQL();
         }
 
-        // Get pickup_branch
         public string Get_pickup_branch()
         {
             return this.pickup_branch;
         }
 
+        public string Get_return_branch()
+        {
+            return this.return_branch;
+        }
+
         private void Button_next_click(object sender, EventArgs e)
         {
+            // calculate number of days
+            this.number_days = (this.return_date_picker.Value - this.start_date_picker.Value).TotalDays;
+
             // format start date
             this.start_date = this.start_date_picker.Value.Year.ToString() + "/" +
                 this.start_date_picker.Value.Month.ToString() + "/" +
@@ -43,11 +52,12 @@ namespace Explore
 
             // set up all the info needed for selection
             this.car_type = this.car_type_combo.Text;
+            Console.WriteLine("car type is " + this.car_type);
             this.pickup_branch = this.pickup_combo.Text;
             this.return_branch = this.return_combo.Text;
             this.pickup_BID = Get_BID(this.pickup_combo.Text);
             this.return_BID = Get_BID(this.return_combo.Text);
-            this.booking_selection.Get_all(start_date, end_date, return_BID, pickup_BID, car_type);
+            this.booking_selection.Get_all(start_date, end_date, return_BID, pickup_BID, car_type, CID, number_days);
             Initial_availability();
             this.Hide();
             this.booking_selection.Show();
@@ -85,16 +95,18 @@ namespace Explore
             try
             {
                 this.sql.Query(
-                    "(select C.Car_ID, T.Type_Name, C.Brand, C.Model, C.Year, C.Mileage " +
+                    "select TT.Car_ID, TT.Brand, TT.Model, TT.Year, TT.Mileage, TT.Type_Name " +
+                    "from ((select C.Car_ID, C.Brand, C.Model, C.Year, C.Mileage,T.Type_Name " +
                     "from Car C, Branch B, Type T " +
-                    "where C.BID = B.BID and T.Type_ID = C.Type_ID and B.BID = '" + return_BID + "')" +
+                    "where C.BID = B.BID and T.Type_ID = C.Type_ID and B.BID = '" + pickup_BID + "') " +
                     "except " +
-                    "(select C.Car_ID, T.Type_Name, C.Brand, C.Model, C.Year, C.Mileage " +
+                    "(select C.Car_ID, C.Brand, C.Model, C.Year, C.Mileage, T.Type_Name " +
                     "from Rental_Transaction R, Car C, Type T " +
                     "where C.Car_ID = R.Car_Received_ID and T.Type_ID = C.Type_ID and " +
-                    "R.Return_Branch_ID = '" + return_BID + "' and " +
+                    "R.Return_Branch_ID = '" + pickup_BID + "' and " +
                     "R.Start_Date >= convert(datetime,'" + start_date + "') and " +
-                    "R.End_Date <= convert(datetime,'" + end_date + "'))");
+                    "R.End_Date <= convert(datetime,'" + end_date + "'))) as TT " +
+                    "where TT.Type_Name = '" + car_type + "'");
 
                 while (this.sql.Reader().Read())
                 {
@@ -114,6 +126,7 @@ namespace Explore
                 MessageBox.Show(ex.ToString(), "Error");
             }
         }
+        
         private void Driver_license_keydown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode.Equals(Keys.Enter))
@@ -180,12 +193,13 @@ namespace Explore
             
             try
             {
-                this.sql.Query("select First_Name, Last_Name from Customer where Driver_License =" + Int32.Parse(customer_driver_license.Text));
+                this.sql.Query("select First_Name, Last_Name, CID from Customer where Driver_License =" + Int32.Parse(customer_driver_license.Text));
 
                 while (this.sql.Reader().Read())
                 {
                     first_name = (String) this.sql.Reader()["First_Name"];
-                    last_name = (String)this.sql.Reader()["Last_Name"];
+                    last_name = (String) this.sql.Reader()["Last_Name"];
+                    CID = (String)this.sql.Reader()["CID"];
                 }
                 this.sql.Close();
                 customer_firstname.Text = first_name;

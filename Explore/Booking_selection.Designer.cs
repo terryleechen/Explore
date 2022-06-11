@@ -28,36 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.customer_book = new System.Windows.Forms.Button();
+            this.button_book = new System.Windows.Forms.Button();
             this.button_previous = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.selected_branch = new System.Windows.Forms.ComboBox();
+            this.selected_pickup_branch = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.availability_table = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.selected_return_branch = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.customer_firstname = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.Car_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mileage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.availability_table)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // customer_book
+            // button_book
             // 
-            this.customer_book.BackColor = System.Drawing.Color.Transparent;
-            this.customer_book.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
-            this.customer_book.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.customer_book.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.customer_book.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customer_book.ForeColor = System.Drawing.Color.SeaShell;
-            this.customer_book.Location = new System.Drawing.Point(684, 387);
-            this.customer_book.Name = "customer_book";
-            this.customer_book.Size = new System.Drawing.Size(82, 40);
-            this.customer_book.TabIndex = 11;
-            this.customer_book.Text = "Save";
-            this.customer_book.UseVisualStyleBackColor = false;
+            this.button_book.BackColor = System.Drawing.Color.Transparent;
+            this.button_book.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.button_book.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button_book.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_book.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_book.ForeColor = System.Drawing.Color.SeaShell;
+            this.button_book.Location = new System.Drawing.Point(684, 396);
+            this.button_book.Name = "button_book";
+            this.button_book.Size = new System.Drawing.Size(82, 40);
+            this.button_book.TabIndex = 11;
+            this.button_book.Text = "Book";
+            this.button_book.UseVisualStyleBackColor = false;
+            this.button_book.Click += new System.EventHandler(this.Button_book_click);
             // 
             // button_previous
             // 
@@ -67,7 +77,7 @@
             this.button_previous.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_previous.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_previous.ForeColor = System.Drawing.Color.SeaShell;
-            this.button_previous.Location = new System.Drawing.Point(581, 387);
+            this.button_previous.Location = new System.Drawing.Point(581, 397);
             this.button_previous.Name = "button_previous";
             this.button_previous.Size = new System.Drawing.Size(97, 40);
             this.button_previous.TabIndex = 10;
@@ -77,7 +87,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.selected_branch);
+            this.panel1.Controls.Add(this.selected_pickup_branch);
             this.panel1.Controls.Add(this.label4);
             this.panel1.ForeColor = System.Drawing.Color.SeaGreen;
             this.panel1.Location = new System.Drawing.Point(30, 45);
@@ -85,17 +95,17 @@
             this.panel1.Size = new System.Drawing.Size(337, 51);
             this.panel1.TabIndex = 14;
             // 
-            // selected_branch
+            // selected_pickup_branch
             // 
-            this.selected_branch.BackColor = System.Drawing.SystemColors.Window;
-            this.selected_branch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.selected_branch.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.selected_branch.FormattingEnabled = true;
-            this.selected_branch.Location = new System.Drawing.Point(164, 11);
-            this.selected_branch.Name = "selected_branch";
-            this.selected_branch.Size = new System.Drawing.Size(130, 21);
-            this.selected_branch.TabIndex = 1;
-            this.selected_branch.SelectedIndexChanged += new System.EventHandler(this.Selected_branch_changed);
+            this.selected_pickup_branch.BackColor = System.Drawing.SystemColors.Window;
+            this.selected_pickup_branch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.selected_pickup_branch.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.selected_pickup_branch.FormattingEnabled = true;
+            this.selected_pickup_branch.Location = new System.Drawing.Point(135, 12);
+            this.selected_pickup_branch.Name = "selected_pickup_branch";
+            this.selected_pickup_branch.Size = new System.Drawing.Size(130, 21);
+            this.selected_pickup_branch.TabIndex = 1;
+            this.selected_pickup_branch.SelectedValueChanged += new System.EventHandler(this.Selected_pickup_branch_changed);
             // 
             // label4
             // 
@@ -104,16 +114,16 @@
             this.label4.ForeColor = System.Drawing.Color.SeaShell;
             this.label4.Location = new System.Drawing.Point(3, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(154, 24);
+            this.label4.Size = new System.Drawing.Size(137, 24);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Selected Branch:";
+            this.label4.Text = "Pickup Branch:";
             // 
             // availability_table
             // 
             this.availability_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.availability_table.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Car_ID,
-            this.Type_ID,
+            this.Type_Name,
             this.Brand,
             this.Model,
             this.Year,
@@ -123,8 +133,83 @@
             this.availability_table.Name = "availability_table";
             this.availability_table.ReadOnly = true;
             this.availability_table.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.availability_table.Size = new System.Drawing.Size(648, 279);
+            this.availability_table.Size = new System.Drawing.Size(633, 279);
             this.availability_table.TabIndex = 15;
+            this.availability_table.Click += new System.EventHandler(this.Selection_click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.selected_return_branch);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.ForeColor = System.Drawing.Color.SeaGreen;
+            this.panel2.Location = new System.Drawing.Point(386, 45);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(337, 51);
+            this.panel2.TabIndex = 15;
+            // 
+            // selected_return_branch
+            // 
+            this.selected_return_branch.BackColor = System.Drawing.SystemColors.Window;
+            this.selected_return_branch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.selected_return_branch.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.selected_return_branch.FormattingEnabled = true;
+            this.selected_return_branch.Location = new System.Drawing.Point(135, 12);
+            this.selected_return_branch.Name = "selected_return_branch";
+            this.selected_return_branch.Size = new System.Drawing.Size(130, 21);
+            this.selected_return_branch.TabIndex = 1;
+            this.selected_return_branch.SelectionChangeCommitted += new System.EventHandler(this.Selected_return_branch_changed);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.SeaShell;
+            this.label1.Location = new System.Drawing.Point(3, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(136, 24);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Return Branch:";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this.customer_firstname);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.ForeColor = System.Drawing.Color.SeaGreen;
+            this.panel3.Location = new System.Drawing.Point(30, 396);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(330, 51);
+            this.panel3.TabIndex = 16;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.SeaShell;
+            this.panel4.Location = new System.Drawing.Point(135, 37);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(150, 1);
+            this.panel4.TabIndex = 3;
+            // 
+            // customer_firstname
+            // 
+            this.customer_firstname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.customer_firstname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.customer_firstname.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer_firstname.ForeColor = System.Drawing.Color.SeaShell;
+            this.customer_firstname.Location = new System.Drawing.Point(135, 9);
+            this.customer_firstname.Name = "customer_firstname";
+            this.customer_firstname.Size = new System.Drawing.Size(150, 22);
+            this.customer_firstname.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.SeaShell;
+            this.label2.Location = new System.Drawing.Point(3, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(139, 24);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Estimated Cost:";
             // 
             // Car_ID
             // 
@@ -132,11 +217,11 @@
             this.Car_ID.Name = "Car_ID";
             this.Car_ID.ReadOnly = true;
             // 
-            // Type_ID
+            // Type_Name
             // 
-            this.Type_ID.HeaderText = "Type ID";
-            this.Type_ID.Name = "Type_ID";
-            this.Type_ID.ReadOnly = true;
+            this.Type_Name.HeaderText = "Type Name";
+            this.Type_Name.Name = "Type_Name";
+            this.Type_Name.ReadOnly = true;
             // 
             // Brand
             // 
@@ -167,9 +252,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.availability_table);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.customer_book);
+            this.Controls.Add(this.button_book);
             this.Controls.Add(this.button_previous);
             this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Name = "Booking_selection";
@@ -178,20 +265,31 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.availability_table)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button customer_book;
+        private System.Windows.Forms.Button button_book;
         private System.Windows.Forms.Button button_previous;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox selected_branch;
+        private System.Windows.Forms.ComboBox selected_pickup_branch;
         private System.Windows.Forms.DataGridView availability_table;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ComboBox selected_return_branch;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TextBox customer_firstname;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Car_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Brand;
         private System.Windows.Forms.DataGridViewTextBoxColumn Model;
         private System.Windows.Forms.DataGridViewTextBoxColumn Year;
