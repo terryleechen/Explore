@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.selectedbranch_panel = new System.Windows.Forms.Panel();
+            this.selected_branch_combobox = new System.Windows.Forms.ComboBox();
             this.selectedbranch_label = new System.Windows.Forms.Label();
             this.carID_panel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -55,7 +56,6 @@
             this.mileage_label = new System.Windows.Forms.Label();
             this.inventory_add_button = new System.Windows.Forms.Button();
             this.previous_button = new System.Windows.Forms.Button();
-            this.selected_branch_combobox = new System.Windows.Forms.ComboBox();
             this.selectedbranch_panel.SuspendLayout();
             this.carID_panel.SuspendLayout();
             this.cartype_panel.SuspendLayout();
@@ -72,8 +72,19 @@
             this.selectedbranch_panel.ForeColor = System.Drawing.Color.SeaGreen;
             this.selectedbranch_panel.Location = new System.Drawing.Point(104, 49);
             this.selectedbranch_panel.Name = "selectedbranch_panel";
-            this.selectedbranch_panel.Size = new System.Drawing.Size(330, 51);
+            this.selectedbranch_panel.Size = new System.Drawing.Size(397, 51);
             this.selectedbranch_panel.TabIndex = 15;
+            // 
+            // selected_branch_combobox
+            // 
+            this.selected_branch_combobox.BackColor = System.Drawing.SystemColors.Window;
+            this.selected_branch_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.selected_branch_combobox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.selected_branch_combobox.FormattingEnabled = true;
+            this.selected_branch_combobox.Location = new System.Drawing.Point(179, 12);
+            this.selected_branch_combobox.Name = "selected_branch_combobox";
+            this.selected_branch_combobox.Size = new System.Drawing.Size(200, 21);
+            this.selected_branch_combobox.TabIndex = 3;
             // 
             // selectedbranch_label
             // 
@@ -112,10 +123,11 @@
             this.carID_textbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.carID_textbox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.carID_textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.carID_textbox.ForeColor = System.Drawing.Color.White;
+            this.carID_textbox.ForeColor = System.Drawing.Color.SeaShell;
             this.carID_textbox.Location = new System.Drawing.Point(75, 11);
             this.carID_textbox.Name = "carID_textbox";
-            this.carID_textbox.Size = new System.Drawing.Size(175, 22);
+            this.carID_textbox.ReadOnly = true;
+            this.carID_textbox.Size = new System.Drawing.Size(159, 22);
             this.carID_textbox.TabIndex = 2;
             // 
             // carID_label
@@ -354,16 +366,6 @@
             this.previous_button.Text = "Previous";
             this.previous_button.UseVisualStyleBackColor = true;
             this.previous_button.Click += new System.EventHandler(this.Button_previous_click);
-            // 
-            // selected_branch_combobox
-            // 
-            this.selected_branch_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.selected_branch_combobox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.selected_branch_combobox.FormattingEnabled = true;
-            this.selected_branch_combobox.Location = new System.Drawing.Point(179, 12);
-            this.selected_branch_combobox.Name = "selected_branch_combobox";
-            this.selected_branch_combobox.Size = new System.Drawing.Size(121, 21);
-            this.selected_branch_combobox.TabIndex = 3;
             // 
             // Inventory_add
             // 

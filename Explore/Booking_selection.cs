@@ -110,7 +110,6 @@ namespace Explore
                 {
                     if (Int32.Parse(TID[i].ToString()) > 0 && Int32.Parse(TID[i].ToString()) < 10)
                     {
-                        
                         index = i;
                         break;
                     }

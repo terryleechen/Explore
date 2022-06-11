@@ -75,12 +75,19 @@ namespace Explore
 
         private void Load_event(object sender, EventArgs e)
         {
+            string default_branch = "";
+            int index = 0;
             try
             {
                 this.sql.Query("select Trim(Address_1) + ' ' + Trim(Address_2) as Address from branch");
 
                 while (this.sql.Reader().Read())
                 {
+                    if(index == 0)
+                    {
+                        default_branch = this.sql.Reader()["Address"].ToString();
+                        index++;
+                    }
                     inventory_branch_select_combobox.Items.Add(this.sql.Reader()["Address"]);
                 }
             }
@@ -89,19 +96,104 @@ namespace Explore
                 MessageBox.Show(ex.ToString(), "Error");
             }
             this.sql.Close();
+
+            // set default to branch 1
+            // bug
+            this.inventory_add.Get_selected_branch_combobox().Text = default_branch;
         }
 
         private void Button_add_click(object sender, EventArgs e)
         {
+            // set car ID
+            string car_ID = this.inventory_add.Get_car_ID_text();
+            car_ID = Create_car_ID();
+            this.inventory_add.Set_Car_ID(car_ID);
+
+            // set car type and selected branch
+            Load_info_add();
+
             this.Hide();
             this.inventory_add.Show();
+        }
+
+        private string Create_car_ID()
+        {
+            int index = 0;
+            string car_ID = "", new_car_ID = "CR";
+            this.sql.Query("select Car_ID from Car C order by Car_ID desc");
+            try
+            {
+                int row = 0;
+                while (this.sql.Reader().Read())
+                {
+                    if (row == 0)
+                    {
+                        break;
+                    }
+                }
+                car_ID = this.sql.Reader()["Car_ID"].ToString();
+                for (int i = 2; i < car_ID.Length; i++)
+                {
+                    if (Int32.Parse(car_ID[i].ToString()) > 0 && Int32.Parse(car_ID[i].ToString()) < 10)
+                    {
+                        index = i;
+                        break;
+                    }
+                    new_car_ID += car_ID[i];
+                }
+                this.sql.Close();
+                new_car_ID += Int32.Parse(car_ID.Substring(index, (car_ID.Length - index))) + 1;
+                return new_car_ID;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error");
+            }
+            this.sql.Close();
+            return null;
+        }
+
+        private void Load_info_add()
+        {
+            // set car type combo
+            try
+            {
+                this.sql.Query("select DISTINCT [Type_Name] from [Type]");
+
+                while (this.sql.Reader().Read())
+                {
+                    this.inventory_add.Get_car_type_combo().Items.Add(this.sql.Reader()["Type_Name"]);
+                }
+                this.sql.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error");
+            }
+
+            // set selected combo
+            try
+            {
+                this.sql.Query("select Trim(Address_1) + ' ' + Trim(Address_2) as Address from branch");
+
+                while (this.sql.Reader().Read())
+                {
+                    this.inventory_add.Get_selected_branch_combobox().Items.Add(this.sql.Reader()["Address"]);
+                }
+                this.sql.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error");
+            }
         }
 
         private void User_select(object sender, EventArgs e)
         {
             selected_branch = inventory_branch_select_combobox.Text;
+            this.inventory_add.Get_selected_branch_combobox().Text = inventory_branch_select_combobox.Text;
             string BID = Get_BID(selected_branch);
-
+            
             try
             {
                 this.sql.Query("select Car_ID, Type_ID, Brand, Model, Year, Mileage " +
@@ -125,6 +217,7 @@ namespace Explore
             }
             this.sql.Close();
         }
+        
         private string Get_BID(string address)
         {
             string BID = "";
