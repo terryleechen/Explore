@@ -14,10 +14,11 @@ namespace Explore
     {
         private Employee_dashboard employee_dashboard;
         private SQL sql;
-        private string start_date, end_date, return_BID, pickup_BID, car_type, employee_ID, CID;
+        private string start_date, end_date, return_BID, pickup_BID, car_type, employee_ID, CID, type_ID;
         private string car_received_ID;
         private double number_days;
         private int reservation_price;
+
         public Booking_selection()
         {
             InitializeComponent();
@@ -29,7 +30,8 @@ namespace Explore
             this.employee_dashboard = employee_dashboard;
         }
         // ============ Getter methods ==============
-        public void Get_all(string start_date, string end_date, string return_BID, string pickup_BID, string car_type, string CID, double number_days)
+        
+        public void Get_all(string start_date, string end_date, string return_BID, string pickup_BID, string car_type, string CID, double number_days, string type_ID, int reservation_price)
         {
             this.start_date = start_date;
             this.end_date = end_date;
@@ -38,14 +40,20 @@ namespace Explore
             this.car_type = car_type;
             this.CID = CID;
             this.number_days = number_days;
+            this.type_ID = type_ID;
+            this.reservation_price = reservation_price;
         }
 
+        public Label Get_estimated_price()
+        {
+            return this.estimated_cost;
+        }
+        
         public DataGridView Get_table()
         {
             return this.availability_table;
         }
 
-        // ===========================================
         private void Selected_return_branch_changed(object sender, EventArgs e)
         {
             this.return_BID = Get_BID(selected_return_branch.Text);
@@ -54,15 +62,23 @@ namespace Explore
         private void Selected_pickup_branch_changed(object sender, EventArgs e)
         {
             this.pickup_BID = Get_BID(selected_pickup_branch.Text);
-            Console.WriteLine(pickup_BID);
             Run_changes();
         }
 
         private void Button_book_click(object sender, EventArgs e)
         {
-            Calculator calculator = new Calculator(this.number_days, this.car_type);
-            this.reservation_price = calculator.calculate();
-            Create_transaction();
+            string TID = Create_transaction();
+            this.sql.Insert(
+                "insert into Rental_Transaction values(" +
+                "'" + TID + "', " +
+                "'" + this.type_ID + "', " +
+                "'" + this.car_received_ID + "', " +
+                "'" + this.pickup_BID + "', " +
+                "'" + this.return_BID + "', " +
+                "'" + this.employee_ID + "', " +
+                "'" + this.start_date + "', " +
+                "'" + this.end_date + "', " +
+                this.reservation_price);
         }
 
         private void Selection_click(object sender, EventArgs e)
@@ -70,7 +86,7 @@ namespace Explore
             this.car_received_ID = availability_table.CurrentRow.Cells["Car_ID"].Value.ToString();
         }
 
-        private void Create_transaction()
+        private string Create_transaction()
         {
             int index = 0;
             string TID = "", new_TID = "T";
@@ -87,7 +103,6 @@ namespace Explore
                 }
 
                 TID = this.sql.Reader()["TID"].ToString();
-                Console.WriteLine("last transaction number is " + TID);
                 for (int i = 1; i < TID.Length; i++)
                 {
                     if (Int32.Parse(TID[i].ToString()) > 0 && Int32.Parse(TID[i].ToString()) < 10)
@@ -101,11 +116,13 @@ namespace Explore
                 this.sql.Close();
 
                 new_TID += Int32.Parse(TID.Substring(index, (TID.Length - index))) + 1;
+                return new_TID;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Error");
             }
+            return null;
         }
         
         private string Get_BID(string address)

@@ -39,7 +39,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.customer_firstname = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Car_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +46,7 @@
             this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mileage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estimated_cost = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.availability_table)).BeginInit();
             this.panel2.SuspendLayout();
@@ -172,8 +172,8 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.estimated_cost);
             this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.customer_firstname);
             this.panel3.Controls.Add(this.label2);
             this.panel3.ForeColor = System.Drawing.Color.SeaGreen;
             this.panel3.Location = new System.Drawing.Point(30, 396);
@@ -189,23 +189,12 @@
             this.panel4.Size = new System.Drawing.Size(150, 1);
             this.panel4.TabIndex = 3;
             // 
-            // customer_firstname
-            // 
-            this.customer_firstname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.customer_firstname.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.customer_firstname.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customer_firstname.ForeColor = System.Drawing.Color.SeaShell;
-            this.customer_firstname.Location = new System.Drawing.Point(135, 9);
-            this.customer_firstname.Name = "customer_firstname";
-            this.customer_firstname.Size = new System.Drawing.Size(150, 22);
-            this.customer_firstname.TabIndex = 2;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.SeaShell;
-            this.label2.Location = new System.Drawing.Point(3, 9);
+            this.label2.Location = new System.Drawing.Point(3, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(139, 24);
             this.label2.TabIndex = 0;
@@ -247,6 +236,17 @@
             this.Mileage.Name = "Mileage";
             this.Mileage.ReadOnly = true;
             // 
+            // estimated_cost
+            // 
+            this.estimated_cost.AutoSize = true;
+            this.estimated_cost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.estimated_cost.ForeColor = System.Drawing.Color.SeaShell;
+            this.estimated_cost.Location = new System.Drawing.Point(139, 9);
+            this.estimated_cost.Name = "estimated_cost";
+            this.estimated_cost.Size = new System.Drawing.Size(96, 25);
+            this.estimated_cost.TabIndex = 4;
+            this.estimated_cost.Text = "              ";
+            // 
             // Booking_selection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,7 +286,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox customer_firstname;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Car_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type_Name;
@@ -294,5 +293,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Model;
         private System.Windows.Forms.DataGridViewTextBoxColumn Year;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mileage;
+        private System.Windows.Forms.Label estimated_cost;
     }
 }
