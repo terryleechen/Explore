@@ -64,6 +64,7 @@
             this.inventory_branch_select_combobox.Name = "inventory_branch_select_combobox";
             this.inventory_branch_select_combobox.Size = new System.Drawing.Size(317, 21);
             this.inventory_branch_select_combobox.TabIndex = 1;
+            this.inventory_branch_select_combobox.SelectedValueChanged += new System.EventHandler(this.User_select);
             // 
             // dataGridView_inventory
             // 
@@ -79,7 +80,7 @@
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.SeaShell;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -90,6 +91,7 @@
             this.dataGridView_inventory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_inventory.Size = new System.Drawing.Size(643, 304);
             this.dataGridView_inventory.TabIndex = 2;
+            this.dataGridView_inventory.Click += new System.EventHandler(this.RowClick);
             // 
             // Car_ID
             // 
@@ -165,7 +167,7 @@
             // 
             this.inventory_show_records_button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.inventory_show_records_button.ForeColor = System.Drawing.Color.Black;
-            this.inventory_show_records_button.Location = new System.Drawing.Point(567, 31);
+            this.inventory_show_records_button.Location = new System.Drawing.Point(80, 378);
             this.inventory_show_records_button.Name = "inventory_show_records_button";
             this.inventory_show_records_button.Size = new System.Drawing.Size(103, 23);
             this.inventory_show_records_button.TabIndex = 6;

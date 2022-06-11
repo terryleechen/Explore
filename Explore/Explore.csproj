@@ -53,6 +53,12 @@
     <Compile Include="Inventory_add.Designer.cs">
       <DependentUpon>Inventory_add.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventory_update.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Inventory_update.Designer.cs">
+      <DependentUpon>Inventory_update.cs</DependentUpon>
+    </Compile>
     <Compile Include="SQL.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -154,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory_add.resx">
       <DependentUpon>Inventory_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory_update.resx">
+      <DependentUpon>Inventory_update.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
