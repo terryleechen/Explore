@@ -15,6 +15,47 @@ namespace Explore
         public Reports()
         {
             InitializeComponent();
+            this.report_combo.Items.Add("Report 1");
+            this.report_combo.Items.Add("Report 2");
+            this.report_combo.Items.Add("Report 3");
+            this.report_combo.Items.Add("Report 4");
+        }
+
+        private void Button_show_click(object sender, EventArgs e)
+        {
+            if(this.report_combo.Text != "")
+            {
+                string report_type = this.report_combo.Text;
+            }
+
+            switch(this.report_combo.Text)
+            {
+                case "Report 1":
+                    this.report1.Show();
+                    this.report2.Hide();
+                    this.report3.Hide();
+                    this.report4.Hide();
+                    break;
+                case "Report 2":
+                    this.report1.Hide();
+                    this.report2.Show();
+                    this.report3.Hide();
+                    this.report4.Hide();
+                    break;
+                case "Report 3":
+                    this.report1.Hide();
+                    this.report2.Hide();
+                    this.report3.Show();
+                    this.report4.Hide();
+                    break;
+                case "Report 4":
+                    this.report1.Hide();
+                    this.report2.Hide();
+                    this.report3.Hide();
+                    this.report4.Show();
+                    break;
+            }
+            
         }
     }
 }
