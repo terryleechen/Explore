@@ -13,6 +13,7 @@ namespace Explore
     public partial class Employee_dashboard : UserControl
     {
         private Login_page login_page;
+        private string employee_ID;
         public Employee_dashboard()
         {
             InitializeComponent();
@@ -34,7 +35,12 @@ namespace Explore
 
         }
         //====================== Getter methods ==============================================
-        public void Get_login(Login_page login_page)
+        public Login_page Get_login()
+        {
+            return login_page;
+        }
+
+        public void Set_login(Login_page login_page)
         {
             this.login_page = login_page;
         }

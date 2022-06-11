@@ -20,7 +20,7 @@ namespace Explore
             customer_date.Text = today.ToString("D");
         }
 
-        public void Get_login(Login_page login_page)
+        public void Set_login(Login_page login_page)
         {
             this.login_page = login_page;
         }

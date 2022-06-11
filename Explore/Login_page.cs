@@ -16,6 +16,7 @@ namespace Explore
         private Employee_dashboard employee_dashboard;
         private Customer_dashboard customer_page;
         private SQL sql;
+        private string employee_ID;
 
         public Login_page(Employee_dashboard employee_dashboard, Customer_dashboard customer_page)
         {
@@ -27,15 +28,12 @@ namespace Explore
             this.sql = new SQL();
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        // ============== Getter method ======================
+        public string Get_employee_id()
         {
-
+            return employee_ID;
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        // ===================================================
 
         private void Button_login_click(object sender, EventArgs e)
         {
@@ -51,6 +49,7 @@ namespace Explore
                     if(this.sql.Reader()["EID"].ToString().Equals(user_textbox.Text))
                     {
                         check = true;
+                        this.employee_ID = this.sql.Reader()["EID"].ToString();
                         break;
                         
                     }
@@ -62,6 +61,7 @@ namespace Explore
 
                 if (check)
                 {
+                    
                     this.employee_dashboard.Show();
                 }
                 this.sql.Close();
