@@ -67,18 +67,21 @@ namespace Explore
 
         private void Button_book_click(object sender, EventArgs e)
         {
+            this.car_received_ID = availability_table.CurrentRow.Cells["Car_ID"].Value.ToString();
+            Console.WriteLine(this.car_received_ID);
             string TID = Create_transaction();
             this.sql.Insert(
                 "insert into Rental_Transaction values(" +
                 "'" + TID + "', " +
                 "'" + this.type_ID + "', " +
                 "'" + this.car_received_ID + "', " +
+                "'" + this.CID + "', " +
                 "'" + this.pickup_BID + "', " +
                 "'" + this.return_BID + "', " +
                 "'" + this.employee_ID + "', " +
                 "'" + this.start_date + "', " +
                 "'" + this.end_date + "', " +
-                this.reservation_price);
+                this.reservation_price + ",null,null)");
         }
 
         private void Selection_click(object sender, EventArgs e)
