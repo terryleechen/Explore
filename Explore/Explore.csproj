@@ -59,6 +59,30 @@
     <Compile Include="Inventory_update.Designer.cs">
       <DependentUpon>Inventory_update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report1.Designer.cs">
+      <DependentUpon>Report1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report2.Designer.cs">
+      <DependentUpon>Report2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report3.Designer.cs">
+      <DependentUpon>Report3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report4.Designer.cs">
+      <DependentUpon>Report4.cs</DependentUpon>
+    </Compile>
     <Compile Include="SQL.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -184,6 +208,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Booking.resx">
       <DependentUpon>Booking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report1.resx">
+      <DependentUpon>Report1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report2.resx">
+      <DependentUpon>Report2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report3.resx">
+      <DependentUpon>Report3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report4.resx">
+      <DependentUpon>Report4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Return.resx">
       <DependentUpon>Return.cs</DependentUpon>
