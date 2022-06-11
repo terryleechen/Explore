@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.selectedbranch_panel = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.selectedbranch_display = new System.Windows.Forms.TextBox();
             this.selectedbranch_label = new System.Windows.Forms.Label();
             this.carID_panel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -57,6 +55,7 @@
             this.mileage_label = new System.Windows.Forms.Label();
             this.inventory_add_button = new System.Windows.Forms.Button();
             this.previous_button = new System.Windows.Forms.Button();
+            this.selected_branch_combobox = new System.Windows.Forms.ComboBox();
             this.selectedbranch_panel.SuspendLayout();
             this.carID_panel.SuspendLayout();
             this.cartype_panel.SuspendLayout();
@@ -68,35 +67,13 @@
             // 
             // selectedbranch_panel
             // 
-            this.selectedbranch_panel.Controls.Add(this.panel4);
-            this.selectedbranch_panel.Controls.Add(this.selectedbranch_display);
+            this.selectedbranch_panel.Controls.Add(this.selected_branch_combobox);
             this.selectedbranch_panel.Controls.Add(this.selectedbranch_label);
             this.selectedbranch_panel.ForeColor = System.Drawing.Color.SeaGreen;
             this.selectedbranch_panel.Location = new System.Drawing.Point(104, 49);
             this.selectedbranch_panel.Name = "selectedbranch_panel";
             this.selectedbranch_panel.Size = new System.Drawing.Size(330, 51);
             this.selectedbranch_panel.TabIndex = 15;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.SeaShell;
-            this.panel4.ForeColor = System.Drawing.Color.SeaShell;
-            this.panel4.Location = new System.Drawing.Point(163, 32);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(150, 1);
-            this.panel4.TabIndex = 3;
-            // 
-            // selectedbranch_display
-            // 
-            this.selectedbranch_display.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.selectedbranch_display.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.selectedbranch_display.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.selectedbranch_display.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectedbranch_display.ForeColor = System.Drawing.Color.White;
-            this.selectedbranch_display.Location = new System.Drawing.Point(152, 12);
-            this.selectedbranch_display.Name = "selectedbranch_display";
-            this.selectedbranch_display.Size = new System.Drawing.Size(175, 22);
-            this.selectedbranch_display.TabIndex = 2;
             // 
             // selectedbranch_label
             // 
@@ -378,6 +355,16 @@
             this.previous_button.UseVisualStyleBackColor = true;
             this.previous_button.Click += new System.EventHandler(this.Button_previous_click);
             // 
+            // selected_branch_combobox
+            // 
+            this.selected_branch_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.selected_branch_combobox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.selected_branch_combobox.FormattingEnabled = true;
+            this.selected_branch_combobox.Location = new System.Drawing.Point(179, 12);
+            this.selected_branch_combobox.Name = "selected_branch_combobox";
+            this.selected_branch_combobox.Size = new System.Drawing.Size(121, 21);
+            this.selected_branch_combobox.TabIndex = 3;
+            // 
             // Inventory_add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -415,8 +402,6 @@
         #endregion
 
         private System.Windows.Forms.Panel selectedbranch_panel;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox selectedbranch_display;
         private System.Windows.Forms.Label selectedbranch_label;
         private System.Windows.Forms.Panel carID_panel;
         private System.Windows.Forms.Panel panel2;
@@ -443,5 +428,6 @@
         private System.Windows.Forms.Label mileage_label;
         private System.Windows.Forms.Button inventory_add_button;
         private System.Windows.Forms.Button previous_button;
+        private System.Windows.Forms.ComboBox selected_branch_combobox;
     }
 }
