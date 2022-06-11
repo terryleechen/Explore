@@ -13,9 +13,9 @@ namespace Explore
     public partial class Booking : UserControl
     {
         private Booking_selection booking_selection;
-        private int driver_license;
+        private int driver_license, reservation_price;
         private double number_days;
-        private string first_name, last_name, start_date, end_date, return_BID, pickup_BID, pickup_branch, return_branch, car_type, CID;
+        private string first_name, last_name, start_date, end_date, return_BID, pickup_BID, pickup_branch, return_branch, car_type, CID, type_ID;
         private SQL sql;
 
         public Booking(Booking_selection booking_selection)
@@ -52,13 +52,18 @@ namespace Explore
 
             // set up all the info needed for selection
             this.car_type = this.car_type_combo.Text;
-            Console.WriteLine("car type is " + this.car_type);
+            Get_car_ID();
             this.pickup_branch = this.pickup_combo.Text;
             this.return_branch = this.return_combo.Text;
             this.pickup_BID = Get_BID(this.pickup_combo.Text);
             this.return_BID = Get_BID(this.return_combo.Text);
-            this.booking_selection.Get_all(start_date, end_date, return_BID, pickup_BID, car_type, CID, number_days);
+            
             Initial_availability();
+            Calculator calculator = new Calculator(this.number_days, this.car_type);
+            this.reservation_price = calculator.calculate();
+            
+            this.booking_selection.Get_estimated_price().Text = "$" + this.reservation_price.ToString();
+            this.booking_selection.Get_all(start_date, end_date, return_BID, pickup_BID, car_type, CID, number_days, type_ID, reservation_price);
             this.Hide();
             this.booking_selection.Show();
         }
@@ -84,9 +89,31 @@ namespace Explore
             {
                 MessageBox.Show(ex.ToString(), "Error");
             }
+            this.sql.Close();
             return null;
         }
 
+        private void Get_car_ID()
+        {
+            this.sql.Query(
+                "select Type_ID " +
+                "from Type T " +
+                "where Type_Name = '" + this.car_type + "'");
+
+            try
+            {
+                while (this.sql.Reader().Read())
+                {
+                    this.type_ID = this.sql.Reader()["Type_ID"].ToString();
+                }
+                this.sql.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error");
+            }
+        }
+        
         private void Initial_availability()
         {
             DataGridView availability_table = this.booking_selection.Get_table();
