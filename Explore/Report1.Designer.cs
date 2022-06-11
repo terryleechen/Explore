@@ -48,7 +48,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.Controls.Add(this.label1);
             this.Name = "Report1";
-            this.Size = new System.Drawing.Size(790, 460);
+            this.Size = new System.Drawing.Size(790, 386);
             this.ResumeLayout(false);
             this.PerformLayout();
 

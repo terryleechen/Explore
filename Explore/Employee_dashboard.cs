@@ -84,10 +84,9 @@ namespace Explore
             this.employee_inventory.Hide();
             this.inventory_add.Hide();
             this.inventory_update.Hide();
-            this.employee_return.Show();
+            this.employee_return.Hide();
             this.return_detail.Hide();
-            this.employee_reports.Hide();
-
+            this.employee_reports.Show();
         }
 
         private void button_customer_click(object sender, EventArgs e)
