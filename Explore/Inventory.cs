@@ -75,6 +75,7 @@ namespace Explore
 
         private void Load_event(object sender, EventArgs e)
         {
+            // set up selected branch
             string default_branch = "";
             int index = 0;
             try
@@ -100,6 +101,24 @@ namespace Explore
             // set default to branch 1
             // bug
             this.inventory_add.Get_selected_branch_combobox().Text = default_branch;
+
+            // set up brand combo
+            try
+            {
+                this.sql.Query(
+                    "select distinct Brand from Car C");
+
+                while(this.sql.Reader().Read())
+                {
+                    this.inventory_add.Get_brand_combobox().Items.Add(this.sql.Reader()["Brand"]);
+                }
+                this.sql.Close();
+                this.inventory_add.Get_brand_combobox().Items.Add("New");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error");
+            }
         }
 
         private void Button_add_click(object sender, EventArgs e)

@@ -34,19 +34,19 @@
             this.selected_pickup_branch = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.availability_table = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.selected_return_branch = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.Car_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mileage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.selected_return_branch = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.estimated_cost = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.availability_table)).BeginInit();
             this.panel2.SuspendLayout();
@@ -137,6 +137,42 @@
             this.availability_table.TabIndex = 15;
             this.availability_table.Click += new System.EventHandler(this.Selection_click);
             // 
+            // Car_ID
+            // 
+            this.Car_ID.HeaderText = "Car ID";
+            this.Car_ID.Name = "Car_ID";
+            this.Car_ID.ReadOnly = true;
+            // 
+            // Type_Name
+            // 
+            this.Type_Name.HeaderText = "Type Name";
+            this.Type_Name.Name = "Type_Name";
+            this.Type_Name.ReadOnly = true;
+            // 
+            // Brand
+            // 
+            this.Brand.HeaderText = "Brand";
+            this.Brand.Name = "Brand";
+            this.Brand.ReadOnly = true;
+            // 
+            // Model
+            // 
+            this.Model.HeaderText = "Model";
+            this.Model.Name = "Model";
+            this.Model.ReadOnly = true;
+            // 
+            // Year
+            // 
+            this.Year.HeaderText = "Year";
+            this.Year.Name = "Year";
+            this.Year.ReadOnly = true;
+            // 
+            // Mileage
+            // 
+            this.Mileage.HeaderText = "Mileage";
+            this.Mileage.Name = "Mileage";
+            this.Mileage.ReadOnly = true;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.selected_return_branch);
@@ -181,6 +217,17 @@
             this.panel3.Size = new System.Drawing.Size(330, 51);
             this.panel3.TabIndex = 16;
             // 
+            // estimated_cost
+            // 
+            this.estimated_cost.AutoSize = true;
+            this.estimated_cost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.estimated_cost.ForeColor = System.Drawing.Color.SeaShell;
+            this.estimated_cost.Location = new System.Drawing.Point(139, 9);
+            this.estimated_cost.Name = "estimated_cost";
+            this.estimated_cost.Size = new System.Drawing.Size(96, 25);
+            this.estimated_cost.TabIndex = 4;
+            this.estimated_cost.Text = "              ";
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.SeaShell;
@@ -199,53 +246,6 @@
             this.label2.Size = new System.Drawing.Size(139, 24);
             this.label2.TabIndex = 0;
             this.label2.Text = "Estimated Cost:";
-            // 
-            // Car_ID
-            // 
-            this.Car_ID.HeaderText = "Car ID";
-            this.Car_ID.Name = "Car_ID";
-            this.Car_ID.ReadOnly = true;
-            // 
-            // Type_Name
-            // 
-            this.Type_Name.HeaderText = "Type Name";
-            this.Type_Name.Name = "Type_Name";
-            this.Type_Name.ReadOnly = true;
-            // 
-            // Brand
-            // 
-            this.Brand.HeaderText = "Brand";
-            this.Brand.Name = "Brand";
-            this.Brand.ReadOnly = true;
-            // 
-            // Model
-            // 
-            this.Model.HeaderText = "Model";
-            this.Model.Name = "Model";
-            this.Model.ReadOnly = true;
-            // 
-            // Year
-            // 
-            this.Year.HeaderText = "Year";
-            this.Year.Name = "Year";
-            this.Year.ReadOnly = true;
-            // 
-            // Mileage
-            // 
-            this.Mileage.HeaderText = "Mileage";
-            this.Mileage.Name = "Mileage";
-            this.Mileage.ReadOnly = true;
-            // 
-            // estimated_cost
-            // 
-            this.estimated_cost.AutoSize = true;
-            this.estimated_cost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.estimated_cost.ForeColor = System.Drawing.Color.SeaShell;
-            this.estimated_cost.Location = new System.Drawing.Point(139, 9);
-            this.estimated_cost.Name = "estimated_cost";
-            this.estimated_cost.Size = new System.Drawing.Size(96, 25);
-            this.estimated_cost.TabIndex = 4;
-            this.estimated_cost.Text = "              ";
             // 
             // Booking_selection
             // 
