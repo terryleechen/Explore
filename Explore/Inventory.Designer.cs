@@ -151,6 +151,7 @@
             this.inventory_update_button.TabIndex = 4;
             this.inventory_update_button.Text = "Update";
             this.inventory_update_button.UseVisualStyleBackColor = true;
+            this.inventory_update_button.Click += new System.EventHandler(this.Button_update_click);
             // 
             // inventory_delete_button
             // 
