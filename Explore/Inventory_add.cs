@@ -115,6 +115,7 @@ namespace Explore
                 "'" + this.model + "', " +
                 Int32.Parse(this.mileage) + ")");
 
+            // reset after add
             Clear_info();
             Refresh_combo();
             this.Hide();
@@ -146,11 +147,13 @@ namespace Explore
             // set selected combo
             try
             {
-                this.sql.Query("select Trim(Address_1) + ' ' + Trim(Address_2) as Address from branch");
+                this.sql.Query(
+                    "select Brand " +
+                    "from Car C ");
 
                 while (this.sql.Reader().Read())
                 {
-                    this.brand_combo.Items.Add(this.sql.Reader()["Address"]);
+                    this.brand_combo.Items.Add(this.sql.Reader()["Brand"]);
                 }
                 this.sql.Close();
             }
@@ -162,6 +165,7 @@ namespace Explore
 
         private void Clear_info()
         {
+            this.selected_branch_combobox.Text = "";
             this.brand_combo.Text = "";
             this.car_type_combo.Text = "";
             this.selected_branch_combobox.Text = "";
