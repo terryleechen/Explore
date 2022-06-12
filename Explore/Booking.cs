@@ -15,7 +15,7 @@ namespace Explore
         private Booking_selection booking_selection;
         private int driver_license, reservation_price;
         private double number_days;
-        private string first_name, last_name, start_date, end_date, return_BID, pickup_BID, pickup_branch, return_branch, car_type, CID, type_ID;
+        private string first_name, last_name, start_date = "", end_date = "", return_BID, pickup_BID, pickup_branch, return_branch, car_type, CID, type_ID;
         private SQL sql;
 
         public Booking(Booking_selection booking_selection)
@@ -37,35 +37,52 @@ namespace Explore
 
         private void Button_next_click(object sender, EventArgs e)
         {
-            // calculate number of days
-            this.number_days = (this.return_date_picker.Value - this.start_date_picker.Value).TotalDays;
+            Console.WriteLine("1 " + this.customer_driver_license.Text);
+            Console.WriteLine("2 " +this.start_date_picker.Text);
+            Console.WriteLine("3 " + this.return_date_picker.Text);
+            Console.WriteLine("4 " + this.pickup_combo.Text);
+            Console.WriteLine("5 " + this.return_combo.Text);
+            Console.WriteLine("6 " + this.car_type_combo.Text);
 
-            // format start date
-            this.start_date = this.start_date_picker.Value.Year.ToString() + "/" +
-                this.start_date_picker.Value.Month.ToString() + "/" +
-                this.start_date_picker.Value.Day.ToString();
+            if(this.customer_driver_license.Text.Equals("") ||
+                this.start_date_picker.Text.Equals("") || this.return_date_picker.Text.Equals("") ||
+                this.pickup_combo.Text.Equals("") || this.return_combo.Text.Equals("") ||
+                this.car_type_combo.Text.Equals(""))
+            {
+                MessageBox.Show("Error! all fields must entered");
+            }
+            else
+            {
+                // calculate number of days
+                this.number_days = (this.return_date_picker.Value - this.start_date_picker.Value).TotalDays;
 
-            // format return date
-            this.end_date = this.return_date_picker.Value.Year.ToString() + "/" +
-                this.return_date_picker.Value.Month.ToString() + "/" +
-                this.return_date_picker.Value.Day.ToString();
+                // format start date
+                this.start_date = this.start_date_picker.Value.Year.ToString() + "/" +
+                    this.start_date_picker.Value.Month.ToString() + "/" +
+                    this.start_date_picker.Value.Day.ToString();
 
-            // set up all the info needed for selection
-            this.car_type = this.car_type_combo.Text;
-            Get_type_ID();
-            this.pickup_branch = this.pickup_combo.Text;
-            this.return_branch = this.return_combo.Text;
-            this.pickup_BID = Get_BID(this.pickup_combo.Text);
-            this.return_BID = Get_BID(this.return_combo.Text);
-            
-            Initial_availability();
-            Calculator calculator = new Calculator(this.number_days, this.car_type);
-            this.reservation_price = calculator.calculate();
-            
-            this.booking_selection.Get_estimated_price().Text = "$" + this.reservation_price.ToString();
-            this.booking_selection.Get_all(start_date, end_date, return_BID, pickup_BID, car_type, CID, number_days, type_ID, reservation_price);
-            this.Hide();
-            this.booking_selection.Show();
+                // format return date
+                this.end_date = this.return_date_picker.Value.Year.ToString() + "/" +
+                    this.return_date_picker.Value.Month.ToString() + "/" +
+                    this.return_date_picker.Value.Day.ToString();
+
+                // set up all the info needed for selection
+                this.car_type = this.car_type_combo.Text;
+                Get_type_ID();
+                this.pickup_branch = this.pickup_combo.Text;
+                this.return_branch = this.return_combo.Text;
+                this.pickup_BID = Get_BID(this.pickup_combo.Text);
+                this.return_BID = Get_BID(this.return_combo.Text);
+
+                Initial_availability();
+                Calculator calculator = new Calculator(this.number_days, this.car_type);
+                this.reservation_price = calculator.calculate();
+
+                this.booking_selection.Get_estimated_price().Text = "$" + this.reservation_price.ToString();
+                this.booking_selection.Get_all(start_date, end_date, return_BID, pickup_BID, car_type, CID, number_days, type_ID, reservation_price);
+                this.Hide();
+                this.booking_selection.Show();
+            }
         }
 
         private string Get_BID(string address)
