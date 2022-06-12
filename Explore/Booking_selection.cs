@@ -72,7 +72,7 @@ namespace Explore
             bool difference = !(this.pickup_BID.Equals(this.return_BID));
 
             Calculator calculator = new Calculator(this.number_days, this.car_type, difference, this.membership.ToUpper());
-            this.estimated_cost.Text = calculator.calculate().ToString();
+            this.estimated_cost.Text = "$" + calculator.calculate().ToString();
         }
 
         private void Selected_pickup_branch_changed(object sender, EventArgs e)
