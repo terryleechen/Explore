@@ -84,7 +84,7 @@ namespace Explore
         private void Button_book_click(object sender, EventArgs e)
         {
             this.car_received_ID = availability_table.CurrentRow.Cells["Car_ID"].Value.ToString();
-            Console.WriteLine(this.car_received_ID);
+
             string TID = Create_transaction();
             this.sql.Insert(
                 "insert into Rental_Transaction values(" +
@@ -98,6 +98,8 @@ namespace Explore
                 "'" + this.start_date + "', " +
                 "'" + this.end_date + "', " +
                 this.reservation_price + ",null,null)");
+
+            MessageBox.Show("Booking confirmed!!");
         }
 
         private void Selection_click(object sender, EventArgs e)

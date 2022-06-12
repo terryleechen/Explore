@@ -18,6 +18,7 @@ namespace Explore
         private string first_name, last_name, start_date = "", end_date = "",
             return_BID, pickup_BID, pickup_branch, return_branch, car_type,
             CID, type_ID, membership;
+        private bool upgraded = false;
         private SQL sql;
 
         public Booking(Booking_selection booking_selection)
@@ -27,16 +28,6 @@ namespace Explore
             this.sql = new SQL();
         }
 
-        public string Get_pickup_branch()
-        {
-            return this.pickup_branch;
-        }
-
-        public string Get_return_branch()
-        {
-            return this.return_branch;
-        }
-
         private void Button_next_click(object sender, EventArgs e)
         {
             if(this.customer_driver_license.Text.Equals("") ||
@@ -44,7 +35,7 @@ namespace Explore
                 this.pickup_combo.Text.Equals("") || this.return_combo.Text.Equals("") ||
                 this.car_type_combo.Text.Equals(""))
             {
-                MessageBox.Show("Error! all fields must entered");
+                MessageBox.Show("Error! all fields must be entered");
             }
             else
             {
@@ -70,6 +61,13 @@ namespace Explore
                 this.return_BID = Get_BID(this.return_combo.Text);
 
                 int check = Initial_availability();
+              
+                // check if the selected dates are within the same day
+                if((this.return_date_picker.Value - this.start_date_picker.Value).TotalDays < 0)
+                {
+                    check = 2;
+                }
+
                 if(check == 0)
                 {
                     // check if change branch fee needed
@@ -81,12 +79,23 @@ namespace Explore
                     Setup_booking_selection();
                     this.booking_selection.Get_estimated_price().Text = "$" + this.reservation_price.ToString();
                     this.booking_selection.Get_all(start_date, end_date, return_BID, pickup_BID, car_type, CID, number_days, type_ID, reservation_price, membership);
+                    
+                    if(this.upgraded)
+                    {
+                        MessageBox.Show("No results found for your search, however, the customer " +
+                            "is a Gold Member. Please select a free upgrade from the displayed cars.");
+                    }
                     this.Hide();
                     this.booking_selection.Show();
                 }
+                else if(check == 2)
+                {
+                    MessageBox.Show("Rental car must be rented at least one day!");
+                }
                 else
                 {
-                    MessageBox.Show("NO available car type");
+                    MessageBox.Show("Sorry!\nNo results found for your search, please select " +
+                        "another car type or choose from a different branch.");
                 }
             }
         }
@@ -96,6 +105,9 @@ namespace Explore
             try
             {
                 this.sql.Query("select Trim(Address_1) + ' ' + Trim(Address_2) as Address from branch");
+
+                this.booking_selection.Get_pickup().Items.Clear();
+                this.booking_selection.Get_return().Items.Clear();
 
                 while (this.sql.Reader().Read())
                 {
@@ -151,12 +163,12 @@ namespace Explore
                 {
                     this.type_ID = this.sql.Reader()["Type_ID"].ToString();
                 }
-                this.sql.Close();
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Error");
             }
+            this.sql.Close();
         }
         
         private int Initial_availability()
@@ -190,11 +202,13 @@ namespace Explore
 
                         if (this.car_type.Equals("5"))
                         {
+                            this.sql.Close();
                             return 1;
                         }
                         else
                         {
                             this.sql.Close();
+                            this.upgraded = true;
 
                             this.sql.Query(
                                 "select TT.Car_ID, TT.Brand, TT.Model, TT.Year, TT.Mileage, TT.Type_Name, TT.Type_ID " +
@@ -213,6 +227,7 @@ namespace Explore
                     }
                     else
                     {
+                        this.sql.Close();
                         return 1;
                     }
 
