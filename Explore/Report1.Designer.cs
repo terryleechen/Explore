@@ -30,9 +30,10 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.PopularTypeGrid = new System.Windows.Forms.DataGridView();
+            this.DurationBox = new System.Windows.Forms.ComboBox();
+            this.RequestedRecieved = new System.Windows.Forms.ComboBox();
             this.Type_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumberRequests = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DurationBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.PopularTypeGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,19 +61,6 @@
             this.PopularTypeGrid.Size = new System.Drawing.Size(551, 229);
             this.PopularTypeGrid.TabIndex = 1;
             // 
-            // Type_Name
-            // 
-            this.Type_Name.HeaderText = "Car Type";
-            this.Type_Name.Name = "Type_Name";
-            this.Type_Name.ReadOnly = true;
-            // 
-            // NumberRequests
-            // 
-            this.NumberRequests.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NumberRequests.HeaderText = "Number of Total Requests Company Wide";
-            this.NumberRequests.Name = "NumberRequests";
-            this.NumberRequests.ReadOnly = true;
-            // 
             // DurationBox
             // 
             this.DurationBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -87,11 +75,38 @@
             this.DurationBox.TabIndex = 2;
             this.DurationBox.SelectedIndexChanged += new System.EventHandler(this.DurationBox_SelectedIndexChanged);
             // 
+            // RequestedRecieved
+            // 
+            this.RequestedRecieved.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RequestedRecieved.FormattingEnabled = true;
+            this.RequestedRecieved.Items.AddRange(new object[] {
+            "Cars Requested",
+            "Cars Received"});
+            this.RequestedRecieved.Location = new System.Drawing.Point(460, 19);
+            this.RequestedRecieved.Name = "RequestedRecieved";
+            this.RequestedRecieved.Size = new System.Drawing.Size(175, 21);
+            this.RequestedRecieved.TabIndex = 3;
+            this.RequestedRecieved.SelectedIndexChanged += new System.EventHandler(this.RequestedRecieved_SelectedIndexChanged);
+            // 
+            // Type_Name
+            // 
+            this.Type_Name.HeaderText = "Car Type";
+            this.Type_Name.Name = "Type_Name";
+            this.Type_Name.ReadOnly = true;
+            // 
+            // NumberRequests
+            // 
+            this.NumberRequests.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NumberRequests.HeaderText = "Total (Company Wide)";
+            this.NumberRequests.Name = "NumberRequests";
+            this.NumberRequests.ReadOnly = true;
+            // 
             // Report1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.Controls.Add(this.RequestedRecieved);
             this.Controls.Add(this.DurationBox);
             this.Controls.Add(this.PopularTypeGrid);
             this.Controls.Add(this.label1);
@@ -108,6 +123,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView PopularTypeGrid;
         private System.Windows.Forms.ComboBox DurationBox;
+        private System.Windows.Forms.ComboBox RequestedRecieved;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumberRequests;
     }
