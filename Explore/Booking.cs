@@ -15,7 +15,9 @@ namespace Explore
         private Booking_selection booking_selection;
         private int driver_license, reservation_price;
         private double number_days;
-        private string first_name, last_name, start_date = "", end_date = "", return_BID, pickup_BID, pickup_branch, return_branch, car_type, CID, type_ID;
+        private string first_name, last_name, start_date = "", end_date = "",
+            return_BID, pickup_BID, pickup_branch, return_branch, car_type,
+            CID, type_ID, membership;
         private SQL sql;
 
         public Booking(Booking_selection booking_selection)
@@ -67,14 +69,47 @@ namespace Explore
                 this.pickup_BID = Get_BID(this.pickup_combo.Text);
                 this.return_BID = Get_BID(this.return_combo.Text);
 
-                Initial_availability();
-                Calculator calculator = new Calculator(this.number_days, this.car_type);
-                this.reservation_price = calculator.calculate();
+                int check = Initial_availability();
+                if(check == 0)
+                {
+                    // check if change branch fee needed
+                    bool difference = !(this.pickup_BID.Equals(this.return_BID));
 
-                this.booking_selection.Get_estimated_price().Text = "$" + this.reservation_price.ToString();
-                this.booking_selection.Get_all(start_date, end_date, return_BID, pickup_BID, car_type, CID, number_days, type_ID, reservation_price);
-                this.Hide();
-                this.booking_selection.Show();
+                    Calculator calculator = new Calculator(this.number_days, this.car_type, difference, this.membership.ToUpper());
+                    this.reservation_price = calculator.calculate();
+
+                    Setup_booking_selection();
+                    this.booking_selection.Get_estimated_price().Text = "$" + this.reservation_price.ToString();
+                    this.booking_selection.Get_all(start_date, end_date, return_BID, pickup_BID, car_type, CID, number_days, type_ID, reservation_price, membership);
+                    this.Hide();
+                    this.booking_selection.Show();
+                }
+                else
+                {
+                    MessageBox.Show("NO available car type");
+                }
+            }
+        }
+
+        private void Setup_booking_selection()
+        {
+            try
+            {
+                this.sql.Query("select Trim(Address_1) + ' ' + Trim(Address_2) as Address from branch");
+
+                while (this.sql.Reader().Read())
+                {
+                    this.booking_selection.Get_pickup().Items.Add(this.sql.Reader()["Address"]);
+                    this.booking_selection.Get_return().Items.Add(this.sql.Reader()["Address"]);
+                }
+                this.sql.Close();
+                this.booking_selection.Get_pickup().Text = this.pickup_combo.Text;
+                this.booking_selection.Get_return().Text = this.return_combo.Text;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error");
             }
         }
 
@@ -124,7 +159,7 @@ namespace Explore
             }
         }
         
-        private void Initial_availability()
+        private int Initial_availability()
         {
             DataGridView availability_table = this.booking_selection.Get_table();
             availability_table.Rows.Clear();
@@ -132,18 +167,56 @@ namespace Explore
             try
             {
                 this.sql.Query(
-                    "select TT.Car_ID, TT.Brand, TT.Model, TT.Year, TT.Mileage, TT.Type_Name " +
-                    "from ((select C.Car_ID, C.Brand, C.Model, C.Year, C.Mileage,T.Type_Name " +
+                    "select TT.Car_ID, TT.Brand, TT.Model, TT.Year, TT.Mileage, TT.Type_Name, TT.Type_ID " +
+                    "from ((select C.Car_ID, C.Brand, C.Model, C.Year, C.Mileage,T.Type_Name, T.Type_ID " +
                     "from Car C, Branch B, Type T " +
                     "where C.BID = B.BID and T.Type_ID = C.Type_ID and B.BID = '" + pickup_BID + "') " +
                     "except " +
-                    "(select C.Car_ID, C.Brand, C.Model, C.Year, C.Mileage, T.Type_Name " +
+                    "(select C.Car_ID, C.Brand, C.Model, C.Year, C.Mileage, T.Type_Name, T.Type_ID " +
                     "from Rental_Transaction R, Car C, Type T " +
                     "where C.Car_ID = R.Car_Received_ID and T.Type_ID = C.Type_ID and " +
                     "R.Return_Branch_ID = '" + pickup_BID + "' and " +
                     "R.Start_Date >= convert(datetime,'" + start_date + "') and " +
                     "R.End_Date <= convert(datetime,'" + end_date + "'))) as TT " +
-                    "where TT.Type_Name = '" + car_type + "'");
+                    "where TT.Type_ID = '" + type_ID + "'");
+                
+                // change if any available cars
+                if(!this.sql.Reader().HasRows)
+                {
+                    // if no available rental and gold member
+                    if(this.membership.ToUpper().Equals("Y"))
+                    {
+                        this.type_ID = (Int32.Parse(this.type_ID) + 1).ToString();
+
+                        if (this.car_type.Equals("5"))
+                        {
+                            return 1;
+                        }
+                        else
+                        {
+                            this.sql.Close();
+
+                            this.sql.Query(
+                                "select TT.Car_ID, TT.Brand, TT.Model, TT.Year, TT.Mileage, TT.Type_Name, TT.Type_ID " +
+                                "from ((select C.Car_ID, C.Brand, C.Model, C.Year, C.Mileage,T.Type_Name, T.Type_ID " +
+                                "from Car C, Branch B, Type T " +
+                                "where C.BID = B.BID and T.Type_ID = C.Type_ID and B.BID = '" + pickup_BID + "') " +
+                                "except " +
+                                "(select C.Car_ID, C.Brand, C.Model, C.Year, C.Mileage, T.Type_Name, T.Type_ID " +
+                                "from Rental_Transaction R, Car C, Type T " +
+                                "where C.Car_ID = R.Car_Received_ID and T.Type_ID = C.Type_ID and " +
+                                "R.Return_Branch_ID = '" + pickup_BID + "' and " +
+                                "R.Start_Date >= convert(datetime,'" + start_date + "') and " +
+                                "R.End_Date <= convert(datetime,'" + end_date + "'))) as TT " +
+                                "where TT.Type_ID = '" + type_ID + "'");
+                        }
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+
+                }
 
                 while (this.sql.Reader().Read())
                 {
@@ -156,11 +229,13 @@ namespace Explore
                         this.sql.Reader()["Mileage"].ToString());
                 }
                 this.sql.Close();
+                return 0;
                 
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Error");
+                return 1;
             }
         }
         
@@ -226,22 +301,21 @@ namespace Explore
         }
 
         private void Driver_license_leave(object sender, EventArgs e)
-        {
-            
+        {   
             try
             {
-                this.sql.Query("select First_Name, Last_Name, CID from Customer where Driver_License =" + Int32.Parse(customer_driver_license.Text));
+                this.sql.Query("select First_Name, Last_Name, CID, Membership from Customer where Driver_License =" + Int32.Parse(customer_driver_license.Text));
 
                 while (this.sql.Reader().Read())
                 {
-                    first_name = (String) this.sql.Reader()["First_Name"];
-                    last_name = (String) this.sql.Reader()["Last_Name"];
-                    CID = (String)this.sql.Reader()["CID"];
+                    first_name = (string) this.sql.Reader()["First_Name"];
+                    last_name = (string) this.sql.Reader()["Last_Name"];
+                    CID = (string)this.sql.Reader()["CID"];
+                    membership = (string)this.sql.Reader()["Membership"];
                 }
                 this.sql.Close();
                 customer_firstname.Text = first_name;
                 customer_lastname.Text = last_name;
-                
             }
             catch (Exception ex)
             {

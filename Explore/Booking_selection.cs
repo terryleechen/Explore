@@ -14,7 +14,7 @@ namespace Explore
     {
         private Employee_dashboard employee_dashboard;
         private SQL sql;
-        private string start_date, end_date, return_BID, pickup_BID, car_type, employee_ID, CID, type_ID;
+        private string start_date, end_date, return_BID, pickup_BID, car_type, employee_ID, CID, type_ID, membership;
         private string car_received_ID;
         private double number_days;
         private int reservation_price;
@@ -31,7 +31,7 @@ namespace Explore
         }
         // ============ Getter methods ==============
         
-        public void Get_all(string start_date, string end_date, string return_BID, string pickup_BID, string car_type, string CID, double number_days, string type_ID, int reservation_price)
+        public void Get_all(string start_date, string end_date, string return_BID, string pickup_BID, string car_type, string CID, double number_days, string type_ID, int reservation_price, string membership)
         {
             this.start_date = start_date;
             this.end_date = end_date;
@@ -42,8 +42,18 @@ namespace Explore
             this.number_days = number_days;
             this.type_ID = type_ID;
             this.reservation_price = reservation_price;
+            this.membership = membership;
+        }
+        public ComboBox Get_pickup()
+        {
+            return this.selected_pickup_branch;
         }
 
+        public ComboBox Get_return()
+        {
+            return this.selected_return_branch;
+        }
+        
         public Label Get_estimated_price()
         {
             return this.estimated_cost;
@@ -53,10 +63,16 @@ namespace Explore
         {
             return this.availability_table;
         }
+        // ==========================================
 
         private void Selected_return_branch_changed(object sender, EventArgs e)
         {
             this.return_BID = Get_BID(selected_return_branch.Text);
+            // check if change branch fee needed
+            bool difference = !(this.pickup_BID.Equals(this.return_BID));
+
+            Calculator calculator = new Calculator(this.number_days, this.car_type, difference, this.membership.ToUpper());
+            this.estimated_cost.Text = calculator.calculate().ToString();
         }
 
         private void Selected_pickup_branch_changed(object sender, EventArgs e)
@@ -157,18 +173,18 @@ namespace Explore
             try
             {
                 this.sql.Query(
-                    "select TT.Car_ID, TT.Brand, TT.Model, TT.Year, TT.Mileage, TT.Type_Name " +
-                    "from ((select C.Car_ID, C.Brand, C.Model, C.Year, C.Mileage,T.Type_Name " +
+                    "select TT.Car_ID, TT.Brand, TT.Model, TT.Year, TT.Mileage, TT.Type_Name, TT.Type_ID " +
+                    "from ((select C.Car_ID, C.Brand, C.Model, C.Year, C.Mileage,T.Type_Name, T.Type_ID " +
                     "from Car C, Branch B, Type T " +
                     "where C.BID = B.BID and T.Type_ID = C.Type_ID and B.BID = '" + pickup_BID + "') " +
                     "except " +
-                    "(select C.Car_ID, C.Brand, C.Model, C.Year, C.Mileage, T.Type_Name " +
+                    "(select C.Car_ID, C.Brand, C.Model, C.Year, C.Mileage, T.Type_Name, T.Type_ID " +
                     "from Rental_Transaction R, Car C, Type T " +
                     "where C.Car_ID = R.Car_Received_ID and T.Type_ID = C.Type_ID and " +
                     "R.Return_Branch_ID = '" + pickup_BID + "' and " +
                     "R.Start_Date >= convert(datetime,'" + start_date + "') and " +
                     "R.End_Date <= convert(datetime,'" + end_date + "'))) as TT " +
-                    "where TT.Type_Name = '" + car_type + "'");
+                    "where TT.Type_ID = '" + type_ID + "'");
 
                 while (this.sql.Reader().Read())
                 {
@@ -198,25 +214,6 @@ namespace Explore
         private void Booking_selection_load(object sender, EventArgs e)
         {
             this.employee_ID = this.employee_dashboard.Get_login().Get_employee_id();
-
-            try
-            {
-                this.sql.Query("select Trim(Address_1) + ' ' + Trim(Address_2) as Address from branch");
-
-                while (this.sql.Reader().Read())
-                {
-                    this.selected_pickup_branch.Items.Add(this.sql.Reader()["Address"]);
-                    this.selected_return_branch.Items.Add(this.sql.Reader()["Address"]);
-                }
-                this.sql.Close();
-                this.selected_pickup_branch.Text = this.employee_dashboard.Get_booking().Get_pickup_branch();
-                this.selected_return_branch.Text = this.employee_dashboard.Get_booking().Get_return_branch();
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Error");
-            }
         }
     }
 }
