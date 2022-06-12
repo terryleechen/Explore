@@ -15,7 +15,7 @@ namespace Explore
         public Reports()
         {
             InitializeComponent();
-            this.report_combo.Items.Add("Report 1");
+            this.report_combo.Items.Add("Car Type Popularity");
             this.report_combo.Items.Add("Report 2");
             this.report_combo.Items.Add("Report 3");
             this.report_combo.Items.Add("Report 4");
@@ -30,7 +30,7 @@ namespace Explore
 
             switch(this.report_combo.Text)
             {
-                case "Report 1":
+                case "Car Type Popularity":
                     this.report1.Show();
                     this.report2.Hide();
                     this.report3.Hide();
