@@ -105,7 +105,7 @@
             this.selected_pickup_branch.Name = "selected_pickup_branch";
             this.selected_pickup_branch.Size = new System.Drawing.Size(130, 21);
             this.selected_pickup_branch.TabIndex = 1;
-            this.selected_pickup_branch.SelectedValueChanged += new System.EventHandler(this.Selected_pickup_branch_changed);
+            this.selected_pickup_branch.SelectionChangeCommitted += new System.EventHandler(this.Selected_pickup_branch_changed);
             // 
             // label4
             // 

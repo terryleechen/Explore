@@ -8,14 +8,17 @@ namespace Explore
 {
     internal class Calculator
     {
-        private int number_days, month, week, day, price;
-        private string car_type;
+        private int number_days, month, week, day, price, change_fee;
+        private string car_type, membership;
+        private bool difference;
         private SQL sql;
 
-        public Calculator(double number_days, string car_type)
+        public Calculator(double number_days, string car_type, bool difference, string membership)
         {
             this.number_days = (int) number_days;
             this.car_type = car_type;
+            this.difference = difference;
+            this.membership = membership;
             this.sql = new SQL();
         }
 
@@ -42,7 +45,27 @@ namespace Explore
             }
             this.sql.Close();
 
-            this.price = price_month * this.month + price_week * this.week + price_day * this.day;
+            if(membership.Equals("Y") && difference == true)
+            {
+                this.change_fee = 0;
+            }
+            else if(difference == true)
+            {
+                this.sql.Query(
+                    "select Change_Branch_Fee " +
+                    "from Type T " +
+                    "where Type_Name = '" + this.car_type + "'");
+
+                while (this.sql.Reader().Read())
+                {
+                    this.change_fee = Int32.Parse(this.sql.Reader()["Change_Branch_Fee"].ToString());
+                }
+                this.sql.Close();
+            }
+
+            // calculate
+            this.price = price_month * this.month + price_week * this.week + price_day * this.day
+                + this.change_fee;
 
             return this.price;
         }
