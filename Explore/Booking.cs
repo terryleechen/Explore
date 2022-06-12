@@ -37,13 +37,6 @@ namespace Explore
 
         private void Button_next_click(object sender, EventArgs e)
         {
-            Console.WriteLine("1 " + this.customer_driver_license.Text);
-            Console.WriteLine("2 " +this.start_date_picker.Text);
-            Console.WriteLine("3 " + this.return_date_picker.Text);
-            Console.WriteLine("4 " + this.pickup_combo.Text);
-            Console.WriteLine("5 " + this.return_combo.Text);
-            Console.WriteLine("6 " + this.car_type_combo.Text);
-
             if(this.customer_driver_license.Text.Equals("") ||
                 this.start_date_picker.Text.Equals("") || this.return_date_picker.Text.Equals("") ||
                 this.pickup_combo.Text.Equals("") || this.return_combo.Text.Equals("") ||

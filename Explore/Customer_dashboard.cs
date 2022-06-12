@@ -33,7 +33,8 @@ namespace Explore
 
         private void Customer_search_click(object sender, EventArgs e)
         {
-            
+            this.customer_home.Hide();
+            this.customer_search.Show();
         }
     }
 }

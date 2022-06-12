@@ -17,6 +17,8 @@ namespace Explore
         public Employee_dashboard()
         {
             InitializeComponent();
+
+            // set today's date
             DateTime today = DateTime.Today;
             employee_date.Text = today.ToString("D");
 

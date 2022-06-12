@@ -16,7 +16,7 @@ namespace Explore
         private Employee_dashboard employee_dashboard;
         private Customer_dashboard customer_page;
         private SQL sql;
-        private string employee_ID;
+        private string employee_ID, employee_name;
 
         public Login_page(Employee_dashboard employee_dashboard, Customer_dashboard customer_page)
         {
@@ -42,7 +42,9 @@ namespace Explore
 
             if (ID[0].ToString().ToUpper().Equals("E"))
             {
-                this.sql.Query("select EID from Employee");
+                this.sql.Query(
+                    "select EID, trim(First_Name) + ' ' + trim(Last_Name) as Name " +
+                    "from Employee");
 
                 while(this.sql.Reader().Read())
                 {
@@ -50,6 +52,7 @@ namespace Explore
                     {
                         check = true;
                         this.employee_ID = this.sql.Reader()["EID"].ToString();
+                        this.employee_name = this.sql.Reader()["Name"].ToString();
                         break;
                         
                     }
