@@ -154,6 +154,7 @@
             this.customer_lastname.ForeColor = System.Drawing.Color.SeaShell;
             this.customer_lastname.Location = new System.Drawing.Point(106, 9);
             this.customer_lastname.Name = "customer_lastname";
+            this.customer_lastname.ReadOnly = true;
             this.customer_lastname.Size = new System.Drawing.Size(150, 22);
             this.customer_lastname.TabIndex = 2;
             // 
@@ -195,6 +196,7 @@
             this.customer_firstname.ForeColor = System.Drawing.Color.SeaShell;
             this.customer_firstname.Location = new System.Drawing.Point(106, 9);
             this.customer_firstname.Name = "customer_firstname";
+            this.customer_firstname.ReadOnly = true;
             this.customer_firstname.Size = new System.Drawing.Size(150, 22);
             this.customer_firstname.TabIndex = 2;
             // 
