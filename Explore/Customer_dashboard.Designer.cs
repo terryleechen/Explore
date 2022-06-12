@@ -35,17 +35,21 @@
             this.logout = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.search = new System.Windows.Forms.Button();
+            this.button_search = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.customer_date = new System.Windows.Forms.Label();
             this.customer_logout = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.customer_home = new Explore.Customer_home();
+            this.customer_search = new Explore.Customer_search();
+            this.button_home = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -116,26 +120,27 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.panel7.Controls.Add(this.search);
+            this.panel7.Controls.Add(this.button_home);
+            this.panel7.Controls.Add(this.button_search);
             this.panel7.Location = new System.Drawing.Point(3, 97);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(197, 460);
             this.panel7.TabIndex = 0;
             // 
-            // search
+            // button_search
             // 
-            this.search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.search.FlatAppearance.BorderSize = 0;
-            this.search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.search.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search.ForeColor = System.Drawing.Color.SeaGreen;
-            this.search.Location = new System.Drawing.Point(3, 31);
-            this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(191, 41);
-            this.search.TabIndex = 0;
-            this.search.Text = "SEARCH";
-            this.search.UseVisualStyleBackColor = false;
-            this.search.Click += new System.EventHandler(this.Customer_search_click);
+            this.button_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.button_search.FlatAppearance.BorderSize = 0;
+            this.button_search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_search.ForeColor = System.Drawing.Color.SeaShell;
+            this.button_search.Location = new System.Drawing.Point(0, 109);
+            this.button_search.Name = "button_search";
+            this.button_search.Size = new System.Drawing.Size(191, 41);
+            this.button_search.TabIndex = 0;
+            this.button_search.Text = "SEARCH";
+            this.button_search.UseVisualStyleBackColor = false;
+            this.button_search.Click += new System.EventHandler(this.Customer_search_click);
             // 
             // title
             // 
@@ -143,7 +148,7 @@
             this.title.AutoSize = true;
             this.title.BackColor = System.Drawing.Color.Transparent;
             this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title.ForeColor = System.Drawing.Color.SeaGreen;
+            this.title.ForeColor = System.Drawing.Color.Gold;
             this.title.Location = new System.Drawing.Point(6, 24);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(194, 55);
@@ -164,7 +169,7 @@
             // 
             this.customer_date.AutoSize = true;
             this.customer_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customer_date.ForeColor = System.Drawing.Color.SeaGreen;
+            this.customer_date.ForeColor = System.Drawing.Color.SeaShell;
             this.customer_date.Location = new System.Drawing.Point(30, 38);
             this.customer_date.Name = "customer_date";
             this.customer_date.Size = new System.Drawing.Size(57, 25);
@@ -177,7 +182,7 @@
             this.customer_logout.FlatAppearance.BorderSize = 0;
             this.customer_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.customer_logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customer_logout.ForeColor = System.Drawing.Color.SeaGreen;
+            this.customer_logout.ForeColor = System.Drawing.Color.Red;
             this.customer_logout.Location = new System.Drawing.Point(679, 32);
             this.customer_logout.Name = "customer_logout";
             this.customer_logout.Size = new System.Drawing.Size(108, 39);
@@ -188,11 +193,44 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.customer_home);
+            this.panel3.Controls.Add(this.customer_search);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(200, 100);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(790, 460);
             this.panel3.TabIndex = 3;
+            // 
+            // customer_home
+            // 
+            this.customer_home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.customer_home.Location = new System.Drawing.Point(0, 0);
+            this.customer_home.Name = "customer_home";
+            this.customer_home.Size = new System.Drawing.Size(790, 460);
+            this.customer_home.TabIndex = 1;
+            // 
+            // customer_search
+            // 
+            this.customer_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.customer_search.Location = new System.Drawing.Point(0, 0);
+            this.customer_search.Name = "customer_search";
+            this.customer_search.Size = new System.Drawing.Size(790, 460);
+            this.customer_search.TabIndex = 0;
+            this.customer_search.Visible = false;
+            // 
+            // button_home
+            // 
+            this.button_home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.button_home.FlatAppearance.BorderSize = 0;
+            this.button_home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_home.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_home.ForeColor = System.Drawing.Color.SeaShell;
+            this.button_home.Location = new System.Drawing.Point(3, 31);
+            this.button_home.Name = "button_home";
+            this.button_home.Size = new System.Drawing.Size(191, 41);
+            this.button_home.TabIndex = 1;
+            this.button_home.Text = "HOME";
+            this.button_home.UseVisualStyleBackColor = false;
             // 
             // Customer_dashboard
             // 
@@ -212,6 +250,7 @@
             this.panel7.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -225,11 +264,14 @@
         private System.Windows.Forms.Button logout;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button search;
+        private System.Windows.Forms.Button button_search;
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label customer_date;
         private System.Windows.Forms.Button customer_logout;
         private System.Windows.Forms.Panel panel3;
+        private Customer_search customer_search;
+        private Customer_home customer_home;
+        private System.Windows.Forms.Button button_home;
     }
 }
