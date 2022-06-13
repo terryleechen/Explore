@@ -309,6 +309,7 @@ namespace Explore
                 MessageBox.Show(ex.ToString(), "Error");
             }
 
+            // type name
             try
             {
                 this.sql.Query("select DISTINCT [Type_Name] from [Type]");
