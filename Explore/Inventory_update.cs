@@ -32,7 +32,6 @@ namespace Explore
             this.selected_branch = this.selected_branch_combobox.Text;
             this.BID = Get_BID(this.selected_branch_combobox.Text);
             this.car_ID = this.carID_textbox.Text;
-            this.brand = this.brand_textbox.Text;
             this.year = this.year_textbox.Text;
             this.model = this.model_textbox.Text;
             this.mileage = this.mileage_textbox.Text;
@@ -60,6 +59,26 @@ namespace Explore
 
         }
 
+        private void Button_add_click(object sender, EventArgs e)
+        {
+            this.brand = this.brand_textbox.Text;
+            this.brand_combo.Items.Insert(0, this.brand);
+            this.brand_combo.SelectedIndex = 0;
+
+            // hide action
+            this.brand_panel.Hide();
+        }
+
+        private void Brand_selection_changed(object sender, EventArgs e)
+        {
+            string selection = this.brand_combo.Text;
+
+            if (selection.Equals("New"))
+            {
+                this.brand_panel.Show();
+            }
+        }
+
         public Inventory_update()
         {
             InitializeComponent();
@@ -75,7 +94,6 @@ namespace Explore
             this.selected_branch_combobox.Text = Inventory.SetVal_branchcombobox;
             this.carID_textbox.Text = Inventory.SetVal_car_ID;
             this.car_type_combo.Text = Inventory.SetVal_type_name;
-            this.brand_textbox.Text = Inventory.SetVal_brand;
             this.year_textbox.Text = Inventory.SetVal_year;
             this.model_textbox.Text = Inventory.SetVal_model;
             this.mileage_textbox.Text = Inventory.SetVal_mileage;
@@ -118,7 +136,8 @@ namespace Explore
                 MessageBox.Show(ex.ToString(), "Error");
             }
             this.sql.Close();
-
+            
+            // set up car type
             try
             {
                 this.sql.Query("select DISTINCT [Type_Name] from [Type]");
@@ -128,6 +147,24 @@ namespace Explore
                     car_type_combo.Items.Add(this.sql.Reader()["Type_Name"]);
                 }
                 this.sql.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error");
+            }
+
+            // set up brand
+            try
+            {
+                this.sql.Query(
+                    "select distinct Brand from Car C");
+
+                while (this.sql.Reader().Read())
+                {
+                    this.brand_combo.Items.Add(this.sql.Reader()["Brand"]);
+                }
+                this.sql.Close();
+                this.brand_combo.Items.Add("New");
             }
             catch (Exception ex)
             {
