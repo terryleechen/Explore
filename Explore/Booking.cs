@@ -28,6 +28,16 @@ namespace Explore
             this.sql = new SQL();
         }
 
+        public void Clear_info()
+        {
+            this.customer_driver_license.Clear();
+            this.customer_firstname.Clear();
+            this.customer_lastname.Clear();
+            this.pickup_combo.Text = "";
+            this.return_combo.Text = "";
+            this.car_type_combo.Text = "";
+        }
+
         private void Button_next_click(object sender, EventArgs e)
         {
             if(this.customer_driver_license.Text.Equals("") ||
@@ -115,8 +125,8 @@ namespace Explore
                     this.booking_selection.Get_return().Items.Add(this.sql.Reader()["Address"]);
                 }
                 this.sql.Close();
-                this.booking_selection.Get_pickup().Text = this.pickup_combo.Text;
-                this.booking_selection.Get_return().Text = this.return_combo.Text;
+                this.booking_selection.Get_pickup().SelectedItem = this.pickup_combo.Text;
+                this.booking_selection.Get_return().SelectedItem = this.return_combo.Text;
 
             }
             catch (Exception ex)

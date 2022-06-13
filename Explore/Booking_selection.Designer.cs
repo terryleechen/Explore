@@ -57,7 +57,7 @@
             // 
             this.button_book.BackColor = System.Drawing.Color.Transparent;
             this.button_book.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
-            this.button_book.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button_book.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.button_book.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_book.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_book.ForeColor = System.Drawing.Color.SeaShell;
@@ -73,7 +73,7 @@
             // 
             this.button_previous.BackColor = System.Drawing.Color.Transparent;
             this.button_previous.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
-            this.button_previous.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button_previous.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.button_previous.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_previous.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_previous.ForeColor = System.Drawing.Color.SeaShell;
@@ -105,7 +105,7 @@
             this.selected_pickup_branch.Name = "selected_pickup_branch";
             this.selected_pickup_branch.Size = new System.Drawing.Size(130, 21);
             this.selected_pickup_branch.TabIndex = 1;
-            this.selected_pickup_branch.SelectionChangeCommitted += new System.EventHandler(this.Selected_pickup_branch_changed);
+            this.selected_pickup_branch.Leave += new System.EventHandler(this.Selected_pickup_branch_changed);
             // 
             // label4
             // 
@@ -193,7 +193,7 @@
             this.selected_return_branch.Name = "selected_return_branch";
             this.selected_return_branch.Size = new System.Drawing.Size(130, 21);
             this.selected_return_branch.TabIndex = 1;
-            this.selected_return_branch.SelectionChangeCommitted += new System.EventHandler(this.Selected_return_branch_changed);
+            this.selected_return_branch.Leave += new System.EventHandler(this.Selected_return_branch_changed);
             // 
             // label1
             // 
