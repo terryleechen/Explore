@@ -21,6 +21,15 @@ namespace Explore
         private Inventory_add inventory_add;
         private Inventory_update inventory_update;
         private string selected_branch, car_ID, type_ID, brand, year, mileage; //need this for update
+        public static string SetVal_branchcombobox = "";
+        public static string SetVal_car_ID = "";
+        public static string SetVal_type_name = "";
+        public static string SetVal_brand = "";
+        public static string SetVal_year = "";
+        public static string SetVal_mileage = "";
+        public static string SetVal_model = "";
+
+
 
         public Inventory(Inventory_add inventory_add, Inventory_update inventory_update)
         {
@@ -43,6 +52,16 @@ namespace Explore
         {
             this.Hide();
             this.inventory_update.Show();
+
+            SetVal_branchcombobox = inventory_branch_select_combobox.Text.ToString();
+            SetVal_car_ID = dataGridView_inventory.CurrentRow.Cells[0].Value.ToString();
+            SetVal_type_name = dataGridView_inventory.CurrentRow.Cells[1].Value.ToString();
+            SetVal_brand = dataGridView_inventory.CurrentRow.Cells[2].Value.ToString();
+            SetVal_year = dataGridView_inventory.CurrentRow.Cells[3].Value.ToString();
+            SetVal_model = dataGridView_inventory.CurrentRow.Cells[4].Value.ToString();
+            SetVal_mileage = dataGridView_inventory.CurrentRow.Cells[5].Value.ToString();
+            this.inventory_update.Set_Info();
+
         }
 
         private void inventory_show_records_button_Click(object sender, EventArgs e)
@@ -215,15 +234,15 @@ namespace Explore
             
             try
             {
-                this.sql.Query("select Car_ID, Type_ID, Brand, Model, Year, Mileage " +
-                    "from Car " +
-                    "where BID = '" + BID + "'");
+                this.sql.Query("select C.Car_ID, T.Type_Name, Brand, Model, Year, Mileage " +
+                    "from Car C, Type T " +
+                    "where C.Type_ID = T.Type_ID and BID = '" + BID + "'");
                 dataGridView_inventory.Rows.Clear();
                 while (this.sql.Reader().Read())
                 {
                     dataGridView_inventory.Rows.Add(
                         this.sql.Reader()["Car_ID"],
-                        this.sql.Reader()["Type_ID"],
+                        this.sql.Reader()["Type_Name"],
                         this.sql.Reader()["Brand"],
                         this.sql.Reader()["Model"],
                         this.sql.Reader()["Year"],
