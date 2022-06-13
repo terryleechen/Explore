@@ -54,8 +54,12 @@
             this.selectedbranch_label = new System.Windows.Forms.Label();
             this.previous_button = new System.Windows.Forms.Button();
             this.button_update = new System.Windows.Forms.Button();
-            this.brand_textbox = new System.Windows.Forms.TextBox();
+            this.brand_combo = new System.Windows.Forms.ComboBox();
+            this.brand_panel = new System.Windows.Forms.Panel();
+            this.add = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.brand_textbox = new System.Windows.Forms.TextBox();
+            this.brand_label = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.mileage_panel.SuspendLayout();
             this.year_panel.SuspendLayout();
@@ -63,12 +67,12 @@
             this.cartype_panel.SuspendLayout();
             this.carID_panel.SuspendLayout();
             this.selectedbranch_panel.SuspendLayout();
+            this.brand_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.brand_textbox);
+            this.panel1.Controls.Add(this.brand_combo);
             this.panel1.Controls.Add(this.label1);
             this.panel1.ForeColor = System.Drawing.Color.SeaGreen;
             this.panel1.Location = new System.Drawing.Point(92, 178);
@@ -357,6 +361,53 @@
             this.button_update.UseVisualStyleBackColor = false;
             this.button_update.Click += new System.EventHandler(this.Button_update_click);
             // 
+            // brand_combo
+            // 
+            this.brand_combo.FormattingEnabled = true;
+            this.brand_combo.Location = new System.Drawing.Point(73, 11);
+            this.brand_combo.Name = "brand_combo";
+            this.brand_combo.Size = new System.Drawing.Size(121, 21);
+            this.brand_combo.TabIndex = 2;
+            this.brand_combo.SelectedValueChanged += new System.EventHandler(this.Brand_selection_changed);
+            // 
+            // brand_panel
+            // 
+            this.brand_panel.Controls.Add(this.add);
+            this.brand_panel.Controls.Add(this.panel3);
+            this.brand_panel.Controls.Add(this.brand_textbox);
+            this.brand_panel.Controls.Add(this.brand_label);
+            this.brand_panel.ForeColor = System.Drawing.Color.SeaGreen;
+            this.brand_panel.Location = new System.Drawing.Point(92, 310);
+            this.brand_panel.Name = "brand_panel";
+            this.brand_panel.Size = new System.Drawing.Size(367, 62);
+            this.brand_panel.TabIndex = 36;
+            this.brand_panel.Visible = false;
+            // 
+            // add
+            // 
+            this.add.BackColor = System.Drawing.Color.Transparent;
+            this.add.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.add.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.add.ForeColor = System.Drawing.Color.SeaShell;
+            this.add.Location = new System.Drawing.Point(247, 11);
+            this.add.Name = "add";
+            this.add.Size = new System.Drawing.Size(82, 40);
+            this.add.TabIndex = 13;
+            this.add.Text = "Add";
+            this.add.UseVisualStyleBackColor = false;
+            this.add.Click += new System.EventHandler(this.Button_add_click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.SeaShell;
+            this.panel3.ForeColor = System.Drawing.Color.SeaShell;
+            this.panel3.Location = new System.Drawing.Point(75, 50);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(150, 1);
+            this.panel3.TabIndex = 3;
+            // 
             // brand_textbox
             // 
             this.brand_textbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
@@ -364,25 +415,28 @@
             this.brand_textbox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.brand_textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.brand_textbox.ForeColor = System.Drawing.Color.White;
-            this.brand_textbox.Location = new System.Drawing.Point(72, 11);
+            this.brand_textbox.Location = new System.Drawing.Point(74, 29);
             this.brand_textbox.Name = "brand_textbox";
-            this.brand_textbox.Size = new System.Drawing.Size(175, 22);
-            this.brand_textbox.TabIndex = 3;
+            this.brand_textbox.Size = new System.Drawing.Size(151, 22);
+            this.brand_textbox.TabIndex = 2;
             // 
-            // panel3
+            // brand_label
             // 
-            this.panel3.BackColor = System.Drawing.Color.SeaShell;
-            this.panel3.ForeColor = System.Drawing.Color.SeaShell;
-            this.panel3.Location = new System.Drawing.Point(74, 32);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(150, 1);
-            this.panel3.TabIndex = 4;
+            this.brand_label.AutoSize = true;
+            this.brand_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.brand_label.ForeColor = System.Drawing.Color.SeaShell;
+            this.brand_label.Location = new System.Drawing.Point(3, 27);
+            this.brand_label.Name = "brand_label";
+            this.brand_label.Size = new System.Drawing.Size(65, 24);
+            this.brand_label.TabIndex = 0;
+            this.brand_label.Text = "Brand:";
             // 
             // Inventory_update
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.Controls.Add(this.brand_panel);
             this.Controls.Add(this.button_update);
             this.Controls.Add(this.previous_button);
             this.Controls.Add(this.panel1);
@@ -410,6 +464,8 @@
             this.carID_panel.PerformLayout();
             this.selectedbranch_panel.ResumeLayout(false);
             this.selectedbranch_panel.PerformLayout();
+            this.brand_panel.ResumeLayout(false);
+            this.brand_panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -442,7 +498,11 @@
         private System.Windows.Forms.Label selectedbranch_label;
         private System.Windows.Forms.Button previous_button;
         private System.Windows.Forms.Button button_update;
+        private System.Windows.Forms.ComboBox brand_combo;
+        private System.Windows.Forms.Panel brand_panel;
+        private System.Windows.Forms.Button add;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox brand_textbox;
+        private System.Windows.Forms.Label brand_label;
     }
 }
