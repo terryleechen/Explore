@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.brand_combo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.mileage_panel = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -54,7 +55,6 @@
             this.selectedbranch_label = new System.Windows.Forms.Label();
             this.previous_button = new System.Windows.Forms.Button();
             this.button_update = new System.Windows.Forms.Button();
-            this.brand_combo = new System.Windows.Forms.ComboBox();
             this.brand_panel = new System.Windows.Forms.Panel();
             this.add = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -79,6 +79,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 51);
             this.panel1.TabIndex = 33;
+            // 
+            // brand_combo
+            // 
+            this.brand_combo.FormattingEnabled = true;
+            this.brand_combo.Location = new System.Drawing.Point(73, 11);
+            this.brand_combo.Name = "brand_combo";
+            this.brand_combo.Size = new System.Drawing.Size(121, 21);
+            this.brand_combo.TabIndex = 2;
+            this.brand_combo.SelectedValueChanged += new System.EventHandler(this.Brand_selection_changed);
             // 
             // label1
             // 
@@ -344,6 +353,7 @@
             this.previous_button.TabIndex = 34;
             this.previous_button.Text = "Previous";
             this.previous_button.UseVisualStyleBackColor = false;
+            this.previous_button.Click += new System.EventHandler(this.Button_previous_click);
             // 
             // button_update
             // 
@@ -360,15 +370,6 @@
             this.button_update.Text = "Update";
             this.button_update.UseVisualStyleBackColor = false;
             this.button_update.Click += new System.EventHandler(this.Button_update_click);
-            // 
-            // brand_combo
-            // 
-            this.brand_combo.FormattingEnabled = true;
-            this.brand_combo.Location = new System.Drawing.Point(73, 11);
-            this.brand_combo.Name = "brand_combo";
-            this.brand_combo.Size = new System.Drawing.Size(121, 21);
-            this.brand_combo.TabIndex = 2;
-            this.brand_combo.SelectedValueChanged += new System.EventHandler(this.Brand_selection_changed);
             // 
             // brand_panel
             // 
