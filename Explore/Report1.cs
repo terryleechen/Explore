@@ -85,9 +85,5 @@ namespace Explore
             }
         }
 
-        private void PopularTypeGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }
