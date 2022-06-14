@@ -16,5 +16,12 @@ namespace Explore
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {// goes to report page when clicked 
+            this.Hide();
+            Reports Reports = new Reports();
+            Reports.Show();
+        }
     }
 }
