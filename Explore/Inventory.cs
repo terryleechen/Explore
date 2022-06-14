@@ -140,11 +140,6 @@ namespace Explore
             }
         }
 
-        private void dataGridView_inventory_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void Button_add_click(object sender, EventArgs e)
         {
             // set car ID
