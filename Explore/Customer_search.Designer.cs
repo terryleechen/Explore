@@ -43,6 +43,7 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.car_type_combo = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.customer_book_next = new System.Windows.Forms.Button();
             this.panel10.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -55,7 +56,7 @@
             this.panel10.Controls.Add(this.return_combo);
             this.panel10.Controls.Add(this.label8);
             this.panel10.ForeColor = System.Drawing.Color.SeaGreen;
-            this.panel10.Location = new System.Drawing.Point(32, 122);
+            this.panel10.Location = new System.Drawing.Point(396, 45);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(330, 51);
             this.panel10.TabIndex = 19;
@@ -86,7 +87,7 @@
             this.panel7.Controls.Add(this.pickup_combo);
             this.panel7.Controls.Add(this.label5);
             this.panel7.ForeColor = System.Drawing.Color.SeaGreen;
-            this.panel7.Location = new System.Drawing.Point(32, 40);
+            this.panel7.Location = new System.Drawing.Point(30, 45);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(330, 51);
             this.panel7.TabIndex = 18;
@@ -117,7 +118,7 @@
             this.panel9.Controls.Add(this.return_date_picker);
             this.panel9.Controls.Add(this.label7);
             this.panel9.ForeColor = System.Drawing.Color.SeaGreen;
-            this.panel9.Location = new System.Drawing.Point(413, 205);
+            this.panel9.Location = new System.Drawing.Point(396, 127);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(330, 51);
             this.panel9.TabIndex = 21;
@@ -145,7 +146,7 @@
             this.panel8.Controls.Add(this.start_date_picker);
             this.panel8.Controls.Add(this.label6);
             this.panel8.ForeColor = System.Drawing.Color.SeaGreen;
-            this.panel8.Location = new System.Drawing.Point(47, 205);
+            this.panel8.Location = new System.Drawing.Point(30, 127);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(330, 51);
             this.panel8.TabIndex = 20;
@@ -174,7 +175,7 @@
             this.panel11.Controls.Add(this.car_type_combo);
             this.panel11.Controls.Add(this.label9);
             this.panel11.ForeColor = System.Drawing.Color.SeaGreen;
-            this.panel11.Location = new System.Drawing.Point(396, 49);
+            this.panel11.Location = new System.Drawing.Point(30, 209);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(330, 51);
             this.panel11.TabIndex = 22;
@@ -200,11 +201,28 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Car Type";
             // 
+            // customer_book_next
+            // 
+            this.customer_book_next.BackColor = System.Drawing.Color.Transparent;
+            this.customer_book_next.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.customer_book_next.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.customer_book_next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.customer_book_next.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer_book_next.ForeColor = System.Drawing.Color.SeaShell;
+            this.customer_book_next.Location = new System.Drawing.Point(684, 387);
+            this.customer_book_next.Name = "customer_book_next";
+            this.customer_book_next.Size = new System.Drawing.Size(82, 40);
+            this.customer_book_next.TabIndex = 24;
+            this.customer_book_next.Text = "Next";
+            this.customer_book_next.UseVisualStyleBackColor = false;
+            this.customer_book_next.Click += new System.EventHandler(this.Button_next_click);
+            // 
             // Customer_search
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.Controls.Add(this.customer_book_next);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel8);
@@ -212,6 +230,7 @@
             this.Controls.Add(this.panel7);
             this.Name = "Customer_search";
             this.Size = new System.Drawing.Size(790, 460);
+            this.Load += new System.EventHandler(this.Customer_search_load);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel7.ResumeLayout(false);
@@ -243,5 +262,6 @@
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.ComboBox car_type_combo;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button customer_book_next;
     }
 }

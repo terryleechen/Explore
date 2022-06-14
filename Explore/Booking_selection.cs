@@ -78,13 +78,18 @@ namespace Explore
         private void Selected_pickup_branch_changed(object sender, EventArgs e)
         {
             this.pickup_BID = Get_BID(selected_pickup_branch.Text);
+
+            bool difference = !(this.pickup_BID.Equals(this.return_BID));
+            Calculator calculator = new Calculator(this.number_days, this.car_type, difference, this.membership.ToUpper());
+
+            this.estimated_cost.Text = "$" + calculator.calculate().ToString();
             Run_changes();
         }
 
         private void Button_book_click(object sender, EventArgs e)
         {
             this.car_received_ID = availability_table.CurrentRow.Cells["Car_ID"].Value.ToString();
-            Console.WriteLine(this.car_received_ID);
+
             string TID = Create_transaction();
             this.sql.Insert(
                 "insert into Rental_Transaction values(" +
@@ -98,6 +103,12 @@ namespace Explore
                 "'" + this.start_date + "', " +
                 "'" + this.end_date + "', " +
                 this.reservation_price + ",null,null)");
+
+            // clear info
+            MessageBox.Show("Booking confirmed!!");
+            availability_table.Rows.Clear();
+
+            this.employee_dashboard.Get_booking().Clear_info();
         }
 
         private void Selection_click(object sender, EventArgs e)

@@ -174,7 +174,7 @@
             this.inventory_show_records_button.TabIndex = 6;
             this.inventory_show_records_button.Text = "Show All Records";
             this.inventory_show_records_button.UseVisualStyleBackColor = true;
-            this.inventory_show_records_button.Click += new System.EventHandler(this.inventory_show_records_button_Click);
+            this.inventory_show_records_button.Click += new System.EventHandler(this.Inventory_show_records_button_Click);
             // 
             // Inventory
             // 

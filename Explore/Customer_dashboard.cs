@@ -36,5 +36,11 @@ namespace Explore
             this.customer_home.Hide();
             this.customer_search.Show();
         }
+
+        private void Customer_home_click(object sender, EventArgs e)
+        {
+            this.customer_home.Show();
+            this.customer_search.Hide();
+        }
     }
 }
