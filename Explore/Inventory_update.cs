@@ -79,6 +79,12 @@ namespace Explore
             }
         }
 
+        private void Button_previous_click(object sender, EventArgs e)
+        {
+            this.employee_dashboard.Get_inventory().Show();
+            this.Hide();
+        }
+
         public Inventory_update()
         {
             InitializeComponent();
