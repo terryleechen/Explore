@@ -53,43 +53,15 @@ namespace Explore
             this.Hide();
             this.inventory_update.Show();
 
-            SetVal_branchcombobox = inventory_branch_select_combobox.Text.ToString();
-            SetVal_car_ID = dataGridView_inventory.CurrentRow.Cells[0].Value.ToString();
-            SetVal_type_name = dataGridView_inventory.CurrentRow.Cells[1].Value.ToString();
-            SetVal_brand = dataGridView_inventory.CurrentRow.Cells[2].Value.ToString();
-            SetVal_year = dataGridView_inventory.CurrentRow.Cells[3].Value.ToString();
-            SetVal_model = dataGridView_inventory.CurrentRow.Cells[4].Value.ToString();
-            SetVal_mileage = dataGridView_inventory.CurrentRow.Cells[5].Value.ToString();
+            SetVal_branchcombobox = inventory_branch_select_combobox.Text.ToString().Trim();
+            SetVal_car_ID = dataGridView_inventory.CurrentRow.Cells[0].Value.ToString().Trim();
+            SetVal_type_name = dataGridView_inventory.CurrentRow.Cells[1].Value.ToString().Trim();
+            SetVal_brand = dataGridView_inventory.CurrentRow.Cells[2].Value.ToString().Trim();
+            SetVal_model = dataGridView_inventory.CurrentRow.Cells[3].Value.ToString().Trim();
+            SetVal_year = dataGridView_inventory.CurrentRow.Cells[4].Value.ToString().Trim();
+            SetVal_mileage = dataGridView_inventory.CurrentRow.Cells[5].Value.ToString().Trim();
             this.inventory_update.Set_Info();
 
-        }
-
-        private void inventory_show_records_button_Click(object sender, EventArgs e)
-        {
-            /*SqlConnection conn = new SqlConnection("Server = DESKTOP-VR20H8R; Database = explore; Trusted_Connection = yes;");
-            sda = new SqlDataAdapter(@"SELECT Car_ID, Type_ID, Brand, Model, Year, Mileage FROM Car", conn);
-            dt = new DataTable();
-            sda.Fill(dt);
-            dataGridView_inventory.DataSource = dt;*/
-            try
-            {
-                sql.Query("SELECT Car_ID, Type_ID, Brand, Model, Year, Mileage FROM Car");
-                dataGridView_inventory.Rows.Clear();
-                while (sql.Reader().Read())
-                {
-                    dataGridView_inventory.Rows.Add(sql.Reader()["Car_ID"].ToString(),
-                        sql.Reader()["Type_ID"].ToString(),
-                        sql.Reader()["Brand"].ToString(),
-                        sql.Reader()["Model"].ToString(),
-                        sql.Reader()["Year"].ToString(),
-                        sql.Reader()["Mileage"].ToString());
-                }
-                sql.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Error");
-            }
         }
 
         private void Load_event(object sender, EventArgs e)
@@ -138,6 +110,32 @@ namespace Explore
             {
                 MessageBox.Show(ex.ToString(), "Error");
             }
+        }
+
+        private void Inventory_show_records_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                sql.Query("SELECT Car_ID, Type_ID, Brand, Model, Year, Mileage FROM Car");
+                dataGridView_inventory.Rows.Clear();
+                while (sql.Reader().Read())
+                {
+                    dataGridView_inventory.Rows.Add(sql.Reader()["Car_ID"].ToString(),
+                        sql.Reader()["Type_ID"].ToString(),
+                        sql.Reader()["Brand"].ToString(),
+                        sql.Reader()["Model"].ToString(),
+                        sql.Reader()["Year"].ToString(),
+                        sql.Reader()["Mileage"].ToString());
+                }
+                sql.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error");
+            }
+            inventory_branch_select_combobox.Text = "";
+
+
         }
 
         private void Button_add_click(object sender, EventArgs e)

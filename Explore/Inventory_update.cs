@@ -19,12 +19,12 @@ namespace Explore
 
         private void Mileage_keypress(object sender, KeyPressEventArgs e)
         {
-            error_check(e);
+            Error_check(e);
         }
 
         private void Year_keypress(object sender, KeyPressEventArgs e)
         {
-            error_check(e);
+            Error_check(e);
         }
 
         private void Button_update_click(object sender, EventArgs e)
@@ -43,10 +43,10 @@ namespace Explore
                "Set Car_ID = '" + this.car_ID + "', " +
                "BID = '" + this.BID + "', " +
                "Type_ID = '" + this.type_ID + "', " +
-               "Year = '" + this.year + "', " +
+               "Year = " + Int32.Parse(this.year) + ", " +
                "Brand = '" + this.brand + "', " +
                "Model = '" + this.model + "', " +
-               Int32.Parse(this.mileage) + 
+               "Mileage = " + Int32.Parse(this.mileage) + " " +
                "Where Car_ID = '" + this.car_ID + "'");
             }
 
@@ -193,7 +193,7 @@ namespace Explore
             this.sql.Close();
         }
 
-        private void error_check(KeyPressEventArgs e)
+        private void Error_check(KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
