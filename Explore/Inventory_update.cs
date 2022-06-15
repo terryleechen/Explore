@@ -97,13 +97,16 @@ namespace Explore
         }
 
         public void Set_Info() {
-            this.selected_branch_combobox.Text = Inventory.SetVal_branchcombobox;
+            // carry values over
+            this.selected_branch_combobox.SelectedItem = Inventory.SetVal_branchcombobox;
             this.carID_textbox.Text = Inventory.SetVal_car_ID;
-            this.car_type_combo.Text = Inventory.SetVal_type_name;
+            this.car_type_combo.SelectedItem = Inventory.SetVal_type_name;
+            this.brand_combo.SelectedItem = Inventory.SetVal_brand;
             this.year_textbox.Text = Inventory.SetVal_year;
             this.model_textbox.Text = Inventory.SetVal_model;
             this.mileage_textbox.Text = Inventory.SetVal_mileage;
 
+            // set values to be run through quary
             this.selected_branch = Inventory.SetVal_branchcombobox;
             this.BID = Get_BID(Inventory.SetVal_branchcombobox);
             this.car_ID = Inventory.SetVal_car_ID;
@@ -150,7 +153,7 @@ namespace Explore
 
                 while (this.sql.Reader().Read())
                 {
-                    car_type_combo.Items.Add(this.sql.Reader()["Type_Name"]);
+                    car_type_combo.Items.Add(this.sql.Reader()["Type_Name"].ToString().Trim());
                 }
                 this.sql.Close();
             }
@@ -167,7 +170,7 @@ namespace Explore
 
                 while (this.sql.Reader().Read())
                 {
-                    this.brand_combo.Items.Add(this.sql.Reader()["Brand"]);
+                    this.brand_combo.Items.Add(this.sql.Reader()["Brand"].ToString().Trim());
                 }
                 this.sql.Close();
                 this.brand_combo.Items.Add("New");
@@ -236,7 +239,5 @@ namespace Explore
             }
             return null;
         }
-
-
     }
 }
