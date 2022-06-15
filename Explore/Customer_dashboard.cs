@@ -25,6 +25,11 @@ namespace Explore
             this.login_page = login_page;
         }
 
+        public Customer_dashboard Get_customer_dashboard()
+        {
+            return this;
+        }
+
         private void Customer_logut_click(object sender, EventArgs e)
         {
             this.login_page.Show();

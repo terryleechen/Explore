@@ -70,6 +70,7 @@
             this.return_combo.Name = "return_combo";
             this.return_combo.Size = new System.Drawing.Size(130, 21);
             this.return_combo.TabIndex = 1;
+            this.return_combo.SelectedValueChanged += new System.EventHandler(this.Return_selection_picked);
             // 
             // label8
             // 
@@ -101,6 +102,7 @@
             this.pickup_combo.Name = "pickup_combo";
             this.pickup_combo.Size = new System.Drawing.Size(130, 21);
             this.pickup_combo.TabIndex = 1;
+            this.pickup_combo.SelectedValueChanged += new System.EventHandler(this.Pickup_selection_picked);
             // 
             // label5
             // 
