@@ -44,6 +44,7 @@ namespace Explore
             this.reservation_price = reservation_price;
             this.membership = membership;
         }
+        
         public ComboBox Get_pickup()
         {
             return this.selected_pickup_branch;

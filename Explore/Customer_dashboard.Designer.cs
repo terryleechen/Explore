@@ -43,7 +43,9 @@
             this.customer_logout = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.customer_home = new Explore.Customer_home();
-            this.customer_search = new Explore.Customer_search();
+            this.customer_search_selection = new Explore.Customer_search_selection();
+            this.customer_search = new Explore.Customer_search(this.customer_search_selection);
+            
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -210,6 +212,7 @@
             // 
             this.panel3.Controls.Add(this.customer_home);
             this.panel3.Controls.Add(this.customer_search);
+            this.panel3.Controls.Add(this.customer_search_selection);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(200, 100);
             this.panel3.Name = "panel3";
@@ -232,6 +235,15 @@
             this.customer_search.Size = new System.Drawing.Size(790, 460);
             this.customer_search.TabIndex = 0;
             this.customer_search.Visible = false;
+            // 
+            // customer_search_selection
+            // 
+            this.customer_search_selection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.customer_search_selection.Location = new System.Drawing.Point(0, 0);
+            this.customer_search_selection.Name = "customer_search_selection";
+            this.customer_search_selection.Size = new System.Drawing.Size(790, 460);
+            this.customer_search_selection.TabIndex = 2;
+            this.customer_search_selection.Visible = false;
             // 
             // Customer_dashboard
             // 
@@ -273,6 +285,7 @@
         private System.Windows.Forms.Panel panel3;
         private Customer_search customer_search;
         private Customer_home customer_home;
+        private Customer_search_selection customer_search_selection;
         private System.Windows.Forms.Button button_home;
     }
 }

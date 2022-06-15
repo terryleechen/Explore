@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calculator.cs" />
+    <Compile Include="Customer_search_selection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer_search_selection.Designer.cs">
+      <DependentUpon>Customer_search_selection.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventory_add.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -190,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Customer_home.resx">
       <DependentUpon>Customer_home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer_search_selection.resx">
+      <DependentUpon>Customer_search_selection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
