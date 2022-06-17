@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.estimated_cost = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -113,6 +114,7 @@
             this.selected_return_branch.Name = "selected_return_branch";
             this.selected_return_branch.Size = new System.Drawing.Size(130, 21);
             this.selected_return_branch.TabIndex = 1;
+            this.selected_return_branch.Leave += new System.EventHandler(this.Selected_return_branch_changed);
             // 
             // label1
             // 
@@ -136,6 +138,14 @@
             this.Year,
             this.Mileage});
             this.availability_table.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.availability_table.DefaultCellStyle = dataGridViewCellStyle1;
             this.availability_table.Location = new System.Drawing.Point(27, 86);
             this.availability_table.Name = "availability_table";
             this.availability_table.ReadOnly = true;
@@ -199,6 +209,7 @@
             this.selected_pickup_branch.Name = "selected_pickup_branch";
             this.selected_pickup_branch.Size = new System.Drawing.Size(130, 21);
             this.selected_pickup_branch.TabIndex = 1;
+            this.selected_pickup_branch.Leave += new System.EventHandler(this.Selected_pickup_branch_changed);
             // 
             // label4
             // 
@@ -225,6 +236,7 @@
             this.button_previous.TabIndex = 17;
             this.button_previous.Text = "Previous";
             this.button_previous.UseVisualStyleBackColor = false;
+            this.button_previous.Click += new System.EventHandler(this.Button_previous_clicked);
             // 
             // Customer_search_selection
             // 

@@ -17,6 +17,7 @@ namespace Explore
         private Customer_dashboard customer_page;
         private SQL sql;
         private string employee_ID, employee_name;
+        private string customer_ID, membership;
 
         public Login_page(Employee_dashboard employee_dashboard, Customer_dashboard customer_page)
         {
@@ -71,8 +72,36 @@ namespace Explore
             }
             else if (ID[0].ToString().ToUpper() == "C")
             {
-                // not started
-                this.customer_page.Show();
+                this.sql.Query(
+                   "select CID, Membership " +
+                   "from Customer");
+
+                while (this.sql.Reader().Read())
+                {
+                    if (this.sql.Reader()["CID"].ToString().Equals(user_textbox.Text))
+                    {
+                        check = true;
+                        this.customer_ID = this.sql.Reader()["CID"].ToString();
+                        this.membership = this.sql.Reader()["Membership"].ToString();
+                        this.customer_page.Set_customer_ID(this.customer_ID);
+                        this.customer_page.Set_membership(this.membership);
+                        break;
+
+                    }
+                    else
+                    {
+                        check = false;
+                    }
+
+                }
+
+                if (check)
+                {
+
+                    this.customer_page.Show();
+                }
+                this.sql.Close();
+                
             }
             else
             {

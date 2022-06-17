@@ -13,6 +13,7 @@ namespace Explore
     public partial class Customer_dashboard : UserControl
     {
         private Login_page login_page;
+
         public Customer_dashboard()
         {
             InitializeComponent();
@@ -25,9 +26,18 @@ namespace Explore
             this.login_page = login_page;
         }
 
-        public Customer_dashboard Get_customer_dashboard()
+        public void Set_customer_ID(string customer_ID)
         {
-            return this;
+            this.customer_search.Set_CID(customer_ID);
+        }
+
+        public void Set_membership(string membership)
+        {
+           this.customer_search.Set_membership(membership);
+        }
+        public Customer_search Get_customer_search()
+        {
+            return this.customer_search;
         }
 
         private void Customer_logut_click(object sender, EventArgs e)
@@ -47,5 +57,6 @@ namespace Explore
             this.customer_home.Show();
             this.customer_search.Hide();
         }
+
     }
 }
