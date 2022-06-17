@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Explore
 {
+    /*
+     * Thi sis the
+     */
     public partial class Customer_search_selection : UserControl
     {
         private SQL sql;
