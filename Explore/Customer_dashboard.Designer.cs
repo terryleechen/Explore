@@ -45,6 +45,7 @@
             this.customer_home = new Explore.Customer_home();
             this.customer_search_selection = new Explore.Customer_search_selection();
             this.customer_search = new Explore.Customer_search(this.customer_search_selection);
+            this.customer_search_selection.Set_customer_dashboard(this);
             
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
