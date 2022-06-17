@@ -100,7 +100,6 @@ namespace Explore
             return this.availability_table;
         }
 
-
         private void Run_changes()
         {
             availability_table.Rows.Clear();
