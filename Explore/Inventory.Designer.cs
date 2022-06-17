@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.inventory_selected_branch_label = new System.Windows.Forms.Label();
             this.inventory_branch_select_combobox = new System.Windows.Forms.ComboBox();
             this.dataGridView_inventory = new System.Windows.Forms.DataGridView();
@@ -77,14 +77,14 @@
             this.Year,
             this.Mileage});
             this.dataGridView_inventory.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.SeaShell;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_inventory.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_inventory.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView_inventory.Location = new System.Drawing.Point(80, 58);
             this.dataGridView_inventory.Name = "dataGridView_inventory";
             this.dataGridView_inventory.ReadOnly = true;
@@ -131,49 +131,65 @@
             // 
             // inventory_add_button
             // 
-            this.inventory_add_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.inventory_add_button.ForeColor = System.Drawing.Color.Black;
-            this.inventory_add_button.Location = new System.Drawing.Point(486, 378);
+            this.inventory_add_button.BackColor = System.Drawing.Color.Transparent;
+            this.inventory_add_button.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.inventory_add_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.inventory_add_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inventory_add_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventory_add_button.ForeColor = System.Drawing.Color.SeaShell;
+            this.inventory_add_button.Location = new System.Drawing.Point(506, 378);
             this.inventory_add_button.Name = "inventory_add_button";
-            this.inventory_add_button.Size = new System.Drawing.Size(75, 23);
-            this.inventory_add_button.TabIndex = 3;
+            this.inventory_add_button.Size = new System.Drawing.Size(82, 40);
+            this.inventory_add_button.TabIndex = 12;
             this.inventory_add_button.Text = "Add";
-            this.inventory_add_button.UseVisualStyleBackColor = true;
+            this.inventory_add_button.UseVisualStyleBackColor = false;
             this.inventory_add_button.Click += new System.EventHandler(this.Button_add_click);
             // 
             // inventory_update_button
             // 
-            this.inventory_update_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.inventory_update_button.ForeColor = System.Drawing.Color.Black;
-            this.inventory_update_button.Location = new System.Drawing.Point(567, 378);
+            this.inventory_update_button.BackColor = System.Drawing.Color.Transparent;
+            this.inventory_update_button.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.inventory_update_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.inventory_update_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inventory_update_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventory_update_button.ForeColor = System.Drawing.Color.SeaShell;
+            this.inventory_update_button.Location = new System.Drawing.Point(594, 378);
             this.inventory_update_button.Name = "inventory_update_button";
-            this.inventory_update_button.Size = new System.Drawing.Size(75, 23);
-            this.inventory_update_button.TabIndex = 4;
+            this.inventory_update_button.Size = new System.Drawing.Size(82, 40);
+            this.inventory_update_button.TabIndex = 13;
             this.inventory_update_button.Text = "Update";
-            this.inventory_update_button.UseVisualStyleBackColor = true;
+            this.inventory_update_button.UseVisualStyleBackColor = false;
             this.inventory_update_button.Click += new System.EventHandler(this.Button_update_click);
             // 
             // inventory_delete_button
             // 
-            this.inventory_delete_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.inventory_delete_button.ForeColor = System.Drawing.Color.Black;
-            this.inventory_delete_button.Location = new System.Drawing.Point(648, 378);
+            this.inventory_delete_button.BackColor = System.Drawing.Color.Transparent;
+            this.inventory_delete_button.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.inventory_delete_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.inventory_delete_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inventory_delete_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventory_delete_button.ForeColor = System.Drawing.Color.SeaShell;
+            this.inventory_delete_button.Location = new System.Drawing.Point(682, 378);
             this.inventory_delete_button.Name = "inventory_delete_button";
-            this.inventory_delete_button.Size = new System.Drawing.Size(75, 23);
-            this.inventory_delete_button.TabIndex = 5;
+            this.inventory_delete_button.Size = new System.Drawing.Size(82, 40);
+            this.inventory_delete_button.TabIndex = 14;
             this.inventory_delete_button.Text = "Delete";
-            this.inventory_delete_button.UseVisualStyleBackColor = true;
+            this.inventory_delete_button.UseVisualStyleBackColor = false;
             // 
             // inventory_show_records_button
             // 
-            this.inventory_show_records_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.inventory_show_records_button.ForeColor = System.Drawing.Color.Black;
+            this.inventory_show_records_button.BackColor = System.Drawing.Color.Transparent;
+            this.inventory_show_records_button.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.inventory_show_records_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.inventory_show_records_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inventory_show_records_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventory_show_records_button.ForeColor = System.Drawing.Color.SeaShell;
             this.inventory_show_records_button.Location = new System.Drawing.Point(80, 378);
             this.inventory_show_records_button.Name = "inventory_show_records_button";
-            this.inventory_show_records_button.Size = new System.Drawing.Size(103, 23);
-            this.inventory_show_records_button.TabIndex = 6;
-            this.inventory_show_records_button.Text = "Show All Records";
-            this.inventory_show_records_button.UseVisualStyleBackColor = true;
+            this.inventory_show_records_button.Size = new System.Drawing.Size(212, 40);
+            this.inventory_show_records_button.TabIndex = 15;
+            this.inventory_show_records_button.Text = "Show all records";
+            this.inventory_show_records_button.UseVisualStyleBackColor = false;
             this.inventory_show_records_button.Click += new System.EventHandler(this.Inventory_show_records_button_Click);
             // 
             // Inventory
@@ -188,7 +204,7 @@
             this.Controls.Add(this.dataGridView_inventory);
             this.Controls.Add(this.inventory_branch_select_combobox);
             this.Controls.Add(this.inventory_selected_branch_label);
-            this.ForeColor = System.Drawing.Color.SeaShell;
+            this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Name = "Inventory";
             this.Size = new System.Drawing.Size(790, 460);
             this.Load += new System.EventHandler(this.Load_event);
@@ -203,15 +219,15 @@
         private System.Windows.Forms.Label inventory_selected_branch_label;
         private System.Windows.Forms.ComboBox inventory_branch_select_combobox;
         private System.Windows.Forms.DataGridView dataGridView_inventory;
-        private System.Windows.Forms.Button inventory_add_button;
-        private System.Windows.Forms.Button inventory_update_button;
-        private System.Windows.Forms.Button inventory_delete_button;
-        private System.Windows.Forms.Button inventory_show_records_button;
         private System.Windows.Forms.DataGridViewTextBoxColumn Car_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Brand;
         private System.Windows.Forms.DataGridViewTextBoxColumn Model;
         private System.Windows.Forms.DataGridViewTextBoxColumn Year;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mileage;
+        private System.Windows.Forms.Button inventory_add_button;
+        private System.Windows.Forms.Button inventory_update_button;
+        private System.Windows.Forms.Button inventory_delete_button;
+        private System.Windows.Forms.Button inventory_show_records_button;
     }
 }
