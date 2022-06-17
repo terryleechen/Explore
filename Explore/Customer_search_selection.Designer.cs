@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.estimated_cost = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -138,14 +137,6 @@
             this.Year,
             this.Mileage});
             this.availability_table.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.availability_table.DefaultCellStyle = dataGridViewCellStyle1;
             this.availability_table.Location = new System.Drawing.Point(27, 86);
             this.availability_table.Name = "availability_table";
             this.availability_table.ReadOnly = true;
@@ -248,7 +239,7 @@
             this.Controls.Add(this.availability_table);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button_previous);
-            this.ForeColor = System.Drawing.Color.SeaShell;
+            this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Name = "Customer_search_selection";
             this.Size = new System.Drawing.Size(790, 460);
             this.Load += new System.EventHandler(this.Load_event);
