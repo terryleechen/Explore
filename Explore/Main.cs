@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Explore
 {
+    /// <summary>
+    /// The main front point for the application.
+    /// </summary>
     public partial class Main : Form
     {
         
@@ -17,7 +20,5 @@ namespace Explore
         {
             InitializeComponent();
         }
-
-
     }
 }

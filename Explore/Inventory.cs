@@ -11,16 +11,28 @@ using System.Data.SqlClient;
 
 namespace Explore
 {
+    /*
+     * This is the inventory panel in employee dashboard
+     * 
+     * Author: Terry Leechen, Carter Sieben
+     */
     public partial class Inventory : UserControl
     {
-        /*SqlDataAdapter sda;
-        SqlCommandBuilder scb;
-        DataTable dt;*/
-
+        /*
+         * Field                Description
+         * inventory_add        inventory add page
+         * inventory_update     inventory update page
+         * selected_branch      selected branch for inventory management
+         * car_ID               selected car ID
+         * type_ID              selected car type ID
+         * brand                selected car brand
+         * year                 selected car model year
+         * mileage              selected car's current mileage
+         */
         private SQL sql;
         private Inventory_add inventory_add;
         private Inventory_update inventory_update;
-        private string selected_branch, car_ID, type_ID, brand, year, mileage; //need this for update
+        private string selected_branch, car_ID, type_ID, brand, year, mileage;
         public static string SetVal_branchcombobox = "";
         public static string SetVal_car_ID = "";
         public static string SetVal_type_name = "";
@@ -29,8 +41,13 @@ namespace Explore
         public static string SetVal_mileage = "";
         public static string SetVal_model = "";
 
-
-
+        /*
+         * The constructor of inventoyr
+         * 
+         * Parameter            Description
+         * inventory_add        inventory add to to be connect to inventory page
+         * inventory_update     inventory update to be connected to inventory page
+         */
         public Inventory(Inventory_add inventory_add, Inventory_update inventory_update)
         {
             InitializeComponent();
@@ -64,6 +81,9 @@ namespace Explore
 
         }
 
+        /*
+         * This function will active when program start to load all the info needed
+         */
         private void Load_event(object sender, EventArgs e)
         {
             // set up selected branch
@@ -138,6 +158,9 @@ namespace Explore
 
         }
 
+        /*
+         * This function will active when button add click
+         */
         private void Button_add_click(object sender, EventArgs e)
         {
             // set car ID
@@ -148,15 +171,20 @@ namespace Explore
             // set car type and selected branch
             Load_info_add();
 
+            // front end change
             this.Hide();
             this.inventory_add.Show();
         }
 
+        /*
+         * This function determines the next car ID will be when performing inventory add
+         */
         private string Create_car_ID()
         {
             int index = 0;
             string car_ID = "", new_car_ID = "CR";
             this.sql.Query("select Car_ID from Car C order by Car_ID desc");
+
             try
             {
                 int row = 0;
@@ -167,7 +195,11 @@ namespace Explore
                         break;
                     }
                 }
+                
+                // find the last car ID was added
                 car_ID = this.sql.Reader()["Car_ID"].ToString();
+                
+                // determine what car ID it is then create a new car ID
                 for (int i = 2; i < car_ID.Length; i++)
                 {
                     if (Int32.Parse(car_ID[i].ToString()) > 0 && Int32.Parse(car_ID[i].ToString()) < 10)
@@ -178,6 +210,7 @@ namespace Explore
                     new_car_ID += car_ID[i];
                 }
                 this.sql.Close();
+
                 new_car_ID += Int32.Parse(car_ID.Substring(index, (car_ID.Length - index))) + 1;
                 return new_car_ID;
             }
@@ -189,6 +222,9 @@ namespace Explore
             return null;
         }
 
+        /*
+         * This function load inventoyr add page information
+         */
         private void Load_info_add()
         {
             // set car type combo
@@ -254,6 +290,9 @@ namespace Explore
             this.sql.Close();
         }
         
+        /*
+         * This function determine the branch ID from address selected
+         */
         private string Get_BID(string address)
         {
             string BID = "";

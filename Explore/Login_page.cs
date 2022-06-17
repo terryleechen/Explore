@@ -11,51 +11,82 @@ using System.Data.SqlClient;
 
 namespace Explore
 {
+    /*
+     * The main login for the application.
+     * 
+     * Author: Terry Leechen
+     */
     public partial class Login_page : UserControl
     {
+        /*
+         * Field                    Description
+         * employee_dashboard       main dashboard for the employee
+         * customer_page            main dashboard for the customer
+         * employee_ID              employee ID
+         * customer_ID              customer ID
+         * membership               customer's membership status
+         */
         private Employee_dashboard employee_dashboard;
         private Customer_dashboard customer_page;
-        private SQL sql;
-        private string employee_ID, employee_name;
+        private readonly SQL sql;
+        private string employee_ID;
         private string customer_ID, membership;
 
+        /*
+         * The constructor for Login page
+         */
         public Login_page(Employee_dashboard employee_dashboard, Customer_dashboard customer_page)
         {
             InitializeComponent();
             this.employee_dashboard = employee_dashboard;
             this.customer_page = customer_page;
-
-            // sql
             this.sql = new SQL();
         }
 
-        // ============== Getter method ======================
+        /*
+         * This is a getter method to get employee ID
+         */
         public string Get_employee_id()
         {
             return employee_ID;
         }
-        // ===================================================
 
+        /*
+         * This function actives when user click on button login
+         */
         private void Button_login_click(object sender, EventArgs e)
         {
+            // get user input
             String ID = user_textbox.Text;
+
+            if(!ID.Equals(""))
+            {
+                error_check(ID);
+            }
+        }
+
+        /*
+         * This error checks user inputs
+         */
+        private void error_check(string ID)
+        {
             bool check = false;
 
+            // if user input starting with e as employee
             if (ID[0].ToString().ToUpper().Equals("E"))
             {
                 this.sql.Query(
-                    "select EID, trim(First_Name) + ' ' + trim(Last_Name) as Name " +
+                    "select EID " +
                     "from Employee");
 
-                while(this.sql.Reader().Read())
+                while (this.sql.Reader().Read())
                 {
-                    if(this.sql.Reader()["EID"].ToString().Equals(user_textbox.Text))
+                    if (this.sql.Reader()["EID"].ToString().Equals(user_textbox.Text))
                     {
                         check = true;
                         this.employee_ID = this.sql.Reader()["EID"].ToString();
-                        this.employee_name = this.sql.Reader()["Name"].ToString();
                         break;
-                        
+
                     }
                     else
                     {
@@ -65,11 +96,12 @@ namespace Explore
 
                 if (check)
                 {
-                    
+
                     this.employee_dashboard.Show();
                 }
                 this.sql.Close();
             }
+            // if user input starting with c as customer
             else if (ID[0].ToString().ToUpper() == "C")
             {
                 this.sql.Query(
@@ -101,18 +133,14 @@ namespace Explore
                     this.customer_page.Show();
                 }
                 this.sql.Close();
-                
+
             }
+            // everything else that is not correct
             else
             {
-                MessageBox.Show("error");
+                MessageBox.Show("Please enter the correct user ID!");
             }
             this.user_textbox.Clear();
-        }
-
-        private void enter_press(object sender, EventArgs e)
-        {
-            
         }
     }
 }
