@@ -67,17 +67,26 @@ namespace Explore
 
         private void Button_update_click(object sender, EventArgs e)
         {
-            this.Hide();
-            this.inventory_update.Show();
+            if(inventory_branch_select_combobox.Text == "")
+            {
+                MessageBox.Show("                         Error!\nPlease select a vehicle to update.");
+            }
+            else
+            {
+                this.Hide();
+                this.inventory_update.Show();
 
-            SetVal_branchcombobox = inventory_branch_select_combobox.Text.ToString().Trim();
-            SetVal_car_ID = dataGridView_inventory.CurrentRow.Cells[0].Value.ToString().Trim();
-            SetVal_type_name = dataGridView_inventory.CurrentRow.Cells[1].Value.ToString().Trim();
-            SetVal_brand = dataGridView_inventory.CurrentRow.Cells[2].Value.ToString().Trim();
-            SetVal_model = dataGridView_inventory.CurrentRow.Cells[3].Value.ToString().Trim();
-            SetVal_year = dataGridView_inventory.CurrentRow.Cells[4].Value.ToString().Trim();
-            SetVal_mileage = dataGridView_inventory.CurrentRow.Cells[5].Value.ToString().Trim();
-            this.inventory_update.Set_Info();
+                SetVal_branchcombobox = inventory_branch_select_combobox.Text.ToString().Trim();
+                SetVal_car_ID = dataGridView_inventory.CurrentRow.Cells[0].Value.ToString().Trim();
+                SetVal_type_name = dataGridView_inventory.CurrentRow.Cells[1].Value.ToString().Trim();
+                SetVal_brand = dataGridView_inventory.CurrentRow.Cells[2].Value.ToString().Trim();
+                SetVal_model = dataGridView_inventory.CurrentRow.Cells[3].Value.ToString().Trim();
+                SetVal_year = dataGridView_inventory.CurrentRow.Cells[4].Value.ToString().Trim();
+                SetVal_mileage = dataGridView_inventory.CurrentRow.Cells[5].Value.ToString().Trim();
+                this.inventory_update.Set_Info();
+            }
+
+            
 
         }
 
