@@ -88,7 +88,7 @@ namespace Explore
             else
             {
                 // calculate number of days
-                this.number_days = (this.return_date_picker.Value - this.start_date_picker.Value).TotalDays;
+                this.number_days = Math.Round((this.return_date_picker.Value - this.start_date_picker.Value).TotalDays);
 
                 // format start date
                 this.start_date = this.start_date_picker.Value.Year.ToString() + "/" +
