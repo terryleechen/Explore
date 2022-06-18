@@ -12,6 +12,8 @@ namespace Explore
 {
     /*
      * This is customer search selection panel after customer serach panel
+     * 
+     * Author: Terry Leechen
      */
     public partial class Customer_search_selection : UserControl
     {

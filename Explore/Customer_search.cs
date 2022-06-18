@@ -12,6 +12,8 @@ namespace Explore
 {
     /*
      * This is customer search panel in customer dashboard
+     * 
+     * Author: Terry Leechen
      */
     public partial class Customer_search : UserControl
     {
@@ -171,7 +173,6 @@ namespace Explore
 
                     Calculator calculator = new Calculator(this.number_days, this.car_type, difference, this.membership.ToUpper());
                     this.reservation_price = calculator.calculate();
-                    Console.WriteLine(this.reservation_price);
 
                     this.customer_search_selection.Get_estimated_price().Text = "$" + this.reservation_price.ToString();
                     this.customer_search_selection.Get_all(start_date, end_date, return_BID, pickup_BID, car_type, CID, number_days, type_ID, reservation_price, membership);

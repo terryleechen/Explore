@@ -12,6 +12,8 @@ namespace Explore
 {
     /*
      * This is the booking selection panel after booking panel
+     * 
+     * Author: Terry Leechen
      */
     public partial class Booking_selection : UserControl
     {

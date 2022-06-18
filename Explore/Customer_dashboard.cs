@@ -12,6 +12,8 @@ namespace Explore
 {
     /*
      * This is the main dashboard for customer
+     * 
+     * Author: Terry Leechen
      */
     public partial class Customer_dashboard : UserControl
     {
