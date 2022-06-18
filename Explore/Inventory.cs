@@ -279,6 +279,7 @@ namespace Explore
         private void Load_info_add()
         {
             // set car type combo
+            this.inventory_add.Get_car_type_combo().Items.Clear();
             try
             {
                 this.sql.Query("select DISTINCT [Type_Name] from [Type]");
