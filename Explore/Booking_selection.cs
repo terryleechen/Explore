@@ -12,6 +12,8 @@ namespace Explore
 {
     /*
      * This is the booking selection panel after booking panel
+     * 
+     * Author: Terry Leechen
      */
     public partial class Booking_selection : UserControl
     {
@@ -285,8 +287,11 @@ namespace Explore
             // clear info
             MessageBox.Show("Booking confirmed!!");
             availability_table.Rows.Clear();
+            this.estimated_cost.Text = "";
 
             this.employee_dashboard.Get_booking().Clear_info();
+            this.Hide();
+            this.employee_dashboard.Get_booking().Show();
         }
 
         /*
