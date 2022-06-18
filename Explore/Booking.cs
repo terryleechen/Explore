@@ -51,7 +51,7 @@ namespace Explore
          * The constructor of booking selection
          * 
          * Parameter                Description
-         * booking_selection       booking selection page
+         * booking_selection        booking selection page
          */
         public Booking(Booking_selection booking_selection)
         {
@@ -355,6 +355,25 @@ namespace Explore
                 {
                     MessageBox.Show(ex.ToString(), "Error");
                 }
+            }
+        }
+
+        /*
+         * This function actives when user enters key then goes through error checking
+         */
+        private void Driver_license_keypress(object sender, KeyPressEventArgs e)
+        {
+            error_check(e);
+        }
+
+        /*
+         * This function error check the user inputs
+         */
+        private void error_check(KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
 

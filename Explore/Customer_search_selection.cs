@@ -11,23 +11,48 @@ using System.Windows.Forms;
 namespace Explore
 {
     /*
-     * Thi sis the
+     * This is customer search selection panel after customer serach panel
      */
     public partial class Customer_search_selection : UserControl
     {
+        /*
+         * Field                        Description
+         * customer_search_selection    customer search selection page
+         * reservation_price            reservation based on the selected type id and number of days
+         * number_days                  days rented
+         * first_name                   selected customer's first name
+         * last_name                    selected customer's last name
+         * start_date                   formmated start date
+         * end_date                     formmated end date
+         * return_BID                   return branch ID
+         * pickup_BID                   pickup branch ID
+         * pickup_branch                address of pickup branch
+         * return_branch                address of return branch
+         * car_type                     selected car type name
+         * type_ID                      car type ID
+         * membership                   customer membership status
+         * upgraded                     bool to see if customer gets free upgrade
+         * sql                          SQL class to access database
+         */
         private SQL sql;
         private double number_days;
-        private string pickup_branch, return_branch, start_date, end_date, car_type, pickup_BID, return_BID, type_ID;
-        private string CID, membership;
+        private readonly string pickup_branch, return_branch;
+        private string start_date, end_date, car_type, pickup_BID, return_BID, type_ID, membership;
         private int reservation_price;
         private Customer_dashboard customer_dashboard;
 
+        /*
+         * The constructor of customer search selection
+         */
         public Customer_search_selection()
         {
             InitializeComponent();
             this.sql = new SQL();
         }
 
+        /*
+         * This function active when pickup combo box selection changes
+         */
         private void Selected_pickup_branch_changed(object sender, EventArgs e)
         {
             this.pickup_BID = Get_BID(selected_pickup_branch.Text);
@@ -39,6 +64,22 @@ namespace Explore
             Run_changes();
         }
 
+        /*
+         * This function active when return combo box selection changes
+         */
+        private void Selected_return_branch_changed(object sender, EventArgs e)
+        {
+            this.return_BID = Get_BID(selected_return_branch.Text);
+            // check if change branch fee needed
+            bool difference = !(this.pickup_BID.Equals(this.return_BID));
+
+            Calculator calculator = new Calculator(this.number_days, this.car_type, difference, this.membership.ToUpper());
+            this.estimated_cost.Text = "$" + calculator.calculate().ToString();
+        }
+
+        /*
+         * This function get all information from booking
+         */
         public void Get_all(string start_date, string end_date, string return_BID, string pickup_BID, string car_type, string CID, double number_days, string type_ID, int reservation_price, string membership)
         {
             this.start_date = start_date;
@@ -46,13 +87,15 @@ namespace Explore
             this.return_BID = return_BID;
             this.pickup_BID = pickup_BID;
             this.car_type = car_type;
-            this.CID = CID;
             this.number_days = number_days;
             this.type_ID = type_ID;
             this.reservation_price = reservation_price;
             this.membership = membership;
         }
 
+        /*
+         * Ths function active when the program started to set up combo box
+         */
         private void Load_event(object sender, EventArgs e)
         {
             try
@@ -73,36 +116,49 @@ namespace Explore
             }
         }
 
-        private void Selected_return_branch_changed(object sender, EventArgs e)
-        {
-            this.return_BID = Get_BID(selected_return_branch.Text);
-            // check if change branch fee needed
-            bool difference = !(this.pickup_BID.Equals(this.return_BID));
-
-            Calculator calculator = new Calculator(this.number_days, this.car_type, difference, this.membership.ToUpper());
-            this.estimated_cost.Text = "$" + calculator.calculate().ToString();
-        }
-
+        /*
+         * This is a setter method for pickup branch
+         */
         public void Set_pickup_branch(string pickup_branch)
         {
             this.selected_pickup_branch.Text = pickup_branch.Trim();
         }
 
+        /*
+         * This is a setter method for return branch
+         */
         public void Set_return_branch(string return_branch)
         {
             this.selected_return_branch.Text = return_branch.Trim();
         }
 
+        /*
+         * This is a setter method for customer dashboard
+         */
+        public void Set_customer_dashboard(Customer_dashboard customer_dashboard)
+        {
+            this.customer_dashboard = customer_dashboard;
+        }
+
+        /*
+         * This is a getter method for estimated price Label
+         */
         public Label Get_estimated_price()
         {
             return this.estimated_cost;
         }
 
+        /*
+         * This is a getter method for data grid table
+         */
         public DataGridView Get_table()
         {
             return this.availability_table;
         }
 
+        /*
+         * This function updates the data grid table when there is any changes
+         */
         private void Run_changes()
         {
             availability_table.Rows.Clear();
@@ -141,6 +197,9 @@ namespace Explore
             }
         }
 
+        /*
+         * This function get branch ID from branch address
+         */
         private string Get_BID(string address)
         {
             string BID = "";
@@ -165,15 +224,13 @@ namespace Explore
             return null;
         }
 
+        /*
+         * This function active when button previous click
+         */
         private void Button_previous_clicked(object sender, EventArgs e)
         {
             this.customer_dashboard.Get_customer_search().Show();
             this.Hide();
-        }
-
-        public void  Set_customer_dashboard(Customer_dashboard customer_dashboard)
-        {
-            this.customer_dashboard = customer_dashboard;
         }
     }
 }

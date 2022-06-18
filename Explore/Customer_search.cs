@@ -10,8 +10,31 @@ using System.Windows.Forms;
 
 namespace Explore
 {
+    /*
+     * This is customer search panel in customer dashboard
+     */
     public partial class Customer_search : UserControl
     {
+        /*
+         * Field                        Description
+         * customer_search_selection    customer search selection page
+         * reservation_price            reservation based on the selected type id and number of days
+         * number_days                  days rented
+         * first_name                   selected customer's first name
+         * last_name                    selected customer's last name
+         * start_date                   formmated start date
+         * end_date                     formmated end date
+         * return_BID                   return branch ID
+         * pickup_BID                   pickup branch ID
+         * pickup_branch                address of pickup branch
+         * return_branch                address of return branch
+         * car_type                     selected car type name
+         * CID                          customer CID
+         * type_ID                      car type ID
+         * membership                   customer membership status
+         * upgraded                     bool to see if customer gets free upgrade
+         * sql                          SQL class to access database
+         */
         private SQL sql;
         private Customer_search_selection customer_search_selection;
         private int reservation_price;
@@ -20,6 +43,12 @@ namespace Explore
         private string type_name, type_ID, membership, car_type;
         private bool upgraded = false;
 
+        /*
+         * The constructor of customer search
+         * 
+         * Parameter                    Description
+         * customer_search_selection    customer search page
+         */
         public Customer_search(Customer_search_selection customer_search_selection)
         {
             InitializeComponent();
@@ -27,16 +56,25 @@ namespace Explore
             this.customer_search_selection = customer_search_selection;
         }
 
+        /*
+         * This is a setter method customer ID
+         */
         public void Set_CID(string CID)
         {
             this.CID = CID;
         }
 
+        /*
+         * This is a setter method for membership status
+         */
         public void Set_membership(string membership)
         {
             this.membership = membership;
         }
         
+        /*
+         * This function loads all the information when program started
+         */
         private void Customer_search_load(object sender, EventArgs e)
         {
             // load pickup and return branch
@@ -56,6 +94,7 @@ namespace Explore
                 MessageBox.Show(ex.ToString(), "Error");
             }
 
+            // load car type name
             try
             {
                 this.sql.Query("select DISTINCT [Type_Name] from [Type]");
@@ -72,6 +111,10 @@ namespace Explore
             }
         }
 
+
+        /*
+         * This function actives when button next click
+         */
         private void Button_next_click(object sender, EventArgs e)
         {
             if (this.start_date_picker.Text.Equals("") || this.return_date_picker.Text.Equals("") ||
@@ -82,6 +125,8 @@ namespace Explore
             }
             else
             {
+                DataGridView availability_table = this.customer_search_selection.Get_table();
+
                 // format start date
                 this.start_date = this.start_date_picker.Value.Year.ToString() + "/" +
                     this.start_date_picker.Value.Month.ToString() + "/" +
@@ -118,13 +163,11 @@ namespace Explore
                     check = 2;
                 }
 
+                // if everything is good
                 if (check == 0)
                 {
-                    // get customer ID for calculation;
-                    
                     // check if change branch fee needed
                     bool difference = !(this.pickup_BID.Equals(this.return_BID));
-
 
                     Calculator calculator = new Calculator(this.number_days, this.car_type, difference, this.membership.ToUpper());
                     this.reservation_price = calculator.calculate();
@@ -133,7 +176,8 @@ namespace Explore
                     this.customer_search_selection.Get_estimated_price().Text = "$" + this.reservation_price.ToString();
                     this.customer_search_selection.Get_all(start_date, end_date, return_BID, pickup_BID, car_type, CID, number_days, type_ID, reservation_price, membership);
 
-                    if (this.upgraded)
+                    // if upgrade is availvable and no selection are there
+                    if (this.upgraded && availability_table.RowCount > 0)
                     {
                         MessageBox.Show("No results found for your search, however, the customer " +
                             "is a Gold Member. Please select a free upgrade from the displayed cars.");
@@ -154,16 +198,25 @@ namespace Explore
             }
         }
 
+        /*
+         * This fuction active when pickup branch is selected
+         */
         private void Pickup_selection_picked(object sender, EventArgs e)
         {
             this.customer_search_selection.Set_pickup_branch(this.pickup_combo.Text.ToString().Trim());
         }
 
+        /*
+         * This function active when return branch is selected
+         */
         private void Return_selection_picked(object sender, EventArgs e)
         {
             this.customer_search_selection.Set_return_branch(this.return_combo.Text.ToString().Trim());
         }
 
+        /*
+         * This function set up the data grid table in booking selection
+         */
         private int Initial_availability()
         {
             DataGridView availability_table = this.customer_search_selection.Get_table();
@@ -247,6 +300,9 @@ namespace Explore
             }
         }
 
+        /*
+         * This function determines the branch ID from branch address
+         */
         private string Get_BID(string address)
         {
             string BID = "";
@@ -271,7 +327,10 @@ namespace Explore
             this.sql.Close();
             return null;
         }
-
+       
+        /*
+         * This function get type ID from type name
+         */
         private void Get_type_ID()
         {
             this.sql.Query(
