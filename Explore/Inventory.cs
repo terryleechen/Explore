@@ -42,7 +42,7 @@ namespace Explore
         public static string SetVal_model = "";
 
         /*
-         * The constructor of inventoyr
+         * The constructor of inventory
          * 
          * Parameter            Description
          * inventory_add        inventory add to to be connect to inventory page
@@ -165,6 +165,48 @@ namespace Explore
             inventory_branch_select_combobox.Text = "";
 
 
+        }
+
+        /*
+         * This function will active when button delete click
+         */
+        private void inventory_delete_button_Click(object sender, EventArgs e)
+        {
+            if (inventory_branch_select_combobox.Text == "")
+            {
+                MessageBox.Show("                         Error!\nPlease select a vehicle to delete.");
+            }
+            else
+            {
+                SetVal_branchcombobox = inventory_branch_select_combobox.Text.ToString().Trim();
+                SetVal_car_ID = dataGridView_inventory.CurrentRow.Cells[0].Value.ToString().Trim();
+
+                //if car is currently rented (SELECT  
+                //                            FROM Rental_Transaction
+                //                            WHERE Return_Date == null AND carID == setval_car_ID)
+                //     show error box --> cannot delete, car is currently rented
+                //else delete (DELETE FROM Car WHERE  == setval_car_ID)
+
+                this.sql.Query("SELECT * FROM Rental_Transaction " +
+                    "WHERE Return_Date = null " +
+                    "AND Car_Received_ID = '" + SetVal_car_ID + "'");
+                
+
+                if (!this.sql.Reader().HasRows)
+                {
+                    this.sql.Reader().Close();
+                    this.sql.Delete("DELETE FROM Car WHERE Car_ID = '" + SetVal_car_ID + "'");
+                    this.sql.Reader().Close();
+                    MessageBox.Show("Deletion Confirmed");
+                }
+                else
+                {
+                    this.sql.Reader().Close();
+                    MessageBox.Show("The vehicle you are trying to delete is currently in use");
+                }
+
+
+            }
         }
 
         /*

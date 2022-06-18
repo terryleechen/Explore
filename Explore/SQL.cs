@@ -20,7 +20,7 @@ namespace Explore
             // ensure run explore.sql then exlpore_insert.sql
             // to login type "E0001" as employee
             // to login type "C000001" as customer
-            String connection_string = "Server = DESKTOP-781GNEK; Database = explore; Trusted_Connection = yes;";
+            String connection_string = "Server = DESKTOP-VR20H8R; Database = explore; Trusted_Connection = yes;";
             my_connection = new SqlConnection(connection_string); // Timeout in seconds
             
             try
@@ -42,6 +42,12 @@ namespace Explore
         }
 
         public void Update(String statement) 
+        {
+            this.my_command.CommandText = statement;
+            this.my_command.ExecuteNonQuery();
+        }
+
+        public void Delete(String statement)
         {
             this.my_command.CommandText = statement;
             this.my_command.ExecuteNonQuery();
