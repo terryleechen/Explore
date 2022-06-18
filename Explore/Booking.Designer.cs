@@ -113,6 +113,7 @@
             this.customer_driver_license.Size = new System.Drawing.Size(125, 22);
             this.customer_driver_license.TabIndex = 2;
             this.customer_driver_license.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Driver_license_keydown);
+            this.customer_driver_license.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Driver_license_keypress);
             this.customer_driver_license.Leave += new System.EventHandler(this.Driver_license_leave);
             // 
             // label3
