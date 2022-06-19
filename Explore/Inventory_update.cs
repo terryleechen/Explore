@@ -32,10 +32,10 @@ namespace Explore
             this.selected_branch = this.selected_branch_combobox.Text;
             this.BID = Get_BID(this.selected_branch_combobox.Text);
             this.car_ID = this.carID_textbox.Text;
+            this.brand = this.brand_combo.Text;
             this.year = this.year_textbox.Text;
             this.model = this.model_textbox.Text;
             this.mileage = this.mileage_textbox.Text;
-
 
             try {
                 this.sql.Update(
@@ -48,6 +48,19 @@ namespace Explore
                "Model = '" + this.model + "', " +
                "Mileage = " + Int32.Parse(this.mileage) + " " +
                "Where Car_ID = '" + this.car_ID + "'");
+
+                // clear info
+                this.selected_branch_combobox.Text = "";
+                this.brand_combo.Text = "";
+                this.carID_textbox.Text = "";
+                this.brand_combo.Text = "";
+                this.year_textbox.Text = "";
+                this.model_textbox.Text = "";
+                this.mileage_textbox.Text = "";
+
+                // set front end
+                this.Hide();
+                this.employee_dashboard.Get_inventory().Show();
             }
 
             catch (Exception ex)
@@ -118,8 +131,6 @@ namespace Explore
             this.mileage = Inventory.SetVal_mileage;
             
         }
-
-
 
         private void Load_event(object sender, EventArgs e)
         {
@@ -216,6 +227,7 @@ namespace Explore
             Get_type_ID();
 
         }
+        
         private string Get_BID(string address)
         {
             string BID = "";
