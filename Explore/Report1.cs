@@ -16,6 +16,7 @@ namespace Explore
         private SQL sql;
         private String interval;
         private String DataType;
+        private String query;
 
         public Report1()
         {
@@ -36,15 +37,18 @@ namespace Explore
         {
             if (DurationBox.SelectedIndex == 0)
             {
-                this.interval = DateTime.Today.AddDays(-7).ToString();
+                this.interval = "7";
+                if (CarData.SelectedIndex == 3) { this.SetTypeQuery(); } else { this.SetOtherQuery(); }
             }
             else if (DurationBox.SelectedIndex == 1)
             {
-                this.interval = DateTime.Today.AddDays(-30).ToString();
+                this.interval = "30";
+                if (CarData.SelectedIndex == 3) { this.SetTypeQuery(); } else { this.SetOtherQuery(); }
             }
             else if (DurationBox.SelectedIndex == 2)
             {
-                this.interval = DateTime.Today.AddYears(-1).ToString();
+                this.interval = "365";
+                if (CarData.SelectedIndex == 3) { this.SetTypeQuery(); } else { this.SetOtherQuery(); }
             }
 
         }
@@ -54,15 +58,20 @@ namespace Explore
             if (CarData.SelectedIndex == 0)
             {
                 this.DataType = "Year";
+                this.SetOtherQuery();
             } else if (CarData.SelectedIndex == 1)
             {
                 this.DataType = "Brand";
+                this.SetOtherQuery();
             } else if (CarData.SelectedIndex == 2)
             {
                 this.DataType = "Model";
+                this.SetOtherQuery();
             } else if (CarData.SelectedIndex == 3)
             {
                 this.DataType = "Type_ID";
+                this.SetTypeQuery();
+                
             }
         }
 
@@ -73,27 +82,15 @@ namespace Explore
 
             try
             {
-                this.sql.Query("select t1.BranchName, t1." + this.DataType + ", t1.NumberOfType from Rental_Transaction R, (" +
-                    "select trim(b.address_1) + ' ' + trim(b.address_2) as BranchName, C." + this.DataType + ", " +
-                    "count(*) NumberOfType from Branch B, Car C, Rental_Transaction R " +
-                    "where C.BID = B.BID and C.Car_ID = R.Car_Received_ID " +
-                    "group by C." + this.DataType + ", (trim(b.address_1) + ' ' + trim(b.address_2))) t1, " +
-                    "(select BranchName, max(total) maximum from " +
-                    "(select trim(b.address_1) + ' ' + trim(b.address_2) as BranchName, " +
-                    "count(*) total from Branch B, Car C, Rental_Transaction R " +
-                    "where C.BID = B.BID and C.Car_ID = R.Car_Received_ID " +
-                    "group by (trim(b.address_1) + ' ' + trim(b.address_2)), C." + this.DataType + ") t " +
-                    "group by t.BranchName) t2 " +
-                    "where t1.BranchName = t2.BranchName and t1.NumberOfType = t2.maximum " +
-                    "and CAST(R.Start_Date as datetime) > CAST('" + this.interval + "' as datetime) " +
-                    "group by t1.BranchName, t1." + this.DataType + ", t1.NumberOfType");
+                this.sql.Query(this.query);
 
                 while (this.sql.Reader().Read())
                 {
+
                     this.PopularTypeGrid.Rows.Add(
                         this.sql.Reader()["BranchName"].ToString(),
-                        this.sql.Reader()[this.DataType].ToString(),
-                        this.sql.Reader()["NumberOfType"].ToString());
+                        this.sql.Reader()["Most Rented"].ToString(),
+                        this.sql.Reader()["Least Rented"].ToString());
                 }
                 this.sql.Close();
             }
@@ -108,5 +105,70 @@ namespace Explore
         {
             this.UpdatePopularity();
         }
+
+        private void SetOtherQuery()
+        {
+            this.query = "select temp1.branchname, temp1.[Most Rented], temp2.[Least Rented] from " +
+                    "(select t1.branchname, t1." + this.DataType + " as [Most Rented] from Rental_Transaction R, " +
+                    "(select (trim(b.address_1) + ' ' + trim (b.address_2)) " +
+                    "as BranchName, c." + this.DataType + ", count(*) NumberOfType from " +
+                    "Branch B, Car C, Rental_Transaction R where R.Pickup_Branch_ID = B.BID and " +
+                    "C.Car_ID = R.Car_Received_ID group by c." + this.DataType + ", (trim(b.Address_1) + ' ' + trim(b.address_2))) t1, " +
+                    "(select BranchName, max(total) maximum from " +
+                    "(select trim(b.address_1) + ' ' + trim(b.address_2) as " +
+                    "BranchName, count(*) total from Branch B, Car C, Rental_Transaction R " +
+                    "where R.Pickup_Branch_ID = B.BID and C.Car_ID = R.Car_Received_ID" +
+                    " group by (trim(b.address_1) + ' ' + trim(b.address_2)), " + this.DataType + ") t group by t.BranchName) t2 " +
+                    "where t1.NumberOfType = t2.maximum and t1.BranchName = t2.BranchName " +
+                    "and DATEDIFF(day, CAST(R.Start_Date as date), GETDATE()) <= " + this.interval + " " +
+                    "group by t1." + this.DataType + ", t1.BranchName) temp1 " +
+                    "join " +
+                    "(select t3.BranchName, t3." + this.DataType + " as [Least Rented] from Rental_transaction R, " +
+                    "(select (trim(address_1) + ' '+  trim(address_2)) as BranchName, c." + this.DataType + ", " +
+                    "count(*) NumberOfType from Branch B, Car C, Rental_Transaction R " +
+                    "where R.Pickup_Branch_ID = B.BID and C.Car_ID = R.Car_Received_ID " +
+                    "group by C." + this.DataType + ", (trim(b.address_1) + ' ' + trim(b.address_2))) t3, " +
+                    "(select BranchName, min(total) minimum from (select trim(b.address_1) + ' ' + trim(b.address_2) as " +
+                    "BranchName, count(*) total from Branch B, Car C, Rental_Transaction R where " +
+                    "R.Pickup_Branch_ID = B.BID and C.Car_ID = R.Car_Received_ID " +
+                    "group by (trim(b.address_1) + ' ' + trim(b.address_2)), c." + this.DataType + ") t group by t.branchName) t4 " +
+                    "where t3.NumberOfType = t4.minimum and t3.BranchName = t4.BranchName " +
+                    "and DATEDIFF(day, CAST(R.Start_Date as date), GETDATE()) <= " + this.interval + " " +
+                    "group by t3." + this.DataType + ", t3.branchname) temp2 " +
+                    "on temp1.branchname = temp2.branchname";
+        }
+
+        private void SetTypeQuery()
+        {
+            this.query = "select temp1.branchname, temp1.[Most Rented], temp2.[least rented] from " +
+                    "(select t1.BranchName, t1.type_name as 'Most Rented' from Rental_Transaction R, Type T, " +
+                    "(select(trim(b.address_1) + ' ' + trim(b.address_2)) " +
+                    "as BranchName, c." + this.DataType + ", t.type_name, count(*) NumberOfType from " +
+                    "Branch B, Car C, Rental_Transaction R, Type T where R.Pickup_Branch_ID = B.BID and " +
+                    "C.Car_ID = R.Car_Received_ID and T." + this.DataType + " = c." + this.DataType + " group by t.type_name, c." + this.DataType + ", (trim(b.address_1) + ' ' + trim(b.address_2))) t1,  " +
+                    "(select BranchName, max(total) maximum from(select trim(b.address_1) +' ' + trim(b.address_2) as " +
+                    "BranchName, count(*) total from Branch B, Car C, Rental_Transaction R where R.Pickup_Branch_ID = B.BID and C.Car_ID = " +
+                    "R.Car_Received_ID group by(trim(b.address_1) +' ' + trim(b.address_2)), " + this.DataType + ") t group by t.BranchName) t2 " +
+                    "where t1.NumberOfType = t2.maximum " +
+                    "and t1.BranchName = t2.BranchName " +
+                    "and DATEDIFF(day, CAST(R.Start_Date as date), GETDATE()) <= " + this.interval + " " +
+                    "group by t1.type_name, t1.BranchName) as temp1 " +
+                    "join " +
+                    "(select t3.BranchName, t3.type_name as 'least rented' from rental_transaction R, Type T, " +
+                    "(select(trim(b.address_1) + ' ' + trim(b.address_2)) " +
+                    "as BranchName, c." + this.DataType + ", t.type_name, count(*) NumberOfType from " +
+                    "Branch B, Car C, Rental_Transaction R, Type T where R.Pickup_Branch_ID = B.BID and " +
+                    "C.Car_ID = R.Car_Received_ID and t." + this.DataType + " = c." + this.DataType + " " +
+                    "group by t.type_name, c." + this.DataType + ", (trim(b.address_1) + ' ' + trim(b.address_2))) t3,  " +
+                    "(select BranchName, min(total) minimum from(select trim(b.address_1) +' ' + trim(b.address_2) as " +
+                    "BranchName, count(*) total from Branch B, Car C, Rental_Transaction R where R.Pickup_Branch_ID = B.BID and C.Car_ID = " +
+                    "R.Car_Received_ID group by(trim(b.address_1) +' ' + trim(b.address_2)), c." + this.DataType + ") t group by t.BranchName) t4 " +
+                    "where t3.NumberOfType = t4.minimum " +
+                    "and t3.BranchName = t4.BranchName " +
+                    "and DATEDIFF(day, CAST(R.Start_Date as date), GETDATE()) <= " + this.interval + " " +
+                    "group by t3.type_name, t3.BranchName) temp2 " +
+                    "on temp1.BranchName = temp2.BranchName ";
+        }
+
     }
 }
