@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Explore
 {
@@ -120,6 +121,7 @@ namespace Explore
         private void Button_save_click(object sender, EventArgs e)
         {
             String mem = ""; String gen = "";
+            String newNumber;
 
             if (this.Membership.Checked) { mem = "Y"; }
             else { mem = "N"; }
@@ -127,56 +129,67 @@ namespace Explore
             if (this.M.Checked) { gen = "M"; }
             else if (this.F.Checked) { gen = "F"; }
             else if (this.N.Checked) { gen = "N"; }
-         
-            if (this.state == "Edit")
-            {
-                this.sql.Update("Update Customer " +
-                    "Set First_Name = '" + this.FirstName.Text + "', " +
-                    "CID = '" + this.CID.Text + "', " +
-                    "Last_Name = '" + this.LastName.Text + "', " +
-                    "Driver_License = '" + this.Driver_License.Text + "', " +
-                    "Address_1 = '" + this.Address_1.Text + "', " +
-                    "Membership = '" + mem + "', " +
-                    "City = '" + this.City.Text + "', " +
-                    "Postal_code = '" + this.PostalCode.Text + "', " +
-                    "Email = '" + this.Email.Text + "', " +
-                    "Gender = '" + gen + "', " +
-                    "Province = '" + this.Province.SelectedItem + "', " +
-                    "DOB = '" + this.DOB.Value.ToString("yyyy/MM/dd") + "', " +
-                    "Address_2 = '" + this.Address_2.Text + "' " +
-                    "Where CID = '" + this.CID.Text + "'");
-                this.sql.Update("Update Customer_Phone " +
-                    "Set Phone_Number = '" + this.PhoneNumber.Text + "' " +
-                    "Where CID = '" + this.CID.Text + "'");
-            } 
-            else if (this.state == "Add")
-            {
-                this.sql.Insert("Insert Into Customer " +
-                    "(CID, First_Name, Last_Name, Driver_License, Address_1, Address_2, " +
-                    "Membership, City, Postal_code, Email, Gender, Province, DOB) " +
-                    "Values ('" + this.CID.Text + "', " +
-                    "'" + this.FirstName.Text + "', " +
-                    "'" + this.LastName.Text + "', " +
-                    "'" + this.Driver_License.Text + "', " +
-                    "'" + this.Address_1.Text + "', " +
-                    "'" + this.Address_2.Text + "', " +
-                    "'" + mem + "', " +
-                    "'" + this.City.Text + "', " +
-                    "'" + this.PostalCode.Text + "', " +
-                    "'" + this.Email.Text + "', " +
-                    "'" + gen + "', " +
-                    "'" + this.Province.SelectedItem + "', " +
-                    "'" + this.DOB.Value.ToString("yyyy/MM/dd") + "')");
-                this.sql.Insert("Insert Into Customer_Phone " +
-                    "(CID, Phone_Number) " +
-                    "Values ('" + this.CID.Text + "', '" + this.PhoneNumber.Text + "')");
 
+            newNumber = string.Concat(this.PhoneNumber.Text.ToString().Where(i => !new[] { '-', '(', ')', ' ' }.Contains(i)));
+            if (!ValidatePostalCode(this.PostalCode.Text))
+                MessageBox.Show("Please enter a valid postal code");
+            if (!ValidateEmail(this.Email.Text))
+                MessageBox.Show("Please enter a valid email");
+            if (!ValidateDriverLicense(this.Driver_License.Text))
+                MessageBox.Show("Please enter a valid driver's license number");
+            if (ValidatePostalCode(this.PostalCode.Text) && ValidateEmail(this.Email.Text) && ValidateDriverLicense(this.Driver_License.Text))
+            {
+
+                if (this.state == "Edit")
+                {
+                    this.sql.Update("Update Customer " +
+                        "Set First_Name = '" + this.FirstName.Text + "', " +
+                        "CID = '" + this.CID.Text + "', " +
+                        "Last_Name = '" + this.LastName.Text + "', " +
+                        "Driver_License = '" + this.Driver_License.Text + "', " +
+                        "Address_1 = '" + this.Address_1.Text + "', " +
+                        "Membership = '" + mem + "', " +
+                        "City = '" + this.City.Text + "', " +
+                        "Postal_code = '" + this.PostalCode.Text + "', " +
+                        "Email = '" + this.Email.Text + "', " +
+                        "Gender = '" + gen + "', " +
+                        "Province = '" + this.Province.SelectedItem + "', " +
+                        "DOB = '" + this.DOB.Value.ToString("yyyy/MM/dd") + "', " +
+                        "Address_2 = '" + this.Address_2.Text + "' " +
+                        "Where CID = '" + this.CID.Text + "'");
+                    this.sql.Update("Update Customer_Phone " +
+                        "Set Phone_Number = '" + newNumber + "' " +
+                        "Where CID = '" + this.CID.Text + "'");
+                }
+                else if (this.state == "Add")
+                {
+                    this.sql.Insert("Insert Into Customer " +
+                        "(CID, First_Name, Last_Name, Driver_License, Address_1, Address_2, " +
+                        "Membership, City, Postal_code, Email, Gender, Province, DOB) " +
+                        "Values ('" + this.CID.Text + "', " +
+                        "'" + this.FirstName.Text + "', " +
+                        "'" + this.LastName.Text + "', " +
+                        "'" + this.Driver_License.Text + "', " +
+                        "'" + this.Address_1.Text + "', " +
+                        "'" + this.Address_2.Text + "', " +
+                        "'" + mem + "', " +
+                        "'" + this.City.Text + "', " +
+                        "'" + this.PostalCode.Text + "', " +
+                        "'" + this.Email.Text + "', " +
+                        "'" + gen + "', " +
+                        "'" + this.Province.SelectedItem + "', " +
+                        "'" + this.DOB.Value.ToString("yyyy/MM/dd") + "')");
+                    this.sql.Insert("Insert Into Customer_Phone " +
+                        "(CID, Phone_Number) " +
+                        "Values ('" + this.CID.Text + "', '" + this.PhoneNumber.Text + "')");
+
+                }
+            
+                this.state = "Waiting";
+                this.Clear();
+                this.employee_dashboard.Get_Customer().Show();
+                this.Hide();
             }
-
-            this.state = "Waiting";
-            this.Clear();
-            this.employee_dashboard.Get_Customer().Show();
-            this.Hide();
         }
 
         private void Populate(String CID, String First_Name, String Last_Name, String Driver_License,
@@ -209,6 +222,30 @@ namespace Explore
             if (Gender == "M") { this.M.Checked = true; this.M.Enabled = true; }
             else if (Gender == "F") { this.F.Checked = true; this.F.Enabled = true; }
             else if (Gender == "N") { this.N.Checked = true; this.N.Enabled = true; }
+        }
+
+        //https://blog.platformular.com/2012/03/03/how-to-validate-canada-postal-code-in-c/
+        public static bool ValidatePostalCode(string PCode)
+        {
+            string pattern = "^[ABCEGHJ-NPRSTVXY]{1}[0-9]{1}[ABCEGHJ-NPRSTV-Z]{1}[ ]?[0-9]{1}[ABCEGHJ-NPRSTV-Z]{1}[0-9]{1}$";
+            Regex reg = new Regex(pattern, RegexOptions.IgnoreCase | RegexOptions.Compiled);
+            return reg.IsMatch(PCode);
+        }
+
+        public static bool ValidateEmail(string email)
+        {
+            string pattern = @"^(?!\.)(""([^""\r\\]|\\[""\r\\])*""|" + @"([-a-z0-9!#$%&'*+/=?^_`{|}~]|(?<!\.)\.)*)(?<!\.)" + @"@[a-z0-9][\w\.-]*[a-z0-9]\.[a-z][a-z\.]*[a-z]$";
+            Regex reg = new Regex(pattern, RegexOptions.IgnoreCase);
+            return reg.IsMatch(email);
+        }
+
+        public static bool ValidateDriverLicense(string dl)
+        {
+            string pattern = @"^\d+$";
+            Regex reg = new Regex(pattern);
+            if (!reg.IsMatch(dl) || dl.Length < 9)
+                return false;
+            return true;
         }
 
     }

@@ -30,7 +30,6 @@ namespace Explore
             PopularTypeGrid.Columns[2].HeaderCell.Value = "Least Rented";
 
 
-            //UpdatePopularity();
         }
 
         private void DurationBox_SelectedIndexChanged(object sender, EventArgs e)

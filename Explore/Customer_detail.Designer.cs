@@ -52,7 +52,6 @@
             this.Province = new System.Windows.Forms.ComboBox();
             this.Province_Label = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.PostalCode = new System.Windows.Forms.TextBox();
             this.PostalCode_Label = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.City = new System.Windows.Forms.TextBox();
@@ -62,7 +61,6 @@
             this.Membership_Label = new System.Windows.Forms.Label();
             this.PhoneNumber_Panel = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.PhoneNumber = new System.Windows.Forms.TextBox();
             this.PhoneNumber_Label = new System.Windows.Forms.Label();
             this.Email_Panel = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
@@ -83,6 +81,8 @@
             this.F = new System.Windows.Forms.RadioButton();
             this.M = new System.Windows.Forms.RadioButton();
             this.Gender_Label = new System.Windows.Forms.Label();
+            this.PostalCode = new System.Windows.Forms.TextBox();
+            this.PhoneNumber = new System.Windows.Forms.MaskedTextBox();
             this.CID_Panel.SuspendLayout();
             this.Name_Panel.SuspendLayout();
             this.Address_Panel.SuspendLayout();
@@ -205,6 +205,7 @@
             this.LastName.ForeColor = System.Drawing.Color.SeaShell;
             this.LastName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.LastName.Location = new System.Drawing.Point(121, 58);
+            this.LastName.MaxLength = 20;
             this.LastName.Name = "LastName";
             this.LastName.Size = new System.Drawing.Size(185, 22);
             this.LastName.TabIndex = 14;
@@ -236,6 +237,7 @@
             this.FirstName.ForeColor = System.Drawing.Color.SeaShell;
             this.FirstName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.FirstName.Location = new System.Drawing.Point(121, 11);
+            this.FirstName.MaxLength = 20;
             this.FirstName.Name = "FirstName";
             this.FirstName.Size = new System.Drawing.Size(185, 22);
             this.FirstName.TabIndex = 11;
@@ -279,6 +281,7 @@
             this.Address_2.ForeColor = System.Drawing.Color.SeaShell;
             this.Address_2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Address_2.Location = new System.Drawing.Point(121, 41);
+            this.Address_2.MaxLength = 50;
             this.Address_2.Name = "Address_2";
             this.Address_2.Size = new System.Drawing.Size(185, 22);
             this.Address_2.TabIndex = 14;
@@ -300,6 +303,7 @@
             this.Address_1.ForeColor = System.Drawing.Color.SeaShell;
             this.Address_1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Address_1.Location = new System.Drawing.Point(121, 7);
+            this.Address_1.MaxLength = 50;
             this.Address_1.Name = "Address_1";
             this.Address_1.Size = new System.Drawing.Size(185, 22);
             this.Address_1.TabIndex = 11;
@@ -332,6 +336,7 @@
             // Province
             // 
             this.Province.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.Province.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Province.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Province.ForeColor = System.Drawing.Color.SeaShell;
             this.Province.FormattingEnabled = true;
@@ -373,18 +378,6 @@
             this.panel1.Size = new System.Drawing.Size(125, 1);
             this.panel1.TabIndex = 15;
             // 
-            // PostalCode
-            // 
-            this.PostalCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.PostalCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PostalCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PostalCode.ForeColor = System.Drawing.Color.SeaShell;
-            this.PostalCode.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.PostalCode.Location = new System.Drawing.Point(121, 50);
-            this.PostalCode.Name = "PostalCode";
-            this.PostalCode.Size = new System.Drawing.Size(125, 22);
-            this.PostalCode.TabIndex = 14;
-            // 
             // PostalCode_Label
             // 
             this.PostalCode_Label.AutoSize = true;
@@ -412,6 +405,7 @@
             this.City.ForeColor = System.Drawing.Color.SeaShell;
             this.City.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.City.Location = new System.Drawing.Point(60, 7);
+            this.City.MaxLength = 20;
             this.City.Name = "City";
             this.City.Size = new System.Drawing.Size(125, 22);
             this.City.TabIndex = 11;
@@ -463,8 +457,8 @@
             // 
             // PhoneNumber_Panel
             // 
-            this.PhoneNumber_Panel.Controls.Add(this.panel12);
             this.PhoneNumber_Panel.Controls.Add(this.PhoneNumber);
+            this.PhoneNumber_Panel.Controls.Add(this.panel12);
             this.PhoneNumber_Panel.Controls.Add(this.PhoneNumber_Label);
             this.PhoneNumber_Panel.Location = new System.Drawing.Point(384, 146);
             this.PhoneNumber_Panel.Name = "PhoneNumber_Panel";
@@ -479,18 +473,6 @@
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(165, 1);
             this.panel12.TabIndex = 12;
-            // 
-            // PhoneNumber
-            // 
-            this.PhoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.PhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PhoneNumber.ForeColor = System.Drawing.Color.SeaShell;
-            this.PhoneNumber.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.PhoneNumber.Location = new System.Drawing.Point(160, 11);
-            this.PhoneNumber.Name = "PhoneNumber";
-            this.PhoneNumber.Size = new System.Drawing.Size(165, 22);
-            this.PhoneNumber.TabIndex = 11;
             // 
             // PhoneNumber_Label
             // 
@@ -529,6 +511,7 @@
             this.Email.ForeColor = System.Drawing.Color.SeaShell;
             this.Email.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Email.Location = new System.Drawing.Point(77, 11);
+            this.Email.MaxLength = 50;
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(248, 22);
             this.Email.TabIndex = 11;
@@ -591,6 +574,7 @@
             this.Driver_License.ForeColor = System.Drawing.Color.SeaShell;
             this.Driver_License.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Driver_License.Location = new System.Drawing.Point(170, 7);
+            this.Driver_License.MaxLength = 9;
             this.Driver_License.Name = "Driver_License";
             this.Driver_License.Size = new System.Drawing.Size(150, 22);
             this.Driver_License.TabIndex = 11;
@@ -689,6 +673,31 @@
             this.Gender_Label.TabIndex = 14;
             this.Gender_Label.Text = "Gender:";
             // 
+            // PostalCode
+            // 
+            this.PostalCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.PostalCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PostalCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PostalCode.ForeColor = System.Drawing.Color.SeaShell;
+            this.PostalCode.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.PostalCode.Location = new System.Drawing.Point(121, 50);
+            this.PostalCode.MaxLength = 6;
+            this.PostalCode.Name = "PostalCode";
+            this.PostalCode.Size = new System.Drawing.Size(125, 22);
+            this.PostalCode.TabIndex = 14;
+            // 
+            // PhoneNumber
+            // 
+            this.PhoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.PhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.PhoneNumber.ForeColor = System.Drawing.Color.SeaShell;
+            this.PhoneNumber.Location = new System.Drawing.Point(160, 13);
+            this.PhoneNumber.Mask = "(999) 000-0000";
+            this.PhoneNumber.Name = "PhoneNumber";
+            this.PhoneNumber.Size = new System.Drawing.Size(165, 22);
+            this.PhoneNumber.TabIndex = 13;
+            // 
             // Customer_detail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -761,8 +770,6 @@
         private System.Windows.Forms.ComboBox Province;
         private System.Windows.Forms.Label Province_Label;
         private System.Windows.Forms.Panel panel1;
-
-        private System.Windows.Forms.TextBox PostalCode;
         private System.Windows.Forms.Label PostalCode_Label;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TextBox City;
@@ -774,7 +781,6 @@
 
         private System.Windows.Forms.Panel PhoneNumber_Panel;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.TextBox PhoneNumber;
         private System.Windows.Forms.Label PhoneNumber_Label;
         private System.Windows.Forms.Panel Email_Panel;
         private System.Windows.Forms.Panel panel13;
@@ -795,5 +801,7 @@
         private System.Windows.Forms.RadioButton F;
         private System.Windows.Forms.RadioButton M;
         private System.Windows.Forms.Label Gender_Label;
+        private System.Windows.Forms.TextBox PostalCode;
+        private System.Windows.Forms.MaskedTextBox PhoneNumber;
     }
 }

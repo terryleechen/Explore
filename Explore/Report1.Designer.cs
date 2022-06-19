@@ -30,13 +30,13 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.PopularTypeGrid = new System.Windows.Forms.DataGridView();
+            this.BranchName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumberRequests = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DurationBox = new System.Windows.Forms.ComboBox();
             this.CarData = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SubmitButton = new System.Windows.Forms.Button();
-            this.BranchName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumberRequests = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.PopularTypeGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,8 +65,30 @@
             this.PopularTypeGrid.Size = new System.Drawing.Size(551, 229);
             this.PopularTypeGrid.TabIndex = 1;
             // 
+            // BranchName
+            // 
+            this.BranchName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.BranchName.HeaderText = "Branch Name";
+            this.BranchName.Name = "BranchName";
+            this.BranchName.ReadOnly = true;
+            this.BranchName.Width = 89;
+            // 
+            // data
+            // 
+            this.data.HeaderText = "Data Type";
+            this.data.Name = "data";
+            this.data.ReadOnly = true;
+            // 
+            // NumberRequests
+            // 
+            this.NumberRequests.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NumberRequests.HeaderText = "Total (Company Wide)";
+            this.NumberRequests.Name = "NumberRequests";
+            this.NumberRequests.ReadOnly = true;
+            // 
             // DurationBox
             // 
+            this.DurationBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DurationBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DurationBox.FormattingEnabled = true;
             this.DurationBox.Items.AddRange(new object[] {
@@ -81,6 +103,7 @@
             // 
             // CarData
             // 
+            this.CarData.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CarData.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CarData.FormattingEnabled = true;
             this.CarData.Items.AddRange(new object[] {
@@ -114,27 +137,6 @@
             this.SubmitButton.Text = "Submit";
             this.SubmitButton.UseVisualStyleBackColor = true;
             this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
-            // 
-            // BranchName
-            // 
-            this.BranchName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.BranchName.HeaderText = "Branch Name";
-            this.BranchName.Name = "BranchName";
-            this.BranchName.ReadOnly = true;
-            this.BranchName.Width = 97;
-            // 
-            // data
-            // 
-            this.data.HeaderText = "Data Type";
-            this.data.Name = "data";
-            this.data.ReadOnly = true;
-            // 
-            // NumberRequests
-            // 
-            this.NumberRequests.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NumberRequests.HeaderText = "Total (Company Wide)";
-            this.NumberRequests.Name = "NumberRequests";
-            this.NumberRequests.ReadOnly = true;
             // 
             // Report1
             // 
