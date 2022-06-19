@@ -10,6 +10,13 @@ using System.Windows.Forms;
 
 namespace Explore
 {
+    /// <summary>
+    /// Queries the database and shows information based on the most rented/least rented
+    /// cars per branch. User chooses what information they want to filter by (car type, year,
+    /// brand, and model)
+    /// </summary>
+    /// 
+    /// Author: Josh Coss
     public partial class Report1 : UserControl
     {
 
@@ -18,6 +25,9 @@ namespace Explore
         private String DataType;
         private String query;
 
+        /// <summary>
+        /// Initializes the report1 form
+        /// </summary>
         public Report1()
         {
             InitializeComponent();
@@ -28,10 +38,14 @@ namespace Explore
             PopularTypeGrid.Columns[0].HeaderCell.Value = "Branch Name";
             PopularTypeGrid.Columns[1].HeaderCell.Value = "Most Rented";
             PopularTypeGrid.Columns[2].HeaderCell.Value = "Least Rented";
-
-
         }
 
+        /// <summary>
+        /// Changes the interval value and query type based on the selected item in the DurationBox
+        /// combo box
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void DurationBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (DurationBox.SelectedIndex == 0)
@@ -52,6 +66,12 @@ namespace Explore
 
         }
 
+        /// <summary>
+        /// Changes the DataType value and query type based on the selected item in the CarData
+        /// Combo box
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgss</param>
         private void CarData_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (CarData.SelectedIndex == 0)
@@ -74,11 +94,12 @@ namespace Explore
             }
         }
 
-
+        /// <summary>
+        /// Updates the information in the PopularTypeGrid object based on the query
+        /// </summary>
         private void UpdatePopularity()
         {
             PopularTypeGrid.Rows.Clear();
-
             try
             {
                 this.sql.Query(this.query);
@@ -100,11 +121,20 @@ namespace Explore
             }
         }
 
+        /// <summary>
+        /// Clicking the submit button calls UpdatePopularity to show information based
+        /// on the currently selected user parameters
+        /// </summary>
+        /// <param name="sender">object</param>
+        /// <param name="e">EventArgs</param>
         private void SubmitButton_Click(object sender, EventArgs e)
         {
             this.UpdatePopularity();
         }
 
+        /// <summary>
+        /// Sets information for the query if DataType is Year, Brand, or Model
+        /// </summary>
         private void SetOtherQuery()
         {
             this.query = "select temp1.branchname, temp1.[Most Rented], temp2.[Least Rented] from " +
@@ -137,6 +167,10 @@ namespace Explore
                     "on temp1.branchname = temp2.branchname";
         }
 
+        /// <summary>
+        /// Sets information for the query if DataType is Type_ID. This query differs slightly
+        /// as an additional table is required to get the Type_Name.
+        /// </summary>
         private void SetTypeQuery()
         {
             this.query = "select temp1.branchname, temp1.[Most Rented], temp2.[least rented] from " +
