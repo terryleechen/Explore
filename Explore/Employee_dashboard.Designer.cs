@@ -55,7 +55,7 @@
             // link booking and booking selection
             this.employee_booking = new Explore.Booking(this.booking_selection);
             // for some reason this is giving errors
-            this.booking_selection.Get_employee_dashboard(this);
+            this.booking_selection.Set_employee_dashboard(this);
             // link return and return detail
             this.employee_return = new Explore.Return(this.return_detail);
             this.return_detail.Get_employee_dashboard(this);

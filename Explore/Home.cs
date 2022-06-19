@@ -10,8 +10,16 @@ using System.Windows.Forms;
 
 namespace Explore
 {
+    /*
+     * This is the home panel in employee dashboard
+     * 
+     * Author: Terry Leechen, Carter Sieben
+     */
     public partial class Home : UserControl
     {
+        /*
+         * The constructor of Home
+         */
         public Home()
         {
             InitializeComponent();

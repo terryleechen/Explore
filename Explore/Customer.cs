@@ -10,6 +10,11 @@ using System.Windows.Forms;
 
 namespace Explore
 {
+    /*
+     * This is the customer panel in employee dashboard
+     * 
+     * Author: Josh Coss
+     */
     public partial class Customer : UserControl
     {
         private Customer_detail customer_detail;

@@ -10,8 +10,34 @@ using System.Windows.Forms;
 
 namespace Explore
 {
+    /*
+     * This is the booking panel in employee dashboard
+     * 
+     * Author: Terry Leechen
+     */
     public partial class Booking : UserControl
     {
+        /*
+         * Field                Description
+         * booking_selection    booking selection page
+         * driver_license       select customer's driver license
+         * reservation price    reservation based on the selected type id and number of days
+         * number_days          days rented
+         * first_name           selected customer's first name
+         * last_name            selected customer's last name
+         * start_date           formmated start date
+         * end_date             formmated end date
+         * return_BID           return branch ID
+         * pickup_BID           pickup branch ID
+         * pickup_branch        address of pickup branch
+         * return_branch        address of return branch
+         * car_type             selected car type name
+         * CID                  customer CID
+         * type_ID              car type ID
+         * membership           customer membership status
+         * upgraded             bool to see if customer gets free upgrade
+         * sql                  SQL class to access database
+         */
         private Booking_selection booking_selection;
         private int driver_license, reservation_price;
         private double number_days;
@@ -21,6 +47,12 @@ namespace Explore
         private bool upgraded = false;
         private SQL sql;
 
+        /*
+         * The constructor of booking selection
+         * 
+         * Parameter                Description
+         * booking_selection        booking selection page
+         */
         public Booking(Booking_selection booking_selection)
         {
             InitializeComponent();
@@ -28,6 +60,9 @@ namespace Explore
             this.sql = new SQL();
         }
 
+        /*
+         * The function clears infomation that entered ont he page
+         */
         public void Clear_info()
         {
             this.customer_driver_license.Clear();
@@ -38,6 +73,9 @@ namespace Explore
             this.car_type_combo.Text = "";
         }
 
+        /*
+         * This function will active when button next click
+         */
         private void Button_next_click(object sender, EventArgs e)
         {
             if(this.customer_driver_license.Text.Equals("") ||
@@ -50,7 +88,7 @@ namespace Explore
             else
             {
                 // calculate number of days
-                this.number_days = (this.return_date_picker.Value - this.start_date_picker.Value).TotalDays;
+                this.number_days = Math.Round((this.return_date_picker.Value - this.start_date_picker.Value).TotalDays);
 
                 // format start date
                 this.start_date = this.start_date_picker.Value.Year.ToString() + "/" +
@@ -70,6 +108,7 @@ namespace Explore
                 this.pickup_BID = Get_BID(this.pickup_combo.Text);
                 this.return_BID = Get_BID(this.return_combo.Text);
 
+                // set up booking selection page
                 int check = Initial_availability();
               
                 // check if the selected dates are within the same day
@@ -78,18 +117,27 @@ namespace Explore
                     check = 2;
                 }
 
+                // everything is good
                 if(check == 0)
                 {
                     // check if change branch fee needed
                     bool difference = !(this.pickup_BID.Equals(this.return_BID));
 
+                    // calculate reservation price
                     Calculator calculator = new Calculator(this.number_days, this.car_type, difference, this.membership.ToUpper());
                     this.reservation_price = calculator.calculate();
 
+                    // set up pickup and return combo box
                     Setup_booking_selection();
+
+                    // display price on booking selection
                     this.booking_selection.Get_estimated_price().Text = "$" + this.reservation_price.ToString();
+                    
+                    // pass over all the info needed for booking selection
                     this.booking_selection.Get_all(start_date, end_date, return_BID, pickup_BID, car_type, CID, number_days, type_ID, reservation_price, membership);
                     
+
+                    // when upgrade is avaivable for gold member
                     if(this.upgraded)
                     {
                         MessageBox.Show("No results found for your search, however, the customer " +
@@ -98,10 +146,12 @@ namespace Explore
                     this.Hide();
                     this.booking_selection.Show();
                 }
+                // renting car less than 1 day
                 else if(check == 2)
                 {
                     MessageBox.Show("Rental car must be rented at least one day!");
                 }
+                // non-gold member when no availvable car type selected
                 else
                 {
                     MessageBox.Show("Sorry!\nNo results found for your search, please select " +
@@ -110,6 +160,9 @@ namespace Explore
             }
         }
 
+        /*
+         * This function set up booking selection combo boxes
+         */
         private void Setup_booking_selection()
         {
             try
@@ -135,6 +188,9 @@ namespace Explore
             }
         }
 
+        /*
+         * This function determines the branch ID from branch address
+         */
         private string Get_BID(string address)
         {
             string BID = "";
@@ -160,6 +216,9 @@ namespace Explore
             return null;
         }
 
+        /*
+         * This function get type ID from type name
+         */
         private void Get_type_ID()
         {
             this.sql.Query(
@@ -181,6 +240,9 @@ namespace Explore
             this.sql.Close();
         }
         
+        /*
+         * This function set up the data grid table in booking selection
+         */
         private int Initial_availability()
         {
             DataGridView availability_table = this.booking_selection.Get_table();
@@ -210,6 +272,7 @@ namespace Explore
                     {
                         this.type_ID = (Int32.Parse(this.type_ID) + 1).ToString();
 
+                        // when no more upgradable car type
                         if (this.car_type.Equals("5"))
                         {
                             this.sql.Close();
@@ -243,6 +306,7 @@ namespace Explore
 
                 }
 
+                // display info on to the availability table on booking selection page
                 while (this.sql.Reader().Read())
                 {
                     availability_table.Rows.Add(
@@ -264,6 +328,9 @@ namespace Explore
             }
         }
         
+        /*
+         * This function auto fill first name and last name when driver license entered
+         */
         private void Driver_license_keydown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode.Equals(Keys.Enter))
@@ -291,6 +358,28 @@ namespace Explore
             }
         }
 
+        /*
+         * This function actives when user enters key then goes through error checking
+         */
+        private void Driver_license_keypress(object sender, KeyPressEventArgs e)
+        {
+            error_check(e);
+        }
+
+        /*
+         * This function error check the user inputs
+         */
+        private void error_check(KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        /*
+         * This function setup up the booking page when program is loaded
+         */
         private void Booking_load(object sender, EventArgs e)
         {
             try
@@ -326,6 +415,9 @@ namespace Explore
             }
         }
 
+        /*
+         * This function auto fills first name and last name when driver license
+         */
         private void Driver_license_leave(object sender, EventArgs e)
         {   
             try
