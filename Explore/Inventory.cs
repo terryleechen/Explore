@@ -85,9 +85,6 @@ namespace Explore
                 SetVal_mileage = dataGridView_inventory.CurrentRow.Cells[5].Value.ToString().Trim();
                 this.inventory_update.Set_Info();
             }
-
-            
-
         }
 
         /*
@@ -190,22 +187,21 @@ namespace Explore
                 this.sql.Query("SELECT * FROM Rental_Transaction " +
                     "WHERE Return_Date = null " +
                     "AND Car_Received_ID = '" + SetVal_car_ID + "'");
-                
 
-                if (!this.sql.Reader().HasRows)
+                
+                if (this.sql.Reader().HasRows)
                 {
                     this.sql.Reader().Close();
                     this.sql.Delete("DELETE FROM Car WHERE Car_ID = '" + SetVal_car_ID + "'");
                     this.sql.Reader().Close();
                     MessageBox.Show("Deletion Confirmed");
+                    
                 }
                 else
                 {
                     this.sql.Reader().Close();
                     MessageBox.Show("The vehicle you are trying to delete is currently in use");
                 }
-
-
             }
         }
 
