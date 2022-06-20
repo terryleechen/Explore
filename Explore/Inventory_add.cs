@@ -13,7 +13,7 @@ namespace Explore
     /*
      * This is the inventory add panel after inventory panel
      * 
-     * Author: Terry Leechen
+     * Author: Terry Leechen, Carter Sieben
      */
     public partial class Inventory_add : UserControl
     {
