@@ -15,7 +15,7 @@ namespace Explore
 
     {
         private SQL sql;
-        private string Total, Return_branch,date;
+        private string Total, Return_branch,date,result;
         private Employee_dashboard employee_dashboard;
         public Return_detail()
         {
@@ -62,75 +62,95 @@ namespace Explore
 
         }
 
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
             // the check btn 
 
         {
-            this.sql.Query("select TID from Rental_Transaction");
+            this.sql.Query("select TID from Rental_Transaction where Total_Price is null");
             while (this.sql.Reader().Read())
             {
                 if (this.sql.Reader()["TID"].ToString().Equals(textBox3.Text))
-                    // tid found 
+                // tid found 
                 {
-                    string TID = textBox3.Text;
+                    MessageBox.Show("TID found ");
                     break;
-                
-                
+
+
+                }
+                else
+                {
+                    MessageBox.Show(" not pending trasactions found for this account ");
+                    break;
+
+
                 }
 
 
-
             }
             this.sql.Close();
+            try
+            {
+                this.sql.Query("select distinct Start_Date,Customer.CID, End_Date,Pickup_Branch_ID,Reservation_Price,Membership,Late_Fee,Change_Branch_Fee" +
+                    " from Rental_Transaction , Type, Branch, Customer " +
+                    "where Total_Price is null and Customer.CID = Rental_Transaction.CID and " +
+                    "Type.Type_ID = Rental_Transaction.Type_Requested and TID = '" + textBox3.Text + "'");
 
-            this.sql.Query("select distinct Start_Date, End_Date,Pickup_Branch_ID,Reservation_Price,Membership,Late_Fee,Change_Branch_Fee" +
-                " from Rental_Transaction , Type, Branch, Customer " +
-                "where Total_Price is null and Customer.CID = Rental_Transaction.CID and " +
-                "Type.Type_ID = Rental_Transaction.Type_Requested and TID = '" + textBox3.Text + "'");
+                while (this.sql.Reader().Read())
+                {   // rev price 
+                    textBox10.Text = this.sql.Reader()["Reservation_Price"].ToString();
+                    // change_price_fee
+                    textBox9.Text = this.sql.Reader()["Change_Branch_Fee"].ToString();
+                    // Late fee 
+                    textBox4.Text = this.sql.Reader()["Late_Fee"].ToString();
+                    // Member ship 
+                    textBox2.Text = this.sql.Reader()["Membership"].ToString();
+                    // End date 
+                    textBox11.Text = this.sql.Reader()["End_Date"].ToString();
+                    // strat date 
+                    textBox13.Text = this.sql.Reader()["Start_Date"].ToString();
+                    // pickup 
+                    textBox5.Text = this.sql.Reader()["Pickup_Branch_ID"].ToString();
+                    // CID
+                    textBox7.Text = this.sql.Reader()["CID"].ToString();
 
-            while (this.sql.Reader().Read())
-            {   // rev price 
-                textBox10.Text = this.sql.Reader()["Reservation_Price"].ToString();
-                // change_price_fee
-                textBox9.Text = this.sql.Reader()["Change_Branch_Fee"].ToString();
-                // Late fee 
-                textBox4.Text = this.sql.Reader()["Reservation_Price"].ToString();
-                // Member ship 
-                textBox2.Text = this.sql.Reader()["Membership"].ToString();
-                // End date 
-                textBox11.Text = this.sql.Reader()["End_Date"].ToString();
-                // strat date 
-                textBox13.Text = this.sql.Reader()["Start_Date"].ToString();
-                // pickup 
-                textBox5.Text = this.sql.Reader()["Pickup_Branch_ID"].ToString();
-
+                }
+                this.sql.Close();
             }
-            this.sql.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error");
+            }
             string membership = textBox2.Text;
             string end_date = textBox11.Text;
             string return_date = textBox6.Text;
             // compares time 
-            
-            DateTime d1, d2;
-            d1 = DateTime.Parse(end_date);
-            d2 = DateTime.Parse(return_date);
-            if (d1 < d2)
-            // if end date less than return date 
+            if (!return_date.Equals(""))
             {
-                textBox1.Text = "Yes";
+                DateTime d1, d2;
+                d1 = DateTime.Parse(end_date);
+                d2 = DateTime.Parse(return_date);
+                if (d1 < d2)
+                // if end date less than return date 
+                {
+                    textBox1.Text = "Yes";
 
 
-                
-              
+
+
+                }
+                else
+                {
+                    textBox1.Text = "No";
+
+                }
+
+
             }
-            else
-            {
-                textBox1.Text = "No";
-            
-            }
-
-
-
         }
 
         private void return_confirm_Click(object sender, EventArgs e)
@@ -155,7 +175,51 @@ namespace Explore
             }
             this.sql.Close();
             MessageBox.Show("Updated!");
+            // update customer ICD = textbox7.text
 
-        }
-    }
-}
+            try
+
+            {
+                this.sql.Query("select COUNT(TID) as times_per_year from Rental_Transaction, " +
+                  "Customer where Rental_Transaction.CID = Customer.CID and Total_Price is not null and Customer.CID = 'C000001'" +
+                  "and Start_Date  like '2022%'and End_Date like '2022%'");
+                while (this.sql.Reader().Read())
+                {
+
+                    this.result = this.sql.Reader()["times_per_year"].ToString();
+
+                }
+                this.sql.Close();
+
+                if (Convert.ToInt32(result) >= 3)
+                // updae to gold
+                {
+                    this.sql.Query("update Customer set Membership = 'Y' where CID = 'C000001'");
+
+                    MessageBox.Show("New gold-Member ");
+                    this.sql.Close();
+
+
+                }
+                else 
+                {
+
+                    MessageBox.Show("pls rent more non-gold-mmeber");
+
+                }
+            }
+
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error");
+            }
+
+            }
+
+
+
+      }
+
+  }
+

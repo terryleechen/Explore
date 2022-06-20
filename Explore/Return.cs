@@ -38,7 +38,7 @@ namespace Explore
 
 
                 }
-                break;
+               
 
 
 
@@ -48,9 +48,13 @@ namespace Explore
             {
                 try
                 {
-                    this.sql.Query("select Type_Requested, Car_Received_ID, Pickup_Branch_ID, Return_Branch_ID, Start_Date, End_Date, Reservation_Price, Return_Date,Total_Price from Rental_Transaction where Total_Price is not null and  CID = 'C000001'");
+                    this.sql.Query("select Type_Requested, Car_Received_ID, Pickup_Branch_ID, Return_Branch_ID, Start_Date, " +
+                        "End_Date, Reservation_Price, Return_Date, Total_Price from Rental_Transaction   where CID = '" + textBox1.Text + "'");
+                    
+                        
+                        
 
-
+                       
                     while (this.sql.Reader().Read())
                     {
                         dataGridView1.Rows.Add(
@@ -61,7 +65,8 @@ namespace Explore
                             this.sql.Reader()["End_Date"].ToString(),
                             this.sql.Reader()["Reservation_Price"].ToString(),
                             this.sql.Reader()["Return_Date"].ToString(),
-                            this.sql.Reader()["Total_Price"].ToString());
+                            this.sql.Reader()["Total_Price"].ToString()
+                            );
 
 
 

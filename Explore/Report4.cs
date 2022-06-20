@@ -14,7 +14,7 @@ namespace Explore
 
     {
         private SQL sql;
-        private String DataType;
+        private String DataType, Branch;
         public Report4()
         {
             InitializeComponent();
@@ -29,17 +29,22 @@ namespace Explore
         private void button1_Click(object sender, EventArgs e)
         {
             String year = comboBox1.Text;
+            this.Branch = comboBox2.Text;
             this.dataGridView1.Rows.Clear();
             try 
             {
-                this.sql.Query("select one.Type_Requested, total_rev_per_car_type, rev_from_returning_customers " +
+                this.sql.Query("select Type_Name,total_rev_per_car_type,rev_from_returning_customers " +
+                    "from(select one.Type_Requested, total_rev_per_car_type, rev_from_returning_customers " +
                     "from(select Type_Requested,SUM(Total_Price) as total_rev_per_car_type " +
                     "from Rental_Transaction where Total_Price is not null and Start_Date like '"+ this.DataType +"' " +
-                    " group by Type_Requested) as one, " +
+                    " and Pickup_Branch_ID = '" + this.Branch + "' " +
+                    "group by Type_Requested) as one, " +
                     "(select Type_Requested, sum(Total_Price) as rev_from_returning_customers from Rental_Transaction as t where t.CID in " +
                     "(select  CID from Rental_Transaction where Total_Price is not null and Start_Date like '" + this.DataType + "' " +
+                    " and Pickup_Branch_ID = '" + this.Branch + "' " +
                     "group by CID having COUNT(cid) > 1) and " +
-                    "Total_Price is not null group by Type_Requested) as two where one.Type_Requested = two.Type_Requested");
+                    "Total_Price is not null group by Type_Requested) as two where one.Type_Requested = two.Type_Requested) as temp ," +
+                    "Type where  Type_ID in (Type_Requested )");
 
 
 
@@ -52,7 +57,7 @@ namespace Explore
                 {
 
                     this.dataGridView1.Rows.Add(
-                            this.sql.Reader()["Type_Requested"].ToString(),
+                            this.sql.Reader()["Type_Name"].ToString(),
                             this.sql.Reader()["total_rev_per_car_type"].ToString(),
                               this.sql.Reader()["rev_from_returning_customers"].ToString());
 
@@ -90,6 +95,19 @@ namespace Explore
             {
                 this.DataType = "2019%";
             }
+        }
+
+        private void Report4_Load(object sender, EventArgs e)
+        {
+            this.sql.Query("select distinct  BID from Branch");
+            while (this.sql.Reader().Read())
+            {
+                this.comboBox2.Items.Add(
+                        this.sql.Reader()["BID"].ToString());
+
+            }
+            this.sql.Close();
+
         }
     }
 }
