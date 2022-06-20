@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.button_search = new System.Windows.Forms.Button();
             this.button_next = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -47,16 +46,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel10.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(985, 42);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Return";
             // 
             // button_search
             // 
@@ -217,7 +206,6 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button_next);
             this.Controls.Add(this.button_search);
-            this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.Color.SeaGreen;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Return";
@@ -226,13 +214,10 @@
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_search;
         private System.Windows.Forms.Button button_next;
         private System.Windows.Forms.DataGridView dataGridView1;
