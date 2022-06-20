@@ -11,22 +11,60 @@ using System.Data.SqlClient;
 
 namespace Explore
 {
+    /*
+     * This is inentory update panel after inventory panel
+     * 
+     * Author: Terry Leechen, Carter Sieben
+     */
     public partial class Inventory_update : UserControl
     {
+        /*
+         * Field                    Description
+         * employee dashboard       employee dashboard page
+         * sql                      SQL calss to access the database
+         * selected_branch          the branch that the selected car is located
+         * car_ID                   the selected car ID
+         * type_ID                  the selected car type ID
+         * year                     the selected car model year
+         * brand                    the selected car brand
+         * model                    the selected car model
+         * mileage                  the selected car mileage
+         * type_name                the selected car type name
+         * BID                      the selected branch ID
+         */
         private Employee_dashboard employee_dashboard;
         private SQL sql;
         private string selected_branch, car_ID, type_ID, brand, year, mileage, model, type_name, BID;
 
+
+        /*
+         * The constructor of inventory update
+         */
+        public Inventory_update()
+        {
+            InitializeComponent();
+            sql = new SQL();
+        }
+
+        /*
+         * This function active when key press on mileage textbox
+         */
         private void Mileage_keypress(object sender, KeyPressEventArgs e)
         {
             Error_check(e);
         }
 
+        /*
+         * This function active when key press on year textbox
+         */
         private void Year_keypress(object sender, KeyPressEventArgs e)
         {
             Error_check(e);
         }
-
+        
+        /*
+         * This function active when button update click
+         */
         private void Button_update_click(object sender, EventArgs e)
         {
             this.selected_branch = this.selected_branch_combobox.Text;
@@ -72,6 +110,9 @@ namespace Explore
 
         }
 
+        /*
+         * This function active when button add click
+         */
         private void Button_add_click(object sender, EventArgs e)
         {
             this.brand = this.brand_textbox.Text;
@@ -82,6 +123,9 @@ namespace Explore
             this.brand_panel.Hide();
         }
 
+        /*
+         * This function active when user select "new" in brand combo box
+         */
         private void Brand_selection_changed(object sender, EventArgs e)
         {
             string selection = this.brand_combo.Text;
@@ -92,23 +136,26 @@ namespace Explore
             }
         }
 
+        /*
+         * This fucntion active when button previous click
+         */
         private void Button_previous_click(object sender, EventArgs e)
         {
             this.employee_dashboard.Get_inventory().Show();
             this.Hide();
         }
 
-        public Inventory_update()
-        {
-            InitializeComponent();
-            sql = new SQL();
-        }
-
+        /*
+         * This a setter method for employee dashboard
+         */
         public void Set_employee_dashboard(Employee_dashboard employee_dashboard)
         {
             this.employee_dashboard = employee_dashboard;
         }
 
+        /*
+         * This function set all the info needed for updating a car
+         */
         public void Set_Info() {
             // carry values over
             this.selected_branch_combobox.SelectedItem = Inventory.SetVal_branchcombobox;
@@ -129,14 +176,17 @@ namespace Explore
             this.year = Inventory.SetVal_year;
             this.model = Inventory.SetVal_model;
             this.mileage = Inventory.SetVal_mileage;
-            
         }
 
+        /*
+         * This function active at the start of the program
+         */
         private void Load_event(object sender, EventArgs e)
         {
             // set up selected branch
             string default_branch = "";
             int index = 0;
+
             try
             {
                 this.sql.Query("select Trim(Address_1) + ' ' + Trim(Address_2) as Address from branch");
@@ -192,6 +242,9 @@ namespace Explore
             }
         }
 
+        /*
+         * This function get type ID from type name
+         */
         private void Get_type_ID()
         {
             this.sql.Query(
@@ -213,6 +266,9 @@ namespace Explore
             this.sql.Close();
         }
 
+        /*
+         * This function error checks for non numercial entries
+         */
         private void Error_check(KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -221,13 +277,18 @@ namespace Explore
             }
         }
 
+        /*
+         * This function active after selection of car type combo box
+         */
         private void Car_type_leave(object sender, EventArgs e)
         {
             this.type_name = car_type_combo.Text;
             Get_type_ID();
-
         }
         
+        /*
+         * This function gets branch ID from branch address
+         */
         private string Get_BID(string address)
         {
             string BID = "";
