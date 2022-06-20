@@ -43,12 +43,12 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.label1.ForeColor = System.Drawing.Color.FloralWhite;
-            this.label1.Location = new System.Drawing.Point(187, 0);
+            this.label1.Location = new System.Drawing.Point(197, 10);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(566, 29);
+            this.label1.Size = new System.Drawing.Size(531, 29);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Money gained and  lost from fees by gold members ";
+            this.label1.Text = "Money gained and  lost from change branch fees";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // dataGridView1
@@ -80,7 +80,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(646, 268);
+            this.button1.Location = new System.Drawing.Point(606, 245);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(147, 52);
             this.button1.TabIndex = 3;

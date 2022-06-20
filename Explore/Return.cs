@@ -33,28 +33,29 @@ namespace Explore
 
                 {
                     check = true;
-                    MessageBox.Show("Please enter the correct user ID!");
+
                     break;
 
 
                 }
-               
-
-
-
             }
             this.sql.Close();
+            if (check == false)
+            {
+                MessageBox.Show("CID not found ");
+
+            }
             if (check)
             {
                 try
                 {
                     this.sql.Query("select Type_Requested, Car_Received_ID, Pickup_Branch_ID, Return_Branch_ID, Start_Date, " +
                         "End_Date, Reservation_Price, Return_Date, Total_Price from Rental_Transaction   where CID = '" + textBox1.Text + "'");
-                    
-                        
-                        
 
-                       
+
+
+
+                    dataGridView1.Rows.Clear();
                     while (this.sql.Reader().Read())
                     {
                         dataGridView1.Rows.Add(

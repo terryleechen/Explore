@@ -62,6 +62,11 @@ namespace Explore
 
         }
 
+        private void panel23_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void label6_Click(object sender, EventArgs e)
         {
 
@@ -69,8 +74,9 @@ namespace Explore
 
         private void button1_Click(object sender, EventArgs e)
             // the check btn 
-
         {
+            bool check = false;
+
             this.sql.Query("select TID from Rental_Transaction where Total_Price is null");
             while (this.sql.Reader().Read())
             {
@@ -78,21 +84,24 @@ namespace Explore
                 // tid found 
                 {
                     MessageBox.Show("TID found ");
-                    break;
-
-
-                }
-                else
-                {
-                    MessageBox.Show(" not pending trasactions found for this account ");
-                    break;
+                    check = true; 
+                    
+                    
+                    
 
 
                 }
 
-
+                 
             }
             this.sql.Close();
+            if (check == false)
+            {
+                MessageBox.Show("TID not found");
+            
+            
+            
+            }
             try
             {
                 this.sql.Query("select distinct Start_Date,Customer.CID, End_Date,Pickup_Branch_ID,Reservation_Price,Membership,Late_Fee,Change_Branch_Fee" +
@@ -123,7 +132,7 @@ namespace Explore
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error");
+                MessageBox.Show(ex.ToString(), "rror");
             }
             string membership = textBox2.Text;
             string end_date = textBox11.Text;
@@ -149,73 +158,101 @@ namespace Explore
 
                 }
 
+                string temp = textBox13.Text;
+                string year = temp.Substring(0, 4);
 
+                
+ 
+                
             }
         }
 
         private void return_confirm_Click(object sender, EventArgs e)
-            // confrim btn 
+        // confrim btn 
         {
+
             this.date = this.textBox6.Text;
             this.Total = this.textBox8.Text;
             this.Return_branch = this.comboBox1.Text;
-            try
-            {
-                this.sql.Query("Update Rental_Transaction " +
-               "Set Total_Price = '" + this.Total + "', " +
-               "Return_Branch_ID = '" + this.Return_branch+ "', "+
-               "Return_Date = '" + this.date + "'"+
-               "where TID = '" + textBox3.Text+ "' ");
-            }
+            
 
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Error");
 
-            }
-            this.sql.Close();
-            MessageBox.Show("Updated!");
-            // update customer ICD = textbox7.text
 
-            try
+
+
+            if (!this.Return_branch.Equals("") & !this.Total.Equals("") & !this.date.Equals(""))
 
             {
-                this.sql.Query("select COUNT(TID) as times_per_year from Rental_Transaction, " +
-                  "Customer where Rental_Transaction.CID = Customer.CID and Total_Price is not null and Customer.CID = 'C000001'" +
-                  "and Start_Date  like '2022%'and End_Date like '2022%'");
-                while (this.sql.Reader().Read())
+
+                string temp = textBox13.Text;
+                string year = temp.Substring(0, 4) + "%"; 
+
+
+
+
+                try
                 {
+                    this.sql.Query("Update Rental_Transaction " +
+                   "Set Total_Price = '" + this.Total + "'," +
+                   "Return_Branch_ID = '" + this.Return_branch + "', " +
+                   "Return_Date = '" + this.date + "'" +
+                   "where TID = '" + textBox3.Text + "' ");
+                }
 
-                    this.result = this.sql.Reader()["times_per_year"].ToString();
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), "E");
 
                 }
                 this.sql.Close();
+                MessageBox.Show("Updated!");
+                // update customer ICD = textbox7.text
 
-                if (Convert.ToInt32(result) >= 3)
-                // updae to gold
+                try
+
                 {
-                    this.sql.Query("update Customer set Membership = 'Y' where CID = 'C000001'");
+                    
+                   
 
-                    MessageBox.Show("New gold-Member ");
+                    this.sql.Query("select COUNT(TID) as times_per_year from Rental_Transaction, " +
+                      "Customer where Rental_Transaction.CID = Customer.CID and Total_Price is not null and Customer.CID = '" + textBox7.Text + "'" +
+                      "and Start_Date  like '" +year + "'" +
+                      "and End_Date like '" + year + "'");
+                    while (this.sql.Reader().Read())
+                    {
+
+                        this.result = this.sql.Reader()["times_per_year"].ToString();
+
+                    }
                     this.sql.Close();
 
+                    if (Convert.ToInt32(result) >= 3)
+                    // updae to gold
+                    {
+                        this.sql.Query("update Customer set Membership = 'Y' where CID = '" + textBox7.Text + "' ");
 
+                        MessageBox.Show("New gold-Member ");
+                        this.sql.Close();
+
+
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("pls rent more non-gold-mmeber");
+                        this.sql.Close();
+
+                    }
                 }
-                else 
+
+
+                catch (Exception ex)
                 {
-
-                    MessageBox.Show("pls rent more non-gold-mmeber");
-
+                    MessageBox.Show(ex.ToString(), "Error");
                 }
-            }
-
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Error");
-            }
 
             }
+        }
 
 
 

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.return_confirm = new System.Windows.Forms.Button();
             this.button_previous = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -97,16 +96,6 @@
             this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(925, 70);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "return detail";
-            // 
             // return_confirm
             // 
             this.return_confirm.BackColor = System.Drawing.Color.Transparent;
@@ -115,7 +104,7 @@
             this.return_confirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.return_confirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.return_confirm.ForeColor = System.Drawing.Color.SeaShell;
-            this.return_confirm.Location = new System.Drawing.Point(779, 485);
+            this.return_confirm.Location = new System.Drawing.Point(793, 516);
             this.return_confirm.Margin = new System.Windows.Forms.Padding(4);
             this.return_confirm.Name = "return_confirm";
             this.return_confirm.Size = new System.Drawing.Size(119, 49);
@@ -132,7 +121,7 @@
             this.button_previous.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_previous.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_previous.ForeColor = System.Drawing.Color.SeaShell;
-            this.button_previous.Location = new System.Drawing.Point(906, 485);
+            this.button_previous.Location = new System.Drawing.Point(920, 516);
             this.button_previous.Margin = new System.Windows.Forms.Padding(4);
             this.button_previous.Name = "button_previous";
             this.button_previous.Size = new System.Drawing.Size(129, 49);
@@ -226,6 +215,7 @@
             this.textBox9.Location = new System.Drawing.Point(260, 6);
             this.textBox9.Margin = new System.Windows.Forms.Padding(4);
             this.textBox9.Name = "textBox9";
+            this.textBox9.ReadOnly = true;
             this.textBox9.Size = new System.Drawing.Size(136, 27);
             this.textBox9.TabIndex = 2;
             this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
@@ -253,6 +243,7 @@
             this.panel23.Name = "panel23";
             this.panel23.Size = new System.Drawing.Size(362, 58);
             this.panel23.TabIndex = 51;
+            this.panel23.Paint += new System.Windows.Forms.PaintEventHandler(this.panel23_Paint);
             // 
             // panel24
             // 
@@ -274,6 +265,7 @@
             this.textBox10.Location = new System.Drawing.Point(220, 9);
             this.textBox10.Margin = new System.Windows.Forms.Padding(4);
             this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
             this.textBox10.Size = new System.Drawing.Size(134, 27);
             this.textBox10.TabIndex = 2;
             // 
@@ -318,7 +310,7 @@
             this.textBox8.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox8.ForeColor = System.Drawing.Color.White;
-            this.textBox8.Location = new System.Drawing.Point(77, 9);
+            this.textBox8.Location = new System.Drawing.Point(86, 5);
             this.textBox8.Margin = new System.Windows.Forms.Padding(4);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(203, 27);
@@ -404,6 +396,7 @@
             this.textBox11.Location = new System.Drawing.Point(127, 11);
             this.textBox11.Margin = new System.Windows.Forms.Padding(4);
             this.textBox11.Name = "textBox11";
+            this.textBox11.ReadOnly = true;
             this.textBox11.Size = new System.Drawing.Size(203, 27);
             this.textBox11.TabIndex = 2;
             // 
@@ -451,6 +444,7 @@
             this.textBox13.Location = new System.Drawing.Point(127, 11);
             this.textBox13.Margin = new System.Windows.Forms.Padding(4);
             this.textBox13.Name = "textBox13";
+            this.textBox13.ReadOnly = true;
             this.textBox13.Size = new System.Drawing.Size(203, 27);
             this.textBox13.TabIndex = 2;
             // 
@@ -471,7 +465,7 @@
             this.panel14.Controls.Add(this.comboBox1);
             this.panel14.Controls.Add(this.label8);
             this.panel14.ForeColor = System.Drawing.Color.SeaGreen;
-            this.panel14.Location = new System.Drawing.Point(531, 409);
+            this.panel14.Location = new System.Drawing.Point(567, 405);
             this.panel14.Margin = new System.Windows.Forms.Padding(4);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(367, 55);
@@ -504,7 +498,7 @@
             this.panel12.Controls.Add(this.textBox5);
             this.panel12.Controls.Add(this.label7);
             this.panel12.ForeColor = System.Drawing.Color.SeaGreen;
-            this.panel12.Location = new System.Drawing.Point(531, 360);
+            this.panel12.Location = new System.Drawing.Point(567, 356);
             this.panel12.Margin = new System.Windows.Forms.Padding(4);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(329, 52);
@@ -552,7 +546,7 @@
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label3);
             this.panel1.ForeColor = System.Drawing.Color.SeaGreen;
-            this.panel1.Location = new System.Drawing.Point(560, 180);
+            this.panel1.Location = new System.Drawing.Point(567, 152);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(297, 52);
@@ -601,7 +595,7 @@
             this.panel3.Controls.Add(this.textBox2);
             this.panel3.Controls.Add(this.label4);
             this.panel3.ForeColor = System.Drawing.Color.SeaGreen;
-            this.panel3.Location = new System.Drawing.Point(569, 264);
+            this.panel3.Location = new System.Drawing.Point(567, 264);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(392, 52);
@@ -625,7 +619,7 @@
             this.textBox2.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ForeColor = System.Drawing.Color.SeaShell;
-            this.textBox2.Location = new System.Drawing.Point(159, 8);
+            this.textBox2.Location = new System.Drawing.Point(171, 11);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
@@ -673,7 +667,7 @@
             this.textBox4.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.ForeColor = System.Drawing.Color.SeaShell;
-            this.textBox4.Location = new System.Drawing.Point(107, 14);
+            this.textBox4.Location = new System.Drawing.Point(117, 9);
             this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
@@ -698,7 +692,7 @@
             this.panel7.Controls.Add(this.textBox7);
             this.panel7.Controls.Add(this.label9);
             this.panel7.ForeColor = System.Drawing.Color.SeaGreen;
-            this.panel7.Location = new System.Drawing.Point(546, 84);
+            this.panel7.Location = new System.Drawing.Point(567, 70);
             this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(297, 52);
@@ -733,7 +727,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.SeaShell;
-            this.label9.Location = new System.Drawing.Point(4, 11);
+            this.label9.Location = new System.Drawing.Point(32, 9);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(59, 29);
@@ -761,7 +755,6 @@
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.return_confirm);
             this.Controls.Add(this.button_previous);
-            this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.Color.SeaShell;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Return_detail";
@@ -794,13 +787,10 @@
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button return_confirm;
         private System.Windows.Forms.Button button_previous;
         private System.Windows.Forms.Panel panel10;

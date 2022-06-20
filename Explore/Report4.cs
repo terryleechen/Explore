@@ -33,20 +33,16 @@ namespace Explore
             this.dataGridView1.Rows.Clear();
             try 
             {
-                this.sql.Query("select Type_Name,total_rev_per_car_type,rev_from_returning_customers " +
-                    "from(select one.Type_Requested, total_rev_per_car_type, rev_from_returning_customers " +
-                    "from(select Type_Requested,SUM(Total_Price) as total_rev_per_car_type " +
-                    "from Rental_Transaction where Total_Price is not null and Start_Date like '"+ this.DataType +"' " +
+                this.sql.Query("select Type_Name ,total_rev_per_car_type,rev_from_returning_customers from " +
+                    "(select Type_Requested, SUM(Total_Price) as total_rev_per_car_type from " +
+                    "Rental_Transaction where Total_Price is not null and Start_Date like '" + this.DataType + "' " +
+                    "and Pickup_Branch_ID = '" + this.Branch + "' " +
+                    "group by Type_Requested) as temp,(select isnull(sum(Total_Price), 0) as " +
+                    "rev_from_returning_customers, Type_Requested from Rental_Transaction as t where T.CID in (select  CID from " +
+                    "Rental_Transaction where Total_Price is not null and Start_Date like '" + this.DataType + "' " +
                     " and Pickup_Branch_ID = '" + this.Branch + "' " +
-                    "group by Type_Requested) as one, " +
-                    "(select Type_Requested, sum(Total_Price) as rev_from_returning_customers from Rental_Transaction as t where t.CID in " +
-                    "(select  CID from Rental_Transaction where Total_Price is not null and Start_Date like '" + this.DataType + "' " +
-                    " and Pickup_Branch_ID = '" + this.Branch + "' " +
-                    "group by CID having COUNT(cid) > 1) and " +
-                    "Total_Price is not null group by Type_Requested) as two where one.Type_Requested = two.Type_Requested) as temp ," +
-                    "Type where  Type_ID in (Type_Requested )");
-
-
+                    "group by CID having COUNT(cid) > 1) and Total_Price is not null group by Type_Requested)as one,type " +
+                    "where Type.Type_ID = temp.Type_Requested and temp.Type_Requested = one.Type_Requested");
 
 
 
