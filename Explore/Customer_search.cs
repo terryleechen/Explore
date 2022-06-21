@@ -93,7 +93,7 @@ namespace Explore
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error");
+                MessageBox.Show("SQL Error");
             }
 
             // load car type name
@@ -109,7 +109,7 @@ namespace Explore
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error");
+                MessageBox.Show("SQL Error");
             }
         }
 
@@ -296,7 +296,7 @@ namespace Explore
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error");
+                MessageBox.Show("SQL Error");
                 return 1;
             }
         }
@@ -323,7 +323,7 @@ namespace Explore
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error");
+                MessageBox.Show("SQL Error");
             }
             this.sql.Close();
             return null;
@@ -348,7 +348,7 @@ namespace Explore
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error");
+                MessageBox.Show("SQL Error");
             }
             this.sql.Close();
         }

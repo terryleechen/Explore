@@ -111,7 +111,7 @@ namespace Explore
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error");
+                MessageBox.Show("SQL Error");
             }
             this.sql.Close();
 
@@ -134,7 +134,7 @@ namespace Explore
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error");
+                MessageBox.Show("SQL Error");
             }
         }
 
@@ -157,7 +157,7 @@ namespace Explore
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error");
+                MessageBox.Show("SQL Error");
             }
             inventory_branch_select_combobox.Text = "";
 
@@ -263,7 +263,7 @@ namespace Explore
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error");
+                MessageBox.Show("SQL Error");
             }
             this.sql.Close();
             return null;
@@ -288,7 +288,7 @@ namespace Explore
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error");
+                MessageBox.Show("SQL Error");
             }
 
             // set selected combo
@@ -304,7 +304,7 @@ namespace Explore
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error");
+                MessageBox.Show("SQL Error");
             }
         }
 
@@ -333,7 +333,7 @@ namespace Explore
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error");
+                MessageBox.Show("SQL Error");
             }
             this.sql.Close();
         }
@@ -360,7 +360,7 @@ namespace Explore
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error");
+                MessageBox.Show("SQL Error");
             }
             return null;
         }

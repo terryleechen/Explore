@@ -116,7 +116,7 @@ namespace Explore
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Something Went Wrong");
+                MessageBox.Show("SQL Error");
 
             }
         }
