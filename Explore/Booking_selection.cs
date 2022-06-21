@@ -255,7 +255,7 @@ namespace Explore
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "SQL Error");
+                MessageBox.Show("SQL Error");
             }
         }
         
