@@ -36,19 +36,19 @@ namespace Explore
                     this.report3.Hide();
                     this.report4.Hide();
                     break;
-                case "Most Profitable Branch":
+                case "Report 2":
                     this.report1.Hide();
                     this.report2.Show();
                     this.report3.Hide();
                     this.report4.Hide();
                     break;
-                case "Money Gained and Lost from Fees":
+                case "Report 3":
                     this.report1.Hide();
                     this.report2.Hide();
                     this.report3.Show();
                     this.report4.Hide();
                     break;
-                case "Most Profitable Car Type via Branch":
+                case "Report 4":
                     this.report1.Hide();
                     this.report2.Hide();
                     this.report3.Hide();
