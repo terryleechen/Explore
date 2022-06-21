@@ -103,7 +103,7 @@ namespace Explore
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error");
+                MessageBox.Show(ex.ToString(), "SQL Error");
             }
             this.sql.Close();
 
