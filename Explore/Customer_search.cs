@@ -229,15 +229,18 @@ namespace Explore
                     "select TT.Car_ID, TT.Brand, TT.Model, TT.Year, TT.Mileage, TT.Type_Name, TT.Type_ID " +
                     "from ((select C.Car_ID, C.Brand, C.Model, C.Year, C.Mileage,T.Type_Name, T.Type_ID " +
                     "from Car C, Branch B, Type T " +
-                    "where C.BID = B.BID and T.Type_ID = C.Type_ID and B.BID = '" + pickup_BID + "') " +
+                    "where C.BID = B.BID and T.Type_ID = C.Type_ID and B.BID = '" + pickup_BID + "' and " +
+                    "T.Type_ID = '" + type_ID + "') " +
                     "except " +
                     "(select C.Car_ID, C.Brand, C.Model, C.Year, C.Mileage, T.Type_Name, T.Type_ID " +
                     "from Rental_Transaction R, Car C, Type T " +
                     "where C.Car_ID = R.Car_Received_ID and T.Type_ID = C.Type_ID and " +
-                    "R.Return_Branch_ID = '" + pickup_BID + "' and " +
-                    "R.Start_Date >= convert(datetime,'" + start_date + "') and " +
-                    "R.End_Date <= convert(datetime,'" + end_date + "'))) as TT " +
-                    "where TT.Type_ID = '" + type_ID + "'");
+                    "R.Pickup_Branch_ID = '" + pickup_BID + "' and " +
+                    "((convert(datetime,'" + start_date + "') between R.Start_Date and R.End_Date) or " +
+                    "(convert(datetime,'" + end_date + "') between R.Start_Date and R.End_Date) or " +
+                    "(R.Start_Date > convert(datetime,'" + start_date + "') and " +
+                    "R.End_Date < convert(datetime,'" + end_date + "'))) and " +
+                    "R.Type_Requested = '" + type_ID + "')) as TT");
 
                 // change if any available cars
                 if (!this.sql.Reader().HasRows)
@@ -261,15 +264,18 @@ namespace Explore
                                 "select TT.Car_ID, TT.Brand, TT.Model, TT.Year, TT.Mileage, TT.Type_Name, TT.Type_ID " +
                                 "from ((select C.Car_ID, C.Brand, C.Model, C.Year, C.Mileage,T.Type_Name, T.Type_ID " +
                                 "from Car C, Branch B, Type T " +
-                                "where C.BID = B.BID and T.Type_ID = C.Type_ID and B.BID = '" + pickup_BID + "') " +
+                                "where C.BID = B.BID and T.Type_ID = C.Type_ID and B.BID = '" + pickup_BID + "' and " +
+                                "T.Type_ID = '" + type_ID + "') " +
                                 "except " +
                                 "(select C.Car_ID, C.Brand, C.Model, C.Year, C.Mileage, T.Type_Name, T.Type_ID " +
                                 "from Rental_Transaction R, Car C, Type T " +
                                 "where C.Car_ID = R.Car_Received_ID and T.Type_ID = C.Type_ID and " +
-                                "R.Return_Branch_ID = '" + pickup_BID + "' and " +
-                                "R.Start_Date >= convert(datetime,'" + start_date + "') and " +
-                                "R.End_Date <= convert(datetime,'" + end_date + "'))) as TT " +
-                                "where TT.Type_ID = '" + type_ID + "'");
+                                "R.Pickup_Branch_ID = '" + pickup_BID + "' and " +
+                                "((convert(datetime,'" + start_date + "') between R.Start_Date and R.End_Date) or " +
+                                "(convert(datetime,'" + end_date + "') between R.Start_Date and R.End_Date) or " +
+                                "(R.Start_Date > convert(datetime,'" + start_date + "') and " +
+                                "R.End_Date < convert(datetime,'" + end_date + "'))) and " +
+                                "R.Type_Requested = '" + type_ID + "')) as TT");
                         }
                     }
                     else
