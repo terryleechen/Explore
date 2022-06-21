@@ -132,7 +132,7 @@ namespace Explore
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "rror");
+                MessageBox.Show(ex.ToString(), "SQL Error");
             }
             string membership = textBox2.Text;
             string end_date = textBox11.Text;
@@ -201,7 +201,7 @@ namespace Explore
 
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString(), "E");
+                    MessageBox.Show(ex.ToString(), "SQL Error");
 
                 }
                 this.sql.Close();
