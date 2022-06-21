@@ -138,7 +138,7 @@ namespace Explore
                     
 
                     // when upgrade is avaivable for gold member
-                    if(this.upgraded)
+                    if(this.upgraded && this.booking_selection.Get_table().Rows.Count == 0)
                     {
                         MessageBox.Show("No results found for your search, however, the customer " +
                             "is a Gold Member. Please select a free upgrade from the displayed cars.");
@@ -330,7 +330,7 @@ namespace Explore
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error");
+                MessageBox.Show("SQL Error");
                 return 1;
             }
         }
